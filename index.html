@@ -128,38 +128,35 @@
             margin: 15px auto; /* إضافة هامش علوي وسفلي وتوسيط */
             text-align: center;
             width: 95%; /* جعل عرض مربع البحث 95% من الحاوية */
-            position: relative; /* لجعل زر البحث يتم وضعه بالنسبة له */
+            display: flex; /* لمحاذاة الأيقونة وحقل الإدخال */
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden; /* لإخفاء الحواف الزائدة */
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-icon-container {
+            background-color: #FF9900; /* لون أصفر */
+            color: #131921;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px; /* تحديد عرض ثابت */
+        }
+
+        .search-icon-container i {
+            font-size: 20px;
         }
 
         .search-bar input[type="text"] {
-            width: 100%; /* جعل عرض حقل الإدخال 100% من حاوية البحث */
-            padding: 12px 50px 12px 20px; /* إضافة padding على اليسار لاستيعاب الأيقونة */
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            direction: rtl; /* لضمان محاذاة النص من اليمين */
-            /* إزالة خلفية الأيقونة القديمة */
-            background-image: none;
-            padding-left: 50px; /* لترك مساحة لأيقونة البحث */
-        }
-
-        .search-button {
-            position: absolute;
-            top: 50%;
-            left: 10px; /* ضع الأيقونة على اليسار */
-            transform: translateY(-50%);
-            background-color: #FF9900; /* لون أصفر */
-            color: #131921;
+            width: 100%; /* جعل عرض حقل الإدخال 100% */
+            padding: 12px;
             border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
-        }
-
-        .search-button i {
-            font-size: 20px;
+            direction: rtl;
+            outline: none; /* لإزالة الخط الأزرق عند التركيز */
         }
 
         .hero {
@@ -439,10 +436,10 @@
             </div>
 
             <div class="search-bar">
-                <form action="#" method="get">
-                    <input type="text" name="q" placeholder="ابحث عن منتج...">
-                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-                </form>
+                <div class="search-icon-container">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input type="text" name="q" placeholder="ابحث عن منتج...">
             </div>
         </div>
     </header>
