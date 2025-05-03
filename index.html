@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -13,59 +12,43 @@
             box-sizing: border-box;
             font-family: 'Tajawal', sans-serif;
         }
-
         body {
             background-color: #f5f5f5;
             color: #333;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         header {
             background-color: #2c3e50;
             color: white;
             padding: 20px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-size: 24px;
             font-weight: bold;
         }
-
         .logo span {
             color: #3498db;
         }
-
         nav ul {
             display: flex;
             list-style: none;
         }
-
         nav ul li {
             margin-left: 20px;
         }
-
         nav ul li a {
             color: white;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         nav ul li a:hover {
             color: #3498db;
         }
-
         .hero {
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400');
             background-size: cover;
@@ -77,21 +60,17 @@
             text-align: center;
             color: white;
         }
-
         .hero .content {
             max-width: 800px;
         }
-
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
         }
-
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
         }
-
         .btn {
             display: inline-block;
             background-color: #3498db;
@@ -102,139 +81,96 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
-
         .btn:hover {
             background-color: #2980b9;
         }
-
         .section-title {
             text-align: center;
             margin: 40px 0 20px;
             font-size: 28px;
             color: #2c3e50;
         }
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-
         .product-card {
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
         .product-img {
             height: 200px;
             background-color: #eee;
             background-size: cover;
             background-position: center;
         }
-
         .product-info {
             padding: 20px;
         }
-
         .product-title {
             font-size: 18px;
             margin-bottom: 10px;
         }
-
         .product-price {
             font-weight: bold;
             color: #e74c3c;
             font-size: 20px;
             margin-bottom: 15px;
         }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                padding-right: 0;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .hero h1 {
-                font-size: 26px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: right;
-            }
-
-            .product-img {
-                height: 180px;
-            }
-        }
-
         footer {
             background-color: #2c3e50;
             color: white;
             padding: 40px 0 20px;
         }
-
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
             margin-bottom: 30px;
         }
-
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 20px;
             color: #3498db;
         }
-
         .footer-column ul {
             list-style: none;
         }
-
         .footer-column ul li {
             margin-bottom: 10px;
         }
-
         .footer-column ul li a {
             color: #ecf0f1;
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .footer-column ul li a:hover {
             color: #3498db;
         }
-
         .copyright {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #34495e;
             font-size: 14px;
+        }
+        .login-form, .register-form {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -248,12 +184,34 @@
                     <li><a href="#">المنتجات</a></li>
                     <li><a href="#">عروض خاصة</a></li>
                     <li><a href="#">اتصل بنا</a></li>
-                    <li><a href="#">تسجيل الدخول</a></li>
+                    <li><a href="#" id="loginLink" onclick="showLoginForm()">تسجيل الدخول</a></li>
+                    <li><a href="#" id="cartLink">سلة التسوق (<span id="cartCount">0</span>)</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Forms for login and registration -->
+    <div id="loginFormContainer" class="login-form" style="display:none;">
+        <h2>تسجيل الدخول</h2>
+        <input type="text" id="loginUsername" class="form-input" placeholder="اسم المستخدم" required>
+        <input type="password" id="loginPassword" class="form-input" placeholder="كلمة المرور" required>
+        <button onclick="loginUser()">دخول</button>
+        <p>ليس لديك حساب؟ <a href="#" onclick="showRegisterForm()">إنشاء حساب جديد</a></p>
+    </div>
+
+    <div id="registerFormContainer" class="register-form" style="display:none;">
+        <h2>إنشاء حساب</h2>
+        <input type="text" id="registerUsername" class="form-input" placeholder="اسم المستخدم" required>
+        <input type="password" id="registerPassword" class="form-input" placeholder="كلمة المرور" required>
+        <input type="email" id="registerEmail" class="form-input" placeholder="البريد الإلكتروني" required>
+        <label>
+            <input type="checkbox" id="isSeller"> تسجيل كبائع
+        </label>
+        <button onclick="registerUser()">تسجيل</button>
+    </div>
+
+    <!-- Example content -->
     <section class="hero">
         <div class="content">
             <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
@@ -262,6 +220,7 @@
         </div>
     </section>
 
+    <!-- Products Section -->
     <section class="products">
         <div class="container">
             <h2 class="section-title">منتجاتنا المميزة</h2>
@@ -270,37 +229,11 @@
                     <div class="product-img" style="background-image: url('https://images.samsung.com/eg/smartphones/galaxy-s24-ultra/buy/kv_group_MO.jpg?imbypass=true');"></div>
                     <div class="product-info">
                         <h3 class="product-title">هاتف - Samsung S24 Ultra</h3>
-                        <p class="product-price">52,999 جنيه</p>
-                        <a href="#" class="btn">إضافة إلى السلة</a>
+                        <p class="product-price" id="productPrice1">52,999 جنيه</p>
+                        <a href="#" class="btn" onclick="addToCart('Samsung S24 Ultra', 52999)">إضافة إلى السلة</a>
                     </div>
                 </div>
-
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://laptop2all.com/wp-content/uploads/2024/08/MG_2931.jpg');"></div>
-                    <div class="product-info">
-                        <h3 class="product-title">لابتوب - Dell Precision 7540</h3>
-                        <p class="product-price">34,499 جنيه</p>
-                        <a href="#" class="btn">إضافة إلى السلة</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/06/802002/1.jpg?9304');"></div>
-                    <div class="product-info">
-                        <h3 class="product-title">سماعات - Sodo 1004</h3>
-                        <p class="product-price">399 جنيه</p>
-                        <a href="#" class="btn">إضافة إلى السلة</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://shop.orange.eg/content/images/thumbs/0008224_huawei-gt4-watch-46mm.jpeg');"></div>
-                    <div class="product-info">
-                        <h3 class="product-title">ساعة - Watch 5</h3>
-                        <p class="product-price">11,499 جنيه</p>
-                        <a href="#" class="btn">إضافة إلى السلة</a>
-                    </div>
-                </div>
+                <!-- More products here -->
             </div>
         </div>
     </section>
@@ -312,17 +245,14 @@
                     <h3>عن المتجر</h3>
                     <p>حِرفه استور هو وجهتك الأولى لشراء أحدث الأجهزة الإلكترونية بأسعار تنافسية وضمان ممتاز.</p>
                 </div>
-
                 <div class="footer-column">
                     <h3>روابط سريعة</h3>
                     <ul>
                         <li><a href="#">الرئيسية</a></li>
                         <li><a href="#">منتجات جديدة</a></li>
                         <li><a href="#">عروض خاصة</a></li>
-                        <li><a href="#">تسجيل الدخول</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-column">
                     <h3>خدمة العملاء</h3>
                     <ul>
@@ -332,24 +262,78 @@
                         <li><a href="#">شروط الخصوصية</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-column">
-                    <h3>تواصل معنا</h3>
-                    <ul>
-                        <li>الهاتف: 01097170194</li>
-                        <li>العنوان: الفشن - بني سويف</li>
-                    </ul>
-                </div>
             </div>
-
             <div class="copyright">
                 <p>&copy; 2023 حِرفه استور. جميع الحقوق محفوظة.</p>
-                <div style="text-align: center; margin-top: 20px;">
-                    <img src="https://i.postimg.cc/Th8H08s1/IMG.jpg" alt="صورة" style="width: 150px; height: 150px; border-radius: 50%;">
-                    <p style="margin-top: 10px; font-weight: bold;">م. عمر البنا</p>
-                </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        // سلة التسوق
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartCount = document.getElementById("cartCount");
+
+        function addToCart(productName, price) {
+            cart.push({ productName, price });
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            cartCount.textContent = cart.length;
+        }
+
+        updateCartCount();
+
+        // عملية تسجيل الدخول
+        function loginUser() {
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            let user = users.find(user => user.username === username && user.password === password);
+
+            if (user) {
+                localStorage.setItem("currentUser", JSON.stringify(user));
+                alert("تم تسجيل الدخول بنجاح!");
+                // العودة للصفحة الرئيسية أو تحميل الصفحة الشخصية
+                window.location.reload();
+            } else {
+                alert("اسم المستخدم أو كلمة المرور غير صحيحة");
+            }
+        }
+
+        // عملية التسجيل
+        function registerUser() {
+            const username = document.getElementById("registerUsername").value;
+            const password = document.getElementById("registerPassword").value;
+            const email = document.getElementById("registerEmail").value;
+            const isSeller = document.getElementById("isSeller").checked;
+
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            if (users.find(user => user.username === username)) {
+                alert("اسم المستخدم موجود بالفعل!");
+                return;
+            }
+
+            let newUser = { username, password, email, isSeller };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("تم التسجيل بنجاح!");
+            showLoginForm();
+        }
+
+        function showLoginForm() {
+            document.getElementById("loginFormContainer").style.display = "block";
+            document.getElementById("registerFormContainer").style.display = "none";
+        }
+
+        function showRegisterForm() {
+            document.getElementById("loginFormContainer").style.display = "none";
+            document.getElementById("registerFormContainer").style.display = "block";
+        }
+    </script>
 </body>
 </html>
