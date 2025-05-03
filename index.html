@@ -1,480 +1,268 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حِرفه استور - أفضل الأجهزة بأفضل الأسعار</title>
+    <title>حِرفه استور - أفضل المنتجات التقنية</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* استايلات الموقع السابقة */
+        /* التنسيقات الأساسية */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Tajawal', sans-serif;
         }
-
         body {
-            background-color: #f5f5f5;
+            background-color: #f8f9fa;
             color: #333;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
+        header, footer {
             background-color: #2c3e50;
             color: white;
             padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
-
-        .header-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
         }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-left: 10px;
-            color: #3498db;
-        }
-
-        .logo span {
-            color: #3498db;
-        }
-
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
+            justify-content: center;
             flex-wrap: wrap;
         }
-
         nav ul li {
-            margin-left: 15px;
+            margin: 0 10px;
         }
-
         nav ul li a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
+            padding: 5px 10px;
         }
-
-        nav ul li a i {
-            margin-right: 5px;
-        }
-
         nav ul li a:hover {
-            color: #3498db;
-        }
-
-        .top-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .top-options select, .top-options input {
-            padding: 5px;
+            background-color: #34495e;
             border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 12px;
         }
-
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 400px;
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            margin-bottom: 30px;
         }
-
-        .hero .content {
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
         .hero h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 40px;
+            margin-bottom: 10px;
         }
-
         .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: 20px;
         }
-
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
+        .section {
+            margin: 40px 0;
         }
-
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid white;
-            margin-right: 10px;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: #2c3e50;
-        }
-
-        .search-bar {
-            margin: 20px auto;
+        .section h2 {
             text-align: center;
-            position: relative;
-        }
-
-        .search-bar input[type="text"] {
-            width: 80%;
-            max-width: 600px;
-            padding: 12px 20px;
-            border-radius: 30px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .search-bar input[type="submit"] {
-            position: absolute;
-            right: 11%;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 10px 20px;
-            border-radius: 30px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* استايلات المنتجات */
-        .section-title {
-            text-align: center;
-            margin: 40px 0 20px;
             font-size: 28px;
+            margin-bottom: 20px;
             color: #2c3e50;
-            position: relative;
         }
-
-        .section-title:after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: #3498db;
-            margin: 10px auto;
-        }
-
-        .products-grid {
+        .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            padding: 20px 0;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
-
-        .product-card {
-            background-color: white;
+        .product {
+            background: white;
             border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
+            transition: transform 0.3s;
         }
-
-        .product-card:hover {
+        .product:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-
-        .product-img {
+        .product img {
+            width: 100%;
             height: 200px;
-            background-color: #eee;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
+            object-fit: cover;
         }
-
-        .product-info {
-            padding: 20px;
+        .product .info {
+            padding: 15px;
         }
-
-        .product-title {
+        .product .info h3 {
             font-size: 16px;
             margin-bottom: 10px;
-            height: 40px;
-            overflow: hidden;
         }
-
-        .product-price {
-            font-weight: bold;
-            color: #e74c3c;
-            font-size: 18px;
+        .product .info p {
+            font-size: 14px;
+            color: #555;
             margin-bottom: 10px;
         }
-
-        .add-to-cart {
-            background: #2c3e50;
-            color: white;
+        .product .info .price {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .product .info button {
+            margin-top: 10px;
+            padding: 8px 12px;
             border: none;
-            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
-            transition: background 0.3s;
         }
-
-        .add-to-cart:hover {
-            background: #3498db;
+        .product .info button:hover {
+            background-color: #2980b9;
         }
-
         .cart-button {
             position: fixed;
-            bottom: 30px;
-            left: 30px;
+            bottom: 20px;
+            left: 20px;
             background: #2c3e50;
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 30px;
             cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            z-index: 99;
-            transition: all 0.3s;
+            gap: 10px;
+            z-index: 999;
         }
-
-        .cart-button:hover {
-            background: #3498db;
-            transform: translateY(-3px);
-        }
-
         footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #3498db;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 40px;
-            height: 2px;
-            background: #3498db;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            color: #ecf0f1;
-            text-decoration: none;
-            transition: color 0.3s;
+            margin-top: 40px;
+            text-align: center;
             font-size: 14px;
-        }
-
-        .footer-column ul li a:hover {
-            color: #3498db;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-laptop"></i>
-                حِرفه <span>استور</span>
-            </div>
+        <div class="container">
+            <h1>حِرفه استور</h1>
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="#products"><i class="fas fa-box-open"></i> المنتجات</a></li>
-                    <li><a href="#"><i class="fas fa-percentage"></i> عروض خاصة</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> حسابي</a></li>
+                    <li><a href="#phones">هواتف</a></li>
+                    <li><a href="#laptops">لابتوبات</a></li>
+                    <li><a href="#watches">ساعات</a></li>
+                    <li><a href="#headphones">سماعات</a></li>
+                    <li><a href="#other">منتجات أخرى</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div class="search-bar">
-        <form action="#" method="get">
-            <input type="text" name="q" placeholder="ابحث عن منتج...">
-            <input type="submit" value="بحث">
-        </form>
-    </div>
-
     <section class="hero">
-        <div class="content">
-            <h1>أفضل الأجهزة بأفضل الأسعار</h1>
-            <p>احصل على أحدث الأجهزة من أفضل العلامات التجارية بأسعار تنافسية</p>
-            <a href="#products" class="btn btn-outline">تصفح المنتجات</a>
-            <a href="#" class="btn">عروض اليوم</a>
+        <div>
+            <h1>أحدث التقنيات بأفضل الأسعار</h1>
+            <p>منتجات أصلية، شحن سريع، وأسعار تنافسية</p>
         </div>
     </section>
 
+    <!-- أقسام المنتجات -->
     <div class="container">
-        <h2 class="section-title" id="products">أحدث المنتجات</h2>
-        <div class="products-grid">
-            <!-- منتج 1 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-title">هاتف سامسونج جلاكسي S22</h3>
-                    <div class="product-price">31,499 ج.م</div>
-                    <button class="add-to-cart">أضف إلى العربة</button>
-                </div>
-            </div>
+        <div id="phones" class="section">
+            <h2>الهواتف الذكية</h2>
+            <div class="products" id="phones-products"></div>
+        </div>
 
-            <!-- منتج 2 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-title">لابتوب ديل اكس بي اس 15</h3>
-                    <div class="product-price">29,699 ج.م</div>
-                    <button class="add-to-cart">أضف إلى العربة</button>
-                </div>
-            </div>
+        <div id="laptops" class="section">
+            <h2>اللابتوبات</h2>
+            <div class="products" id="laptops-products"></div>
+        </div>
 
-            <!-- منتج 3 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-title">سماعات سوني WH-1000XM4</h3>
-                    <div class="product-price">5,999 ج.م</div>
-                    <button class="add-to-cart">أضف إلى العربة</button>
-                </div>
-            </div>
+        <div id="watches" class="section">
+            <h2>الساعات الذكية</h2>
+            <div class="products" id="watches-products"></div>
+        </div>
 
-            <!-- منتج 4 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-title">ساعة آبل واتش سيريس 7</h3>
-                    <div class="product-price">12,999 ج.م</div>
-                    <button class="add-to-cart">أضف إلى العربة</button>
-                </div>
-            </div>
+        <div id="headphones" class="section">
+            <h2>السماعات</h2>
+            <div class="products" id="headphones-products"></div>
+        </div>
+
+        <div id="other" class="section">
+            <h2>منتجات أخرى</h2>
+            <div class="products" id="other-products"></div>
         </div>
     </div>
 
-    <!-- زر عربة التسوق -->
-    <div class="cart-button">
+    <div class="cart-button" onclick="alert('سيتم عرض العربة لاحقاً')">
         <i class="fas fa-shopping-cart"></i>
-        <span>عربة التسوق (0)</span>
+        <span>عربة التسوق (<span id="cart-count">0</span>)</span>
     </div>
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>حِرفه استور</h3>
-                    <p>متجرنا يقدم أفضل الأجهزة الإلكترونية بأسعار تنافسية وجودة عالية.</p>
-                </div>
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="#">الصفحة الرئيسية</a></li>
-                        <li><a href="#">المنتجات</a></li>
-                        <li><a href="#">العروض</a></li>
-                        <li><a href="#">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>خدمة العملاء</h3>
-                    <ul>
-                        <li><a href="#">حسابي</a></li>
-                        <li><a href="#">تتبع الطلب</a></li>
-                        <li><a href="#">سياسة الإرجاع</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>اتصل بنا</h3>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> 0123456789</li>
-                        <li><i class="fas fa-envelope"></i> info@herfah-store.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 حِرفه استور. جميع الحقوق محفوظة.</p>
-            </div>
+            &copy; 2025 حِرفه استور. جميع الحقوق محفوظة.
         </div>
     </footer>
 
     <script>
-        // يمكنك إضافة JavaScript هنا لاحقاً
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', function() {
-                alert('تمت إضافة المنتج إلى عربة التسوق');
-                // هنا يمكنك إضافة كود لتحديث عداد العربة
+        const productsData = {
+            phones: [
+                {name: 'iPhone 15 Pro Max', desc: 'أحدث هاتف من أبل بشاشة 6.7 إنش وكاميرا ثلاثية.', price: '55,000 ج.م', img: 'https://via.placeholder.com/300x200?text=iPhone+15'},
+                {name: 'Samsung Galaxy S24', desc: 'هاتف سامسونج الرائد بمعالج قوي وكاميرا بدقة عالية.', price: '48,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Galaxy+S24'},
+                {name: 'Xiaomi 14 Ultra', desc: 'أداء عالي وسعر منافس من شاومي.', price: '35,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Xiaomi+14'},
+                {name: 'Google Pixel 8', desc: 'أندرويد خام وكاميرا مذهلة من جوجل.', price: '44,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Pixel+8'}
+            ],
+            laptops: [
+                {name: 'MacBook Air M3', desc: 'لابتوب أبل خفيف وسريع بمعالج M3 الجديد.', price: '70,000 ج.م', img: 'https://via.placeholder.com/300x200?text=MacBook+Air'},
+                {name: 'Dell XPS 13', desc: 'لابتوب نحيف بأداء قوي وشاشة 4K.', price: '58,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Dell+XPS'},
+                {name: 'HP Envy 15', desc: 'أداء قوي مع تصميم أنيق.', price: '52,000 ج.م', img: 'https://via.placeholder.com/300x200?text=HP+Envy'}
+            ],
+            watches: [
+                {name: 'Apple Watch Series 9', desc: 'أحدث ساعة من أبل بميزات صحية متقدمة.', price: '18,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Apple+Watch'},
+                {name: 'Samsung Galaxy Watch 6', desc: 'ساعة ذكية تدعم الصحة واللياقة.', price: '12,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Galaxy+Watch'}
+            ],
+            headphones: [
+                {name: 'Sony WH-1000XM5', desc: 'سماعة عزل ضوضاء احترافية.', price: '15,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Sony+XM5'},
+                {name: 'AirPods Pro 2', desc: 'سماعة أبل اللاسلكية بجودة صوت عالية.', price: '9,000 ج.م', img: 'https://via.placeholder.com/300x200?text=AirPods+Pro'}
+            ],
+            other: [
+                {name: 'كاميرا Canon EOS R10', desc: 'كاميرا احترافية للتصوير الفوتوغرافي والفيديو.', price: '40,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Canon+EOS'},
+                {name: 'لوحة مفاتيح ميكانيكية Logitech', desc: 'كتابة مريحة وسريعة.', price: '3,000 ج.م', img: 'https://via.placeholder.com/300x200?text=Logitech+Keyboard'}
+            ]
+        };
+
+        let cartCount = 0;
+
+        function renderProducts(category, containerId) {
+            const container = document.getElementById(containerId);
+            productsData[category].forEach(p => {
+                const product = document.createElement('div');
+                product.className = 'product';
+                product.innerHTML = `
+                    <img src="${p.img}" alt="${p.name}">
+                    <div class="info">
+                        <h3>${p.name}</h3>
+                        <p>${p.desc}</p>
+                        <div class="price">${p.price}</div>
+                        <button onclick="addToCart()">أضف إلى العربة</button>
+                    </div>
+                `;
+                container.appendChild(product);
             });
-        });
+        }
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cart-count').innerText = cartCount;
+        }
+
+        renderProducts('phones', 'phones-products');
+        renderProducts('laptops', 'laptops-products');
+        renderProducts('watches', 'watches-products');
+        renderProducts('headphones', 'headphones-products');
+        renderProducts('other', 'other-products');
     </script>
 </body>
 </html>
