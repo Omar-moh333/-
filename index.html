@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حِرفه استور - أفضل الأجهزة بأفضل الأسعار</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -15,7 +16,7 @@
         }
 
         body {
-            background-color: #f5f5f5;
+            background-color: #f3f3f3;
             color: #333;
         }
 
@@ -26,10 +27,13 @@
         }
 
         header {
-            background-color: #2c3e50;
+            background-color: #131921;
             color: white;
             padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -37,35 +41,71 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
         }
 
         .logo {
             font-size: 24px;
             font-weight: bold;
+            color: #FF9900;
         }
 
         .logo span {
-            color: #3498db;
+            color: white;
         }
 
         nav ul {
             display: flex;
             list-style: none;
             flex-wrap: wrap;
-        }
-
-        nav ul li {
-            margin-left: 20px;
+            gap: 15px;
+            align-items: center;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         nav ul li a:hover {
-            color: #3498db;
+            color: #FF9900;
+        }
+
+        .header-cart {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #232F3E;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .header-cart:hover {
+            background-color: #37475A;
+        }
+
+        .header-cart i {
+            font-size: 18px;
+        }
+
+        .header-cart .cart-count {
+            background-color: #FF9900;
+            color: #131921;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
         }
 
         .top-options {
@@ -77,11 +117,13 @@
         .top-options select, .top-options input {
             padding: 5px;
             border-radius: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
+            background-color: #f3f3f3;
+            font-size: 12px;
         }
 
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400');
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -90,85 +132,118 @@
             justify-content: center;
             text-align: center;
             color: white;
+            margin-bottom: 30px;
         }
 
         .hero .content {
             max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 36px;
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 30px;
         }
 
         .btn {
             display: inline-block;
-            background-color: #3498db;
-            color: white;
+            background-color: #FF9900;
+            color: #131921;
             padding: 12px 30px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         .btn:hover {
-            background-color: #2980b9;
+            background-color: #ffb340;
         }
 
         .search-bar {
             margin: 20px auto;
             text-align: center;
+            position: relative;
+            width: 80%;
+            max-width: 600px;
         }
 
         .search-bar input[type="text"] {
-            width: 80%;
-            max-width: 500px;
-            padding: 10px;
+            width: 100%;
+            padding: 12px 20px;
             border-radius: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .search-bar input[type="submit"] {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
             padding: 10px 20px;
-            margin-right: 10px;
             border-radius: 5px;
-            background-color: #3498db;
-            color: white;
+            background-color: #FF9900;
+            color: #131921;
             border: none;
             cursor: pointer;
+            font-weight: bold;
         }
 
         .section-title {
             text-align: center;
             margin: 40px 0 20px;
             font-size: 28px;
-            color: #2c3e50;
+            color: #131921;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #FF9900;
+            margin: 10px auto;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
+            padding: 20px 0;
         }
 
         .product-card {
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .product-img {
             height: 200px;
             background-color: #eee;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
         }
 
         .product-info {
@@ -176,34 +251,80 @@
         }
 
         .product-title {
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
         }
 
         .product-price {
             font-weight: bold;
-            color: #e74c3c;
-            font-size: 20px;
-            margin-bottom: 15px;
+            color: #B12704;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            background: #232F3E;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background: #37475A;
         }
 
         .cart-button {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: #2c3e50;
+            bottom: 30px;
+            left: 30px;
+            background: #232F3E;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: all 0.3s;
+        }
+
+        .cart-button:hover {
+            background: #37475A;
+            transform: translateY(-3px);
+        }
+
+        .cart-button i {
+            font-size: 18px;
+        }
+
+        .cart-button .cart-count {
+            background-color: #FF9900;
+            color: #131921;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
         }
 
         footer {
-            background-color: #2c3e50;
+            background-color: #232F3E;
             color: white;
             padding: 40px 0 20px;
-            margin-top: 40px;
+            margin-top: 60px;
         }
 
         .footer-content {
@@ -216,7 +337,19 @@
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 20px;
-            color: #3498db;
+            color: #FF9900;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF9900;
         }
 
         .footer-column ul {
@@ -228,36 +361,50 @@
         }
 
         .footer-column ul li a {
-            color: #ecf0f1;
+            color: #ddd;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 14px;
         }
 
         .footer-column ul li a:hover {
-            color: #3498db;
+            color: #FF9900;
         }
 
         .copyright {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid #34495e;
+            border-top: 1px solid #37475A;
             font-size: 14px;
+            color: #ddd;
         }
 
-        /* Styles for mobile responsiveness */
+        /* Responsive styles */
         @media (max-width: 768px) {
-            header .header-content {
+            .header-content {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
             }
+            
             nav ul {
-                flex-direction: column;
+                justify-content: center;
+                margin-top: 15px;
             }
+            
+            .top-options {
+                justify-content: center;
+            }
+            
             .hero h1 {
-                font-size: 36px;
+                font-size: 28px;
             }
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .search-bar {
+                width: 95%;
             }
         }
     </style>
@@ -265,18 +412,23 @@
 <body>
     <header>
         <div class="container header-content">
-            <div class="logo">حِرفه <span>استور</span></div>
+            <div class="logo">حِرفه<span>استور</span></div>
+            
+            <div class="header-cart" onclick="viewCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span>العربة</span>
+                <span class="cart-count">0</span>
+            </div>
+            
             <nav>
                 <ul>
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#">المنتجات</a></li>
-                    <li><a href="#">عروض خاصة</a></li>
-                    <li><a href="#">تسجيل الدخول</a></li>
-                    <li><a href="#">تسجيل كمشتري</a></li>
-                    <li><a href="#">تسجيل كبائع</a></li>
-                    <li><a href="#">العربة</a></li>
+                    <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="#products"><i class="fas fa-box-open"></i> المنتجات</a></li>
+                    <li><a href="#"><i class="fas fa-percentage"></i> عروض خاصة</a></li>
+                    <li><a href="#"><i class="fas fa-user"></i> حسابي</a></li>
                 </ul>
             </nav>
+            
             <div class="top-options">
                 <select name="language">
                     <option>العربية</option>
@@ -305,54 +457,110 @@
         <div class="content">
             <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
             <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
-            <a href="#" class="btn">تسوق الآن</a>
+            <a href="#products" class="btn">تصفح المنتجات</a>
         </div>
     </section>
 
-    <section>
-        <h2 class="section-title">المنتجات</h2>
+    <div class="container">
+        <h2 class="section-title" id="products">أحدث المنتجات</h2>
         <div class="products-grid">
-            <!-- 100 Products List Goes Here -->
+            <!-- الهواتف الذكية -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/400x400');"></div>
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
-                    <h3 class="product-title">هاتف ذكي</h3>
-                    <p class="product-price">2000 جنيه</p>
-                    <p class="product-description">هاتف ذكي مع شاشة 6.5 بوصة وكاميرا 48 ميجابكسل.</p>
-                    <button onclick="addToCart('هاتف ذكي', 2000)" class="btn">أضف إلى العربة</button>
+                    <h3 class="product-title">هاتف سامسونج جلاكسي S22 الترا - 256GB</h3>
+                    <div class="product-price">31,499 ج.م</div>
+                    <button class="add-to-cart" onclick="addToCart('هاتف سامسونج جلاكسي S22 الترا', 31499)">أضف إلى العربة</button>
                 </div>
             </div>
-            <!-- Repeat above product for each product -->
-        </div>
-    </section>
 
-    <div class="cart-button" onclick="viewCart()">العربة</div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">هاتف آيفون 14 برو ماكس - 128GB</h3>
+                    <div class="product-price">36,549 ج.م</div>
+                    <button class="add-to-cart" onclick="addToCart('هاتف آيفون 14 برو ماكس', 36549)">أضف إلى العربة</button>
+                </div>
+            </div>
+
+            <!-- اللابتوبات -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">لابتوب ديل اكس بي اس 15 - Core i7</h3>
+                    <div class="product-price">29,699 ج.م</div>
+                    <button class="add-to-cart" onclick="addToCart('لابتوب ديل اكس بي اس 15', 29699)">أضف إلى العربة</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1618410320923-5d1a5e0d2a1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-title">لابتوب ماك بوك برو M2 - 512GB</h3>
+                    <div class="product-price">42,999 ج.م</div>
+                    <button class="add-to-cart" onclick="addToCart('لابتوب ماك بوك برو M2', 42999)">أضف إلى العربة</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- زر عربة التسوق الثابت -->
+    <div class="cart-button" onclick="viewCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+        <span>عربة التسوق</span>
+    </div>
 
     <footer>
-        <div class="container footer-content">
-            <div class="footer-column">
-                <h3>عن الموقع</h3>
-                <ul>
-                    <li><a href="#">معلومات عنا</a></li>
-                    <li><a href="#">الأسئلة الشائعة</a></li>
-                </ul>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>حِرفه استور</h3>
+                    <p>متجرنا يقدم أفضل الأجهزة الإلكترونية بأسعار تنافسية وجودة عالية مع ضمان ودعم فني ممتاز.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الصفحة الرئيسية</a></li>
+                        <li><a href="#">من نحن</a></li>
+                        <li><a href="#">المنتجات</a></li>
+                        <li><a href="#">العروض</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">حسابي</a></li>
+                        <li><a href="#">تتبع الطلب</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">الدعم الفني</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
+                        <li><i class="fas fa-phone"></i> +20 123 456 7890</li>
+                        <li><i class="fas fa-envelope"></i> info@herfah-store.com</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-column">
-                <h3>التواصل معنا</h3>
-                <ul>
-                    <li><a href="#">دعم العملاء</a></li>
-                    <li><a href="#">سياسة الخصوصية</a></li>
-                </ul>
+            <div class="copyright">
+                <p>&copy; 2023 حِرفه استور. جميع الحقوق محفوظة.</p>
             </div>
         </div>
-        <div class="copyright">© 2025 جميع الحقوق محفوظة</div>
     </footer>
 
     <script>
         let cart = [];
+        let cartCount = 0;
 
         function addToCart(productName, productPrice) {
             cart.push({ name: productName, price: productPrice });
+            cartCount++;
+            updateCartCount();
             alert(productName + " تم إضافته إلى العربة!");
         }
 
@@ -361,11 +569,20 @@
                 alert("العربة فارغة.");
             } else {
                 let cartDetails = "العربة:\n";
+                let total = 0;
                 cart.forEach((item, index) => {
-                    cartDetails += `${index + 1}. ${item.name} - ${item.price} جنيه\n`;
+                    cartDetails += `${index + 1}. ${item.name} - ${item.price.toLocaleString()} ج.م\n`;
+                    total += item.price;
                 });
+                cartDetails += `\nالإجمالي: ${total.toLocaleString()} ج.م`;
                 alert(cartDetails);
             }
+        }
+
+        function updateCartCount() {
+            document.querySelectorAll('.cart-count').forEach(element => {
+                element.textContent = cartCount;
+            });
         }
     </script>
 </body>
