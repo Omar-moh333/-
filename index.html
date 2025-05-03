@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -5,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حِرفه استور - أفضل الأجهزة بأفضل الأسعار</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* استايلات الموقع السابقة */
         * {
             margin: 0;
             padding: 0;
@@ -27,8 +30,11 @@
         header {
             background-color: #2c3e50;
             color: white;
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -41,6 +47,13 @@
         .logo {
             font-size: 24px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-left: 10px;
+            color: #3498db;
         }
 
         .logo span {
@@ -54,13 +67,20 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 15px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a i {
+            margin-right: 5px;
         }
 
         nav ul li a:hover {
@@ -77,10 +97,11 @@
             padding: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            font-size: 12px;
         }
 
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400');
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -89,19 +110,21 @@
             justify-content: center;
             text-align: center;
             color: white;
+            margin-bottom: 30px;
         }
 
         .hero .content {
             max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 36px;
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 30px;
         }
 
@@ -113,61 +136,104 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
 
         .btn:hover {
             background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-right: 10px;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #2c3e50;
         }
 
         .search-bar {
             margin: 20px auto;
             text-align: center;
+            position: relative;
         }
 
         .search-bar input[type="text"] {
             width: 80%;
-            max-width: 500px;
-            padding: 10px;
-            border-radius: 5px;
+            max-width: 600px;
+            padding: 12px 20px;
+            border-radius: 30px;
             border: 1px solid #ccc;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .search-bar input[type="submit"] {
+            position: absolute;
+            right: 11%;
+            top: 50%;
+            transform: translateY(-50%);
             padding: 10px 20px;
-            margin-right: 10px;
-            border-radius: 5px;
+            border-radius: 30px;
             background-color: #3498db;
             color: white;
             border: none;
             cursor: pointer;
+            font-weight: bold;
         }
 
+        /* استايلات المنتجات */
         .section-title {
             text-align: center;
             margin: 40px 0 20px;
             font-size: 28px;
             color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #3498db;
+            margin: 10px auto;
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
+            padding: 20px 0;
         }
 
         .product-card {
             background-color: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .product-img {
             height: 200px;
             background-color: #eee;
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
         }
 
         .product-info {
@@ -175,51 +241,61 @@
         }
 
         .product-title {
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
         }
 
         .product-price {
             font-weight: bold;
             color: #e74c3c;
-            font-size: 20px;
-            margin-bottom: 15px;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
         .add-to-cart {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #3498db;
+            background: #2c3e50;
             color: white;
-            text-align: center;
             border: none;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
         }
 
         .add-to-cart:hover {
-            background-color: #2980b9;
+            background: #3498db;
         }
 
         .cart-button {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: 30px;
+            left: 30px;
             background: #2c3e50;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 999;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            z-index: 99;
+            transition: all 0.3s;
+        }
+
+        .cart-button:hover {
+            background: #3498db;
+            transform: translateY(-3px);
         }
 
         footer {
             background-color: #2c3e50;
             color: white;
             padding: 40px 0 20px;
-            margin-top: 40px;
+            margin-top: 60px;
         }
 
         .footer-content {
@@ -233,6 +309,18 @@
             font-size: 18px;
             margin-bottom: 20px;
             color: #3498db;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: #3498db;
         }
 
         .footer-column ul {
@@ -247,59 +335,31 @@
             color: #ecf0f1;
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 14px;
         }
 
         .footer-column ul li a:hover {
             color: #3498db;
         }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #34495e;
-            font-size: 14px;
-        }
     </style>
 </head>
 <body>
-    <!-- باقي الكود السابق -->
-
-    <section>
-        <h2 class="section-title">منتجاتنا</h2>
-        <div class="container products-grid" id="products-container">
-            <!-- سيتم إدخال المنتجات من خلال جافاسكربت -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">حِرفه <span>استور</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">المنتجات</a></li>
+                    <li><a href="#">العروض</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
+    </header>
 
-    <script>
-        const products = [
-            {category: 'هواتف', brand: 'Samsung', name: 'Samsung Galaxy S23', price: '25000', image: 'https://fdn2.gsmarena.com/vv/pics/samsung/samsung-galaxy-s23-1.jpg'},
-            {category: 'هواتف', brand: 'Apple', name: 'iPhone 14 Pro Max', price: '42000', image: 'https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-14-pro-max-1.jpg'},
-            {category: 'هواتف', brand: 'Sony', name: 'Sony Xperia 1 V', price: '32000', image: 'https://fdn2.gsmarena.com/vv/pics/sony/sony-xperia-1-v-1.jpg'},
-            {category: 'سماعات', brand: 'Sony', name: 'Sony WH-1000XM5', price: '15000', image: 'https://m.media-amazon.com/images/I/61Id6WJDWqL._AC_SL1500_.jpg'},
-            {category: 'سماعات', brand: 'Apple', name: 'AirPods Pro', price: '9000', image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-pro-gen2-2022'},
-            {category: 'ساعات', brand: 'Apple', name: 'Apple Watch Series 9', price: '14000', image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQKX3_VW_34FR+watch-44-alum-midnight-nc-se_VW_34FR_WF_CO'},
-            {category: 'ساعات', brand: 'Samsung', name: 'Galaxy Watch 6', price: '12000', image: 'https://images.samsung.com/is/image/samsung/p6pim/levant/feature/164762470/levant-feature-a-bigger-view-on-your-fitness-548087164?$FB_TYPE_A_JPG$'},
-            {category: 'لابتوبات', brand: 'Apple', name: 'MacBook Air M2', price: '48000', image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-m2-2022'},
-            {category: 'لابتوبات', brand: 'HP', name: 'HP Spectre x360', price: '35000', image: 'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06931826.png'},
-            {category: 'كاميرات', brand: 'Sony', name: 'Sony Alpha A7 IV', price: '65000', image: 'https://cdn.mos.cms.futurecdn.net/9RMyKCbzD6SvxX2ZQk5Mjo.jpg'}
-        ];
+    <section class="hero">
+        <div class="content">
+            <h1>أفضل الأجهزة بأفضل الأسعار</h1>
+            <p>احصل على أحدث الأجهزة من أفضل العلام
 
-        const container = document.getElementById('products-container');
-        products.forEach(p => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <div class="product-img" style="background-image: url('${p.image}')"></div>
-                <div class="product-info">
-                    <h3 class="product-title">${p.name}</h3>
-                    <p class="product-price">${p.price} جنيه</p>
-                    <button class="add-to-cart">أضف إلى العربة</button>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    </script>
-
-</body>
-</html>
