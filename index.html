@@ -132,12 +132,16 @@
 
         .search-bar input[type="text"] {
             width: 100%; /* جعل عرض حقل الإدخال 100% من حاوية البحث */
-            padding: 12px 20px;
+            padding: 12px 40px 12px 20px; /* إضافة padding على اليمين للأيقونة */
             border-radius: 5px;
             border: 1px solid #ddd;
             font-size: 16px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             direction: rtl; /* لضمان محاذاة النص من اليمين */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%23333" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM6.5 12a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: left 10px center; /* وضع الأيقونة على اليسار في RTL */
+            background-size: 20px;
         }
 
         .hero {
@@ -456,31 +460,3 @@
                         <li><a href="#">الأسئلة الشائعة</a></li>
                         <li><a href="#">تتبع طلبك</a></li>
                     </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>معلومات</h3>
-                    <ul>
-                        <li><a href="#">طرق الدفع</a></li>
-                        <li><a href="#">الشحن والتوصيل</a></li>
-                        <li><a href="#">سياسة الإرجاع</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                © 2025 حِرفه استور. جميع الحقوق محفوظة.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        let cart = [];
-        let cartCount = 0;
-        const cartCountElement = document.querySelector('.cart-count');
-
-        function updateCartCount() {
-            if (cartCountElement) {
-                cartCountElement.textContent = cartCount;
-            }
-        }
-
-        function addToCart(productName, product
