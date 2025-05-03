@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -29,7 +28,7 @@
         header {
             background-color: #131921;
             color: white;
-            padding: 15px 0 10px; /* إضافة مساحة أسفل الشريط العلوي */
+            padding: 15px 0 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -41,7 +40,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 15px;
-            border-bottom: none; /* إزالة الخط الفاصل العلوي */
+            border-bottom: none;
         }
 
         .header-actions {
@@ -54,7 +53,7 @@
             cursor: pointer;
             font-size: 24px;
             padding: 5px;
-            color: white; /* إضافة لون للأيقونة */
+            color: white;
         }
 
         .logo {
@@ -63,7 +62,7 @@
             color: #FF9900;
             display: flex;
             align-items: center;
-            margin: 0 auto; /* توسيط اسم المتجر */
+            margin: 0 auto;
         }
 
         .logo span {
@@ -92,8 +91,8 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            background-color: transparent; /* جعل الخلفية شفافة */
-            padding: 8px 0; /* تقليل الحشو */
+            background-color: transparent;
+            padding: 8px 0;
             border-radius: 4px;
             cursor: pointer;
             transition: color 0.3s;
@@ -102,11 +101,11 @@
 
         .header-cart:hover {
             color: #FF9900;
-            background-color: transparent; /* الحفاظ على الخلفية شفافة عند الـ hover */
+            background-color: transparent;
         }
 
         .header-cart i {
-            font-size: 20px; /* تكبير أيقونة العربة */
+            font-size: 20px;
         }
 
         .header-cart .cart-count {
@@ -126,25 +125,25 @@
         }
 
         .search-bar {
-            margin: 15px auto; /* إضافة هامش علوي وسفلي وتوسيط */
+            margin: 15px auto;
             text-align: center;
-            width: 95%; /* جعل عرض مربع البحث 95% من الحاوية */
-            display: flex; /* لمحاذاة الأيقونة وحقل الإدخال */
+            width: 95%;
+            display: flex;
             align-items: center;
             border-radius: 5px;
-            overflow: hidden; /* لإخفاء الحواف الزائدة */
+            overflow: hidden;
             border: 1px solid #ddd;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .search-icon-container {
-            background-color: #FF9900; /* لون أصفر */
+            background-color: #FF9900;
             color: #131921;
             padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 40px; /* تحديد عرض ثابت */
+            width: 40px;
         }
 
         .search-icon-container i {
@@ -152,12 +151,12 @@
         }
 
         .search-bar input[type="text"] {
-            width: 100%; /* جعل عرض حقل الإدخال 100% */
+            width: 100%;
             padding: 12px;
             border: none;
             font-size: 16px;
             direction: rtl;
-            outline: none; /* لإزالة الخط الأزرق عند التركيز */
+            outline: none;
         }
 
         .hero {
@@ -287,6 +286,36 @@
             background: #37475A;
         }
 
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-rating {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .discount-percentage {
+            color: #B12704;
+            font-weight: bold;
+        }
+
         footer {
             background-color: #232F3E;
             color: white;
@@ -346,58 +375,26 @@
             color: #ddd;
         }
 
-        /* تحسينات جديدة */
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: #FF9900;
-            color: #131921;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .product-rating {
-            color: #FFD700;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .product-old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 14px;
-            margin-left: 5px;
-        }
-
-        .discount-percentage {
-            color: #B12704;
-            font-weight: bold;
-        }
-
-        /* Responsive styles */
         @media (max-width: 768px) {
             .header-top {
-                flex-direction: row; /* العودة إلى الترتيب الأفقي للعناصر */
-                align-items: center; /* توسيط العناصر عموديًا */
-                justify-content: space-between; /* توزيع العناصر على الأطراف */
-                gap: 10px; /* تقليل المسافة بين العناصر */
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
             }
 
             .header-actions {
-                margin-right: 0; /* إزالة الهامش الأيمن في الوضع الرأسي */
-                margin-left: 0; /* إزالة الهامش الأيسر في الوضع الرأسي */
+                margin-right: 0;
+                margin-left: 0;
             }
 
             .logo {
-                align-self: center; /* توسيط اسم المتجر */
-                margin: 0; /* إزالة الهوامش لتوسيط أفضل */
+                align-self: center;
+                margin: 0;
             }
 
             .user-actions {
-                align-self: center; /* توسيط أيقونات المستخدم */
+                align-self: center;
             }
 
             .hero h1 {
@@ -456,7 +453,40 @@
     <div class="container">
         <h2 class="section-title" id="products">أحدث المنتجات</h2>
         <div class="products-grid">
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/300x200');">
+                    <div class="product-badge">جديد</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">سماعة رأس لاسلكية</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-price">
+                        150 ر.س
+                        <span class="product-old-price">200 ر.س</span>
+                        <span class="discount-percentage">-25%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
             </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/300x200');">
+                    <div class="product-badge">عرض خاص</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">جهاز لابتوب متطور</div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">
+                        3000 ر.س
+                        <span class="product-old-price">3500 ر.س</span>
+                        <span class="discount-percentage">-14%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <footer>
