@@ -135,8 +135,8 @@
 
     <section class="hero">
         <div class="content">
-            <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
-            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
+            <h1>أحدث الأجهزة الإلكترونية والأزياء</h1>
+            <p>اكتشف تشكيلتنا المتنوعة من الهواتف، الكاميرات، الساعات، السماعات، والملابس العصرية</p>
             <a href="#products" class="btn">تصفح المنتجات</a>
         </div>
     </section>
@@ -154,6 +154,7 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                     </div>
                     <p class="product-price">28000 جنيه <span class="product-old-price">30000 جنيه</span> <span class="discount-percentage">-7%</span></p>
+                    <p class="product-description">هاتف ذكي رائد بشاشة AMOLED ديناميكية، كاميرا احترافية، ومعالج قوي.</p>
                     <button class="add-to-cart" onclick="addToCart('Samsung Galaxy S23 Ultra', 28000, 'https://via.placeholder.com/80/008000/FFFFFF?Text=Samsung%20S23%20Ultra')">أضف إلى العربة</button>
                 </div>
             </div>
@@ -168,6 +169,7 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="product-price">65000 جنيه</p>
+                    <p class="product-description">كاميرا احترافية بدون مرآة بدقة 45 ميجابكسل وتصوير فيديو 8K.</p>
                     <button class="add-to-cart" onclick="addToCart('Canon EOS R5', 65000, 'https://via.placeholder.com/80/FFA500/FFFFFF?Text=Canon%20EOS%20R5')">أضف إلى العربة</button>
                 </div>
             </div>
@@ -180,6 +182,7 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                     </div>
                     <p class="product-price">12000 جنيه <span class="product-old-price">13500 جنيه</span> <span class="discount-percentage">-11%</span></p>
+                    <p class="product-description">ساعة ذكية بشاشة Retina كبيرة، وميزات صحية متقدمة، وتكامل سلس مع أجهزة Apple.</p>
                     <button class="add-to-cart" onclick="addToCart('Apple Watch Series 8', 12000, 'https://via.placeholder.com/80/4682B4/FFFFFF?Text=Apple%20Watch%20S8')">أضف إلى العربة</button>
                 </div>
             </div>
@@ -194,6 +197,7 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="product-price">9500 جنيه</p>
+                    <p class="product-description">سماعات لاسلكية بخاصية إلغاء الضوضاء، صوت عالي الجودة، وعمر بطارية طويل.</p>
                     <button class="add-to-cart" onclick="addToCart('Sony WH-1000XM5', 9500, 'https://via.placeholder.com/80/808080/FFFFFF?Text=Sony%20WH-1000XM5')">أضف إلى العربة</button>
                 </div>
             </div>
@@ -206,6 +210,7 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
                     </div>
                     <p class="product-price">1200 جنيه</p>
+                    <p class="product-description">تي شيرت بولو كلاسيكي مصنوع من قطن ناعم ومريح، مثالي للإطلالات اليومية.</p>
                     <button class="add-to-cart" onclick="addToCart('Polo Ralph Lauren T-Shirt', 1200, 'https://via.placeholder.com/80/ADD8E6/FFFFFF?Text=Polo%20T-Shirt')">أضف إلى العربة</button>
                 </div>
             </div>
@@ -220,6 +225,7 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="product-price">4500 جنيه</p>
+                    <p class="product-description">جاكيت جلد طبيعي عالي الجودة بتصميم عصري وأنيق، يضفي لمسة مميزة على أي إطلالة.</p>
                     <button class="add-to-cart" onclick="addToCart('Genuine Leather Jacket', 4500, 'https://via.placeholder.com/80/F08080/FFFFFF?Text=Leather%20Jacket')">أضف إلى العربة</button>
                 </div>
             </div>
@@ -329,18 +335,4 @@
             let total = 0;
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '<p>لا يوجد منتجات في العربة حاليًا.</p>';
-                totalPriceElement.textContent = '0 جنيه';
-                return;
-            }
-
-            cart.forEach(item => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}">
-                    <div class="cart-item-details">
-                        <h4 class="cart-item-title">${item.name}</h4>
-                        <p class="cart-item-price">${item.price} جنيه</p>
-                        <p>الكمية: ${item.quantity}</p>
-                    </div>
-                    <button class="remove-from-cart" onclick="
+                totalPrice
