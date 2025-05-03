@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -409,6 +410,37 @@
             color: #ddd;
         }
 
+        /* تحسينات جديدة */
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-rating {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .discount-percentage {
+            color: #B12704;
+            font-weight: bold;
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .header-top {
@@ -426,6 +458,12 @@
             
             .search-bar {
                 width: 95%;
+            }
+            
+            .cart-button {
+                left: 15px;
+                padding: 10px 20px;
+                font-size: 14px;
             }
         }
     </style>
@@ -486,18 +524,36 @@
         <div class="products-grid">
             <!-- الهواتف الذكية -->
             <div class="product-card">
+                <div class="product-badge">جديد</div>
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
                     <h3 class="product-title">هاتف سامسونج جلاكسي S22 الترا - 256GB</h3>
-                    <div class="product-price">31,499 ج.م</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: #666; margin-right: 5px;">(48)</span>
+                    </div>
+                    <div class="product-price">31,499 ج.م <span class="product-old-price">34,999 ج.م</span> <span class="discount-percentage">10%</span></div>
                     <button class="add-to-cart" onclick="addToCart('هاتف سامسونج جلاكسي S22 الترا', 31499)">أضف إلى العربة</button>
                 </div>
             </div>
 
             <div class="product-card">
+                <div class="product-badge">الأكثر مبيعاً</div>
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
                     <h3 class="product-title">هاتف آيفون 14 برو ماكس - 128GB</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span style="color: #666; margin-right: 5px;">(112)</span>
+                    </div>
                     <div class="product-price">36,549 ج.م</div>
                     <button class="add-to-cart" onclick="addToCart('هاتف آيفون 14 برو ماكس', 36549)">أضف إلى العربة</button>
                 </div>
@@ -505,10 +561,19 @@
 
             <!-- اللابتوبات -->
             <div class="product-card">
+                <div class="product-badge">خصم</div>
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
                     <h3 class="product-title">لابتوب ديل اكس بي اس 15 - Core i7</h3>
-                    <div class="product-price">29,699 ج.م</div>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span style="color: #666; margin-right: 5px;">(76)</span>
+                    </div>
+                    <div class="product-price">29,699 ج.م <span class="product-old-price">32,999 ج.م</span> <span class="discount-percentage">10%</span></div>
                     <button class="add-to-cart" onclick="addToCart('لابتوب ديل اكس بي اس 15', 29699)">أضف إلى العربة</button>
                 </div>
             </div>
@@ -517,6 +582,14 @@
                 <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1618410320923-5d1a5e0d2a1b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="product-info">
                     <h3 class="product-title">لابتوب ماك بوك برو M2 - 512GB</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span style="color: #666; margin-right: 5px;">(93)</span>
+                    </div>
                     <div class="product-price">42,999 ج.م</div>
                     <button class="add-to-cart" onclick="addToCart('لابتوب ماك بوك برو M2', 42999)">أضف إلى العربة</button>
                 </div>
@@ -537,6 +610,11 @@
                 <div class="footer-column">
                     <h3>حِرفه استور</h3>
                     <p>متجرنا يقدم أفضل الأجهزة الإلكترونية بأسعار تنافسية وجودة عالية مع ضمان ودعم فني ممتاز.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="#" style="color: #FF9900; margin-left: 10px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="color: #FF9900; margin-left: 10px;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: #FF9900; margin-left: 10px;"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
                 <div class="footer-column">
                     <h3>روابط سريعة</h3>
@@ -561,9 +639,10 @@
                 <div class="footer-column">
                     <h3>اتصل بنا</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i>،  الفشن - بني سويف</li>
-                        <li><i class="fas fa-phone"></i> +20 1097170194 </li>
+                        <li><i class="fas fa-map-marker-alt"></i> الفشن - بني سويف، مصر</li>
+                        <li><i class="fas fa-phone"></i> +20 1097170194</li>
                         <li><i class="fas fa-envelope"></i> info@herfah-store.com</li>
+                        <li><i class="fas fa-clock"></i> من الأحد إلى الخميس: 9 ص - 5 م</li>
                     </ul>
                 </div>
             </div>
@@ -581,22 +660,109 @@
             cart.push({ name: productName, price: productPrice });
             cartCount++;
             updateCartCount();
-            alert(productName + " تم إضافته إلى العربة!");
+            
+            // إنشاء إشعار مؤقت
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '100px';
+            notification.style.left = '30px';
+            notification.style.backgroundColor = '#4CAF50';
+            notification.style.color = 'white';
+            notification.style.padding = '15px 25px';
+            notification.style.borderRadius = '5px';
+            notification.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+            notification.style.zIndex = '100';
+            notification.style.animation = 'fadeIn 0.5s, fadeOut 0.5s 2.5s';
+            notification.innerHTML = `<i class="fas fa-check-circle"></i> ${productName} تم إضافته إلى العربة!`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 3000);
         }
 
         function viewCart() {
             if (cart.length === 0) {
-                alert("العربة فارغة.");
+                // عرض رسالة أن العربة فارغة
+                const emptyCartMsg = document.createElement('div');
+                emptyCartMsg.style.position = 'fixed';
+                emptyCartMsg.style.bottom = '100px';
+                emptyCartMsg.style.left = '30px';
+                emptyCartMsg.style.backgroundColor = '#FF9900';
+                emptyCartMsg.style.color = '#131921';
+                emptyCartMsg.style.padding = '15px 25px';
+                emptyCartMsg.style.borderRadius = '5px';
+                emptyCartMsg.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+                emptyCartMsg.style.zIndex = '100';
+                emptyCartMsg.style.animation = 'fadeIn 0.5s, fadeOut 0.5s 2.5s';
+                emptyCartMsg.innerHTML = `<i class="fas fa-info-circle"></i> العربة فارغة حالياً`;
+                document.body.appendChild(emptyCartMsg);
+                
+                setTimeout(() => {
+                    document.body.removeChild(emptyCartMsg);
+                }, 3000);
             } else {
-                let cartDetails = "العربة:\n";
+                // إنشاء نافذة عائمة لعرض محتويات العربة
+                const cartPopup = document.createElement('div');
+                cartPopup.style.position = 'fixed';
+                cartPopup.style.bottom = '100px';
+                cartPopup.style.left = '30px';
+                cartPopup.style.width = '300px';
+                cartPopup.style.maxHeight = '400px';
+                cartPopup.style.overflowY = 'auto';
+                cartPopup.style.backgroundColor = 'white';
+                cartPopup.style.color = '#333';
+                cartPopup.style.padding = '20px';
+                cartPopup.style.borderRadius = '5px';
+                cartPopup.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+                cartPopup.style.zIndex = '100';
+                cartPopup.style.animation = 'fadeIn 0.5s';
+                
+                let cartDetails = '<h3 style="margin-bottom: 15px; color: #131921;">عربة التسوق</h3>';
                 let total = 0;
+                
                 cart.forEach((item, index) => {
-                    cartDetails += `${index + 1}. ${item.name} - ${item.price.toLocaleString()} ج.م\n`;
+                    cartDetails += `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
+                            <div>${index + 1}. ${item.name}</div>
+                            <div style="font-weight: bold;">${item.price.toLocaleString()} ج.م</div>
+                        </div>
+                    `;
                     total += item.price;
                 });
-                cartDetails += `\nالإجمالي: ${total.toLocaleString()} ج.م`;
-                alert(cartDetails);
+                
+                cartDetails += `
+                    <div style="display: flex; justify-content: space-between; margin-top: 15px; font-weight: bold; font-size: 18px;">
+                        <div>الإجمالي:</div>
+                        <div>${total.toLocaleString()} ج.م</div>
+                    </div>
+                    <button onclick="checkout()" style="background: #FF9900; color: #131921; border: none; padding: 10px 15px; border-radius: 5px; margin-top: 15px; width: 100%; cursor: pointer; font-weight: bold;">إتمام الشراء</button>
+                `;
+                
+                cartPopup.innerHTML = cartDetails;
+                document.body.appendChild(cartPopup);
+                
+                // إضافة زر إغلاق
+                const closeBtn = document.createElement('button');
+                closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                closeBtn.style.position = 'absolute';
+                closeBtn.style.top = '10px';
+                closeBtn.style.left = '10px';
+                closeBtn.style.background = 'none';
+                closeBtn.style.border = 'none';
+                closeBtn.style.color = '#666';
+                closeBtn.style.cursor = 'pointer';
+                closeBtn.onclick = () => document.body.removeChild(cartPopup);
+                cartPopup.appendChild(closeBtn);
             }
+        }
+
+        function checkout() {
+            alert('سيتم توجيهك إلى صفحة الدفع قريباً... شكراً لشرائك من حِرفه استور!');
+            cart = [];
+            cartCount = 0;
+            updateCartCount();
+            document.querySelectorAll('[style*="position: fixed"]').forEach(el => el.remove());
         }
 
         function updateCartCount() {
@@ -604,6 +770,8 @@
                 element.textContent = cartCount;
             });
         }
-    </script>
-</body>
-</html>
+
+        // إضافة أنيميشن للإشعارات
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fadeIn
