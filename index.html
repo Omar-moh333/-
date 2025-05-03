@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -62,7 +63,7 @@
             color: #FF9900;
             display: flex;
             align-items: center;
-            margin: 0 auto;
+            margin-right: 20px; /* أضف هذا */
         }
 
         .logo span {
@@ -126,37 +127,28 @@
 
         .search-bar {
             margin: 15px auto;
-            text-align: center;
             width: 95%;
+            position: relative; /* ضروري لتحديد موضع الأيقونة */
             display: flex;
             align-items: center;
-            border-radius: 5px;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .search-icon-container {
-            background-color: #FF9900;
-            color: #131921;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-        }
-
-        .search-icon-container i {
-            font-size: 20px;
         }
 
         .search-bar input[type="text"] {
             width: 100%;
-            padding: 12px;
-            border: none;
+            padding: 12px 40px 12px 12px; /* ترك مساحة للأيقونة من اليمين */
+            border: 1px solid #ddd;
             font-size: 16px;
             direction: rtl;
+            border-radius: 5px;
             outline: none;
+        }
+
+        .search-bar .fa-search {
+            position: absolute;
+            right: 10px;
+            color: #131921;
+            font-size: 18px;
+            pointer-events: none;
         }
 
         .hero {
@@ -434,9 +426,7 @@
             </div>
 
             <div class="search-bar">
-                <div class="search-icon-container">
-                    <i class="fas fa-search"></i>
-                </div>
+                <i class="fas fa-search"></i>
                 <input type="text" name="q" placeholder="ابحث عن منتج...">
             </div>
         </div>
