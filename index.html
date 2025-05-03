@@ -189,7 +189,7 @@
                     <span>حِرفه</span>استور
                 </div>
                 <div class="header-actions">
-                    <a href="#" class="user-action" onclick="goToLogin()"><i class="fas fa-user"></i></a>
+                    <a href="#" class="user-action"><i class="fas fa-user"></i></a>
                     <div class="header-cart" onclick="openCart()">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
@@ -208,8 +208,8 @@
 
     <section class="hero">
         <div class="content">
-            <h1>أحدث الأجهزة الإلكترونية والأزياء</h1>
-            <p>اكتشف تشكيلتنا المتنوعة من الهواتف، الكاميرات، الساعات، السماعات، والملابس العصرية</p>
+            <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، الساعات، السماعات، وغيرها الكثير</p>
             <a href="#products" class="btn">تصفح المنتجات</a>
         </div>
     </section>
@@ -217,83 +217,56 @@
     <div class="container">
         <h2 class="section-title" id="products">أحدث المنتجات</h2>
         <div class="products-grid">
-            <div class="product-card" onclick="openProductDetails('Samsung Galaxy S23 Ultra', 28000, 'https://via.placeholder.com/300/008000/FFFFFF?Text=Samsung%20S23%20Ultra', 'هاتف ذكي رائد بشاشة AMOLED ديناميكية، كاميرا احترافية، ومعالج قوي.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/008000/FFFFFF?Text=Samsung%20S23%20Ultra')">
+            <div class="product-card" onclick="openProductDetails('هاتف سامسونج جالاكسي S23', 25000, 'https://via.placeholder.com/300/008000/FFFFFF?Text=Samsung%20S23', 'شاشة AMOLED، كاميرا 50MP، معالج Snapdragon Gen 2.')">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/008000/FFFFFF?Text=Samsung%20S23')">
                     <span class="product-badge">الأكثر مبيعًا</span>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">Samsung Galaxy S23 Ultra</h3>
+                    <h3 class="product-title">هاتف سامسونج جالاكسي S23</h3>
                     <div class="product-rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p class="product-price">28000 جنيه <span class="product-old-price">30000 جنيه</span> <span class="discount-percentage">-7%</span></p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Samsung Galaxy S23 Ultra', 28000, 'https://via.placeholder.com/80/008000/FFFFFF?Text=Samsung%20S23%20Ultra')">أضف إلى العربة</button>
+                    <p class="product-price">25000 جنيه</p>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('هاتف سامسونج جالاكسي S23', 25000, 'https://via.placeholder.com/80/008000/FFFFFF?Text=Samsung%20S23')">أضف إلى العربة</button>
                 </div>
             </div>
 
-            <div class="product-card" onclick="openProductDetails('Canon EOS R5', 65000, 'https://via.placeholder.com/300/FFA500/FFFFFF?Text=Canon%20EOS%20R5', 'كاميرا احترافية بدون مرآة بدقة 45 ميجابكسل وتصوير فيديو 8K.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/FFA500/FFFFFF?Text=Canon%20EOS%20R5')">
-                    <span class="product-badge">حصري</span>
-                </div>
+            <div class="product-card" onclick="openProductDetails('ساعة أبل ووتش Series 7', 10000, 'https://via.placeholder.com/300/4682B4/FFFFFF?Text=Apple%20Watch%207', 'شاشة Retina أكبر، مقاومة للماء، مراقبة معدل ضربات القلب.')">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/4682B4/FFFFFF?Text=Apple%20Watch%207')"></div>
                 <div class="product-info">
-                    <h3 class="product-title">Canon EOS R5</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="product-price">65000 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Canon EOS R5', 65000, 'https://via.placeholder.com/80/FFA500/FFFFFF?Text=Canon%20EOS%20R5')">أضف إلى العربة</button>
-                </div>
-            </div>
-
-            <div class="product-card" onclick="openProductDetails('Apple Watch Series 8', 12000, 'https://via.placeholder.com/300/4682B4/FFFFFF?Text=Apple%20Watch%20S8', 'ساعة ذكية بشاشة Retina كبيرة، وميزات صحية متقدمة، وتكامل سلس مع أجهزة Apple.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/4682B4/FFFFFF?Text=Apple%20Watch%20S8')"></div>
-                <div class="product-info">
-                    <h3 class="product-title">Apple Watch Series 8</h3>
+                    <h3 class="product-title">ساعة أبل ووتش Series 7</h3>
                     <div class="product-rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                     </div>
-                    <p class="product-price">12000 جنيه <span class="product-old-price">13500 جنيه</span> <span class="discount-percentage">-11%</span></p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Apple Watch Series 8', 12000, 'https://via.placeholder.com/80/4682B4/FFFFFF?Text=Apple%20Watch%20S8')">أضف إلى العربة</button>
+                    <p class="product-price">10000 جنيه</p>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('ساعة أبل ووتش Series 7', 10000, 'https://via.placeholder.com/80/4682B4/FFFFFF?Text=Apple%20Watch%207')">أضف إلى العربة</button>
                 </div>
             </div>
 
-            <div class="product-card" onclick="openProductDetails('Sony WH-1000XM5', 9500, 'https://via.placeholder.com/300/808080/FFFFFF?Text=Sony%20WH-1000XM5', 'سماعات لاسلكية بخاصية إلغاء الضوضاء، صوت عالي الجودة، وعمر بطارية طويل.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/808080/FFFFFF?Text=Sony%20WH-1000XM5')">
+            <div class="product-card" onclick="openProductDetails('سماعات سوني WH-1000XM4', 8000, 'https://via.placeholder.com/300/808080/FFFFFF?Text=Sony%20XM4', 'خاصية إلغاء الضوضاء، صوت عالي الجودة، عمر بطارية 30 ساعة.')">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/808080/FFFFFF?Text=Sony%20XM4')">
                     <span class="product-badge">عرض خاص</span>
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">Sony WH-1000XM5</h3>
+                    <h3 class="product-title">سماعات سوني WH-1000XM4</h3>
                     <div class="product-rating">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="product-price">9500 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Sony WH-1000XM5', 9500, 'https://via.placeholder.com/80/808080/FFFFFF?Text=Sony%20WH-1000XM5')">أضف إلى العربة</button>
+                    <p class="product-price">8000 جنيه</p>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('سماعات سوني WH-1000XM4', 8000, 'https://via.placeholder.com/80/808080/FFFFFF?Text=Sony%20XM4')">أضف إلى العربة</button>
                 </div>
             </div>
 
-            <div class="product-card" onclick="openProductDetails('Polo Ralph Lauren T-Shirt', 1200, 'https://via.placeholder.com/300/ADD8E6/FFFFFF?Text=Polo%20T-Shirt', 'تي شيرت بولو كلاسيكي مصنوع من قطن ناعم ومريح، مثالي للإطلالات اليومية.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/ADD8E6/FFFFFF?Text=Polo%20T-Shirt')"></div>
-                <div class="product-info">
-                    <h3 class="product-title">Polo Ralph Lauren T-Shirt</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    </div>
-                    <p class="product-price">1200 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Polo Ralph Lauren T-Shirt', 1200, 'https://via.placeholder.com/80/ADD8E6/FFFFFF?Text=Polo%20T-Shirt')">أضف إلى العربة</button>
-                </div>
-            </div>
-
-            <div class="product-card" onclick="openProductDetails('Genuine Leather Jacket', 4500, 'https://via.placeholder.com/300/F08080/FFFFFF?Text=Leather%20Jacket', 'جاكيت جلد طبيعي عالي الجودة بتصميم عصري وأنيق، يضفي لمسة مميزة على أي إطلالة.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/F08080/FFFFFF?Text=Leather%20Jacket')">
-                    <span class="product-badge">جديد</span>
+            <div class="product-card" onclick="openProductDetails('هاتف جوجل بكسل 7', 22000, 'https://via.placeholder.com/300/3CB371/FFFFFF?Text=Google%20Pixel%207', 'كاميرا ممتازة، تحديثات أندرويد سريعة، تصميم أنيق.')">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/3CB371/FFFFFF?Text=Google%20Pixel%207')">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">Genuine Leather Jacket</h3>
+                    <h3 class="product-title">هاتف جوجل بكسل 7</h3>
                     <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
                     </div>
-                    <p class="product-price">4500 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Genuine Leather Jacket', 4500, 'https://via.placeholder.com/80/F08080/FFFFFF?Text=Leather%20Jacket')">أضف إلى العربة</button>
+                    <p class="product-price">22000 جنيه</p>
+                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('هاتف جوجل بكسل 7', 22000, 'https://via.placeholder.com/80/3CB371/FFFFFF?Text=Google%20Pixel%207')">أضف إلى العربة</button>
                 </div>
             </div>
         </div>
@@ -315,4 +288,81 @@
 
     <div id="productDetailsModal" class="product-details-modal">
         <div class="product-details-content">
-            <button class="product-details
+            <button class="product-details-close" onclick="closeProductDetails()">&times;</button>
+            <img id="product-details-img" class="product-details-img" src="" alt="">
+            <h2 id="product-details-title" class="product-details-title"></h2>
+            <p id="product-details-price" class="product-details-price"></p>
+            <p id="product-details-description" class="product-details-description"></p>
+            <button id="add-to-cart-details-btn" class="add-to-cart-details" onclick="addToCartFromDetails()">أضف إلى العربة</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>روابط هامة</h3>
+                    <ul>
+                        <li><a href="#">عن حِرفه استور</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">تواصل معنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">تتبع طلبك</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>معلومات</h3>
+                    <ul>
+                        <li><a href="#">طرق الدفع</a></li>
+                        <li><a href="#">الشحن والتوصيل</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 حِرفه استور. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        let cartCount = 0;
+        const cartCountElement = document.querySelector('.cart-count');
+        const cartModal = document.getElementById('cartModal');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+        const productDetailsModal = document.getElementById('productDetailsModal');
+        const productDetailsImg = document.getElementById('product-details-img');
+        const productDetailsTitle = document.getElementById('product-details-title');
+        const productDetailsPrice = document.getElementById('product-details-price');
+        const productDetailsDescription = document.getElementById('product-details-description');
+        let currentProductDetails = {};
+
+        function updateCartCount() {
+            if (cartCountElement) {
+                cartCountElement.textContent = cartCount;
+            }
+        }
+
+        function addToCart(name, price, imageSrc) {
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ name: name, price: price, image: imageSrc, quantity: 1 });
+            }
+            cartCount++;
+            updateCartCount();
+            updateCartModal();
+        }
+
+        function removeFromCart(name) {
+            const index = cart.findIndex(item => item.name === name);
+            if (index > -1
