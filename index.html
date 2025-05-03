@@ -36,43 +36,88 @@
             z-index: 100;
         }
 
-        .header-content {
+        .header-top {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #37475A;
+        }
+
+        .header-bottom {
+            padding-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .settings-menu {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .settings-icon {
+            cursor: pointer;
+            font-size: 20px;
+            padding: 5px;
+        }
+
+        .settings-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .settings-dropdown a {
+            color: #333;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .settings-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .settings-menu:hover .settings-dropdown {
+            display: block;
         }
 
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: #FF9900;
+            display: flex;
+            align-items: center;
         }
 
         .logo span {
             color: white;
+            margin-right: 5px;
         }
 
-        nav ul {
+        .user-actions {
             display: flex;
-            list-style: none;
-            flex-wrap: wrap;
-            gap: 15px;
             align-items: center;
+            gap: 15px;
         }
 
-        nav ul li a {
+        .user-action {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
             font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            cursor: pointer;
         }
 
-        nav ul li a:hover {
+        .user-action:hover {
             color: #FF9900;
         }
 
@@ -108,18 +153,35 @@
             font-weight: bold;
         }
 
-        .top-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+            position: relative;
+            width: 80%;
+            max-width: 600px;
         }
 
-        .top-options select, .top-options input {
-            padding: 5px;
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 12px 20px;
             border-radius: 5px;
             border: 1px solid #ddd;
-            background-color: #f3f3f3;
-            font-size: 12px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-bar input[type="submit"] {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #FF9900;
+            color: #131921;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         .hero {
@@ -166,37 +228,6 @@
 
         .btn:hover {
             background-color: #ffb340;
-        }
-
-        .search-bar {
-            margin: 20px auto;
-            text-align: center;
-            position: relative;
-            width: 80%;
-            max-width: 600px;
-        }
-
-        .search-bar input[type="text"] {
-            width: 100%;
-            padding: 12px 20px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .search-bar input[type="submit"] {
-            position: absolute;
-            left: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #FF9900;
-            color: #131921;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
         }
 
         .section-title {
@@ -381,18 +412,9 @@
 
         /* Responsive styles */
         @media (max-width: 768px) {
-            .header-content {
+            .header-top {
                 flex-direction: column;
-                align-items: stretch;
-            }
-            
-            nav ul {
-                justify-content: center;
-                margin-top: 15px;
-            }
-            
-            .top-options {
-                justify-content: center;
+                gap: 15px;
             }
             
             .hero h1 {
@@ -411,47 +433,46 @@
 </head>
 <body>
     <header>
-        <div class="container header-content">
-            <div class="logo"> حِرفه <span> استور </span></div>
-            
-            <div class="header-cart" onclick="viewCart()">
-                <i class="fas fa-shopping-cart"></i>
-                <span>العربة</span>
-                <span class="cart-count">0</span>
+        <div class="container">
+            <div class="header-top">
+                <!-- ثلاث نقاط (خطوط) الإعدادات -->
+                <div class="settings-menu">
+                    <div class="settings-icon">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                    <div class="settings-dropdown">
+                        <a href="#"><i class="fas fa-cog"></i> الإعدادات</a>
+                        <a href="#"><i class="fas fa-language"></i> اللغة: العربية</a>
+                        <a href="#"><i class="fas fa-money-bill-wave"></i> العملة: جنيه مصري</a>
+                        <a href="#"><i class="fas fa-flag"></i> البلد: مصر</a>
+                    </div>
+                </div>
+                
+                <!-- اسم المتجر -->
+                <div class="logo">
+                    <span>حِرفه</span>استور
+                </div>
+                
+                <!-- تسجيل الدخول وعربة التسوق -->
+                <div class="user-actions">
+                    <a href="#" class="user-action">تسجيل الدخول</a>
+                    <div class="header-cart" onclick="viewCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
             </div>
             
-            <nav>
-                <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="#products"><i class="fas fa-box-open"></i> المنتجات</a></li>
-                    <li><a href="#"><i class="fas fa-percentage"></i> عروض خاصة</a></li>
-                    <li><a href="#"><i class="fas fa-user"></i> حسابي</a></li>
-                </ul>
-            </nav>
-            
-            <div class="top-options">
-                <select name="language">
-                    <option>العربية</option>
-                    <option>English</option>
-                </select>
-                <select name="country">
-                    <option>مصر</option>
-                    <option>السعودية</option>
-                </select>
-                <select name="currency">
-                    <option>جنيه مصري (EGP)</option>
-                    <option>ريال سعودي (SAR)</option>
-                </select>
+            <div class="header-bottom">
+                <div class="search-bar">
+                    <form action="#" method="get">
+                        <input type="text" name="q" placeholder="ابحث عن منتج...">
+                        <input type="submit" value="بحث">
+                    </form>
+                </div>
             </div>
         </div>
     </header>
-
-    <div class="search-bar">
-        <form action="#" method="get">
-            <input type="text" name="q" placeholder="ابحث عن منتج...">
-            <input type="submit" value="بحث">
-        </form>
-    </div>
 
     <section class="hero">
         <div class="content">
