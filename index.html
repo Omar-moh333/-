@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -6,234 +7,203 @@
     <title>حِرفه استور - أفضل الأجهزة بأفضل الأسعار</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
+        /* إضافة ألوان الموقع وتنسيقات جديدة */
+        body {
+            font-family: 'Tajawal', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
+            background-color: #f1f1f1;
             color: #333;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         header {
-            background-color: #2c3e50;
-            color: white;
+            background-color: #232f3e;
             padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 28px;
+            color: #ff9900;
             font-weight: bold;
         }
 
         .logo span {
-            color: #3498db;
+            color: #ffffff;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
+            font-size: 18px;
             transition: color 0.3s;
         }
 
         nav ul li a:hover {
-            color: #3498db;
+            color: #ff9900;
         }
 
         .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
+            padding: 100px 20px;
             text-align: center;
-            color: white;
+            color: #ffffff;
         }
 
-        .hero .content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
+        .hero .content h1 {
             font-size: 48px;
+            font-weight: bold;
             margin-bottom: 20px;
         }
 
-        .hero p {
+        .hero .content p {
             font-size: 20px;
             margin-bottom: 30px;
         }
 
         .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 12px 30px;
+            background-color: #ff9900;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #2980b9;
+            background-color: #e68a00;
         }
 
-        .section-title {
+        .products {
+            padding: 50px 20px;
+            background-color: #ffffff;
+        }
+
+        .products h2 {
             text-align: center;
-            margin: 40px 0 20px;
-            font-size: 28px;
-            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #232f3e;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
 
         .product-card {
-            background-color: white;
+            background-color: #fff;
+            border: 1px solid #ddd;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
         }
 
         .product-img {
+            width: 100%;
             height: 200px;
-            background-color: #eee;
             background-size: cover;
             background-position: center;
         }
 
         .product-info {
             padding: 20px;
+            text-align: center;
         }
 
         .product-title {
-            font-size: 18px;
+            font-size: 20px;
+            color: #333;
             margin-bottom: 10px;
         }
 
         .product-price {
-            font-weight: bold;
-            color: #e74c3c;
+            font-size: 18px;
+            color: #ff9900;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #232f3e;
+            padding: 30px 0;
+            color: #ffffff;
+        }
+
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer .footer-column {
+            width: 22%;
+        }
+
+        footer .footer-column h3 {
             font-size: 20px;
             margin-bottom: 15px;
         }
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav ul {
-                flex-direction: column;
-                width: 100%;
-                padding-right: 0;
-            }
-
-            nav ul li {
-                margin: 10px 0;
-            }
-
-            .hero h1 {
-                font-size: 26px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: right;
-            }
-
-            .product-img {
-                height: 180px;
-            }
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #3498db;
-        }
-
-        .footer-column ul {
+        footer .footer-column ul {
             list-style: none;
+            padding: 0;
         }
 
-        .footer-column ul li {
-            margin-bottom: 10px;
+        footer .footer-column ul li {
+            margin: 10px 0;
         }
 
-        .footer-column ul li a {
-            color: #ecf0f1;
+        footer .footer-column ul li a {
+            color: #ffffff;
             text-decoration: none;
-            transition: color 0.3s;
         }
 
-        .footer-column ul li a:hover {
-            color: #3498db;
+        footer .footer-column ul li a:hover {
+            color: #ff9900;
         }
 
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #34495e;
-            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .copyright img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        .copyright p {
+            font-size: 18px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -256,7 +226,7 @@
     <section class="hero">
         <div class="content">
             <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
-            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية، الكاميرات، المنتجات اليدوية والاكسسوارات</p>
             <a href="#" class="btn">تسوق الآن</a>
         </div>
     </section>
@@ -265,58 +235,54 @@
         <div class="container">
             <h2 class="section-title">منتجاتنا المميزة</h2>
             <div class="products-grid">
-                <!-- Example Products -->
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.samsung.com/is/image/samsung/p5/eg/galaxy-s24-ultra.jpg');"></div>
-                    <div class="product-info">
-                        <h3 class="product-title">هاتف - Samsung S24 Ultra</h3>
-                        <p class="product-price">52,999 جنيه</p>
-                        <a href="#" class="btn">إضافة إلى السلة</a>
-                    </div>
-                </div>
-                
-                <!-- Add more products similarly with unique images -->
-                
+                <!-- إضافة المنتجات هنا كما في المثال السابق -->
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>عن المتجر</h3>
-                    <p>حِرفه استور هو وجهتك الأولى لشراء أحدث الأجهزة الإلكترونية بأسعار تنافسية وضمان ممتاز.</p>
-                </div>
-
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul>
-                        <li><a href="#">الرئيسية</a></li>
-                        <li><a href="#">منتجات جديدة</a></li>
-                        <li><a href="#">عروض خاصة</a></li>
-                        <li><a href="#">تسجيل الدخول</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>خدمة العملاء</h3>
-                    <ul>
-                        <li><a href="#">اتصل بنا</a></li>
-                        <li><a href="#">الأسئلة الشائعة</a></li>
-                        <li><a href="#">سياسة الإرجاع</a></li>
-                        <li><a href="#">شروط الخصوصية</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>تواصل معنا</h3>
-                    <ul>
-                        <li>الهاتف: 01097170194</li>
-                        <li>العنوان: الفشن - بني سويف</li>
-                    </ul>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-column">
+                <h3>عن المتجر</h3>
+                <p>حِرفه استور هو وجهتك الأولى لشراء أحدث الأجهزة الإلكترونية، الكاميرات، المنتجات اليدوية، وأكثر.</p>
             </div>
 
-            <div class="copyright">
-                <p>&copy; 2023 حِرفه استور. جميع
+            <div class="footer-column">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">منتجات جديدة</a></li>
+                    <li><a href="#">عروض خاصة</a></li>
+                    <li><a href="#">تسجيل الدخول</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>خدمة العملاء</h3>
+                <ul>
+                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">سياسة الإرجاع</a></li>
+                    <li><a href="#">شروط الخصوصية</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li>الهاتف: 01097170194</li>
+                    <li>العنوان: الفشن - بني سويف</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 حِرفه استور. جميع الحقوق محفوظة.</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <img src="https://i.postimg.cc/Th8H08s1/IMG.jpg" alt="صورة" style="width: 150px; height: 150px; border-radius: 50%;">
+                <p style="margin-top: 10px; font-weight: bold;">م. عمر البنا</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
