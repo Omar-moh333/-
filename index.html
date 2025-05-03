@@ -140,20 +140,6 @@
             direction: rtl; /* لضمان محاذاة النص من اليمين */
         }
 
-        .search-bar input[type="submit"] {
-            position: absolute;
-            left: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 10px 20px;
-            border-radius: 5px;
-            background-color: #FF9900;
-            color: #131921;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
         .hero {
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -432,8 +418,7 @@
 
             <div class="search-bar">
                 <form action="#" method="get">
-                    <input type="text" name="q" placeholder="ابحث عن منتج... بحث">
-                    <input type="submit" value="بحث">
+                    <input type="text" name="q" placeholder="ابحث عن منتج...">
                 </form>
             </div>
         </div>
@@ -450,24 +435,52 @@
     <div class="container">
         <h2 class="section-title" id="products">أحدث المنتجات</h2>
         <div class="products-grid">
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/200/FF9900/FFFFFF?Text=Phone1')">
-                    <span class="product-badge">جديد</span>
+            </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>روابط هامة</h3>
+                    <ul>
+                        <li><a href="#">عن حِرفه استور</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
                 </div>
-                <div class="product-info">
-                    <h3 class="product-title">هاتف ذكي حديث بشاشة AMOLED</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <p class="product-price">12000 جنيه</p>
-                    <button class="add-to-cart" onclick="addToCart('هاتف ذكي حديث بشاشة AMOLED', 12000)">أضف للسلة</button>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">تواصل معنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">تتبع طلبك</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>معلومات</h3>
+                    <ul>
+                        <li><a href="#">طرق الدفع</a></li>
+                        <li><a href="#">الشحن والتوصيل</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                    </ul>
                 </div>
             </div>
+            <div class="copyright">
+                © 2025 حِرفه استور. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
 
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/200/37475A/FFFFFF?Text=Headphones1')">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">سماعات لاسلكية بخاصية إلغاء الضوضاء</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i>
+    <script>
+        let cart = [];
+        let cartCount = 0;
+        const cartCountElement = document.querySelector('.cart-count');
+
+        function updateCartCount() {
+            if (cartCountElement) {
+                cartCountElement.textContent = cartCount;
+            }
+        }
+
+        function addToCart(productName, product
