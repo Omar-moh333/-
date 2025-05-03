@@ -7,172 +7,405 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ... نفس أنماط CSS التي قدمتها سابقًا ... */
-        .cart-modal {
-            display: none;
-            position: fixed;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #131921;
+            color: white;
+            padding: 15px 0 10px; /* إضافة مساحة أسفل الشريط العلوي */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            justify-content: center;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 0 15px;
+            border-bottom: none; /* إزالة الخط الفاصل العلوي */
         }
 
-        .cart-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 80%;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .cart-item {
+        .header-actions {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+            gap: 15px;
         }
 
-        .cart-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            margin-left: 15px;
-            border-radius: 5px;
-        }
-
-        .cart-item-details {
-            flex-grow: 1;
-        }
-
-        .cart-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .cart-item-price {
-            color: #B12704;
-        }
-
-        .remove-from-cart {
-            background: none;
-            border: none;
-            color: #dc3545;
+        .menu-icon {
             cursor: pointer;
-            font-size: 16px;
+            font-size: 24px;
+            padding: 5px;
+            color: white; /* إضافة لون للأيقونة */
         }
 
-        .cart-total {
+        .logo {
+            font-size: 24px;
             font-weight: bold;
-            font-size: 18px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        .checkout-button {
-            background-color: #FF9900;
-            color: #131921;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .checkout-button:hover {
-            background-color: #ffb340;
-        }
-
-        .product-details-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1001;
-            justify-content: center;
+            color: #FF9900;
+            display: flex;
             align-items: center;
+            margin: 0 auto; /* توسيط اسم المتجر */
         }
 
-        .product-details-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 600px;
+        .logo span {
+            color: white;
+            margin-right: 5px;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-action {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .user-action:hover {
+            color: #FF9900;
+        }
+
+        .header-cart {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: transparent; /* جعل الخلفية شفافة */
+            padding: 8px 0; /* تقليل الحشو */
+            border-radius: 4px;
+            cursor: pointer;
+            transition: color 0.3s;
             position: relative;
         }
 
-        .product-details-close {
+        .header-cart:hover {
+            color: #FF9900;
+            background-color: transparent; /* الحفاظ على الخلفية شفافة عند الـ hover */
+        }
+
+        .header-cart i {
+            font-size: 20px; /* تكبير أيقونة العربة */
+        }
+
+        .header-cart .cart-count {
+            background-color: #FF9900;
+            color: #131921;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
             position: absolute;
-            top: 10px;
-            left: 10px;
-            background: none;
+            top: -5px;
+            left: -5px;
+        }
+
+        .search-bar {
+            margin: 15px auto; /* إضافة هامش علوي وسفلي وتوسيط */
+            text-align: center;
+            width: 95%; /* جعل عرض مربع البحث 95% من الحاوية */
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%; /* جعل عرض حقل الإدخال 100% من حاوية البحث */
+            padding: 12px 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            direction: rtl; /* لضمان محاذاة النص من اليمين */
+        }
+
+        .search-bar input[type="submit"] {
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #FF9900;
+            color: #131921;
             border: none;
-            font-size: 20px;
             cursor: pointer;
-        }
-
-        .product-details-img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: contain;
-            margin-bottom: 15px;
-        }
-
-        .product-details-title {
-            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 10px;
         }
 
-        .product-details-price {
-            color: #B12704;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
         }
 
-        .product-details-description {
-            line-height: 1.6;
+        .hero .content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
             margin-bottom: 20px;
         }
 
-        .add-to-cart-details {
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #ffb340;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 28px;
+            color: #131921;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #FF9900;
+            margin: 10px auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #B12704;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
             background: #232F3E;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: background 0.3s;
             width: 100%;
         }
 
-        .add-to-cart-details:hover {
+        .add-to-cart:hover {
             background: #37475A;
+        }
+
+        footer {
+            background-color: #232F3E;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #FF9900;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF9900;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #FF9900;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37475A;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        /* تحسينات جديدة */
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-rating {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .discount-percentage {
+            color: #B12704;
+            font-weight: bold;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: row; /* العودة إلى الترتيب الأفقي للعناصر */
+                align-items: center; /* توسيط العناصر عموديًا */
+                justify-content: space-between; /* توزيع العناصر على الأطراف */
+                gap: 10px; /* تقليل المسافة بين العناصر */
+            }
+
+            .header-actions {
+                margin-right: 0; /* إزالة الهامش الأيمن في الوضع الرأسي */
+                margin-left: 0; /* إزالة الهامش الأيسر في الوضع الرأسي */
+            }
+
+            .logo {
+                align-self: center; /* توسيط اسم المتجر */
+                margin: 0; /* إزالة الهوامش لتوسيط أفضل */
+            }
+
+            .user-actions {
+                align-self: center; /* توسيط أيقونات المستخدم */
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .search-bar {
+                width: 95%;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -190,7 +423,7 @@
                 </div>
                 <div class="header-actions">
                     <a href="#" class="user-action"><i class="fas fa-user"></i></a>
-                    <div class="header-cart" onclick="openCart()">
+                    <div class="header-cart" onclick="viewCart()">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
                     </div>
@@ -209,7 +442,7 @@
     <section class="hero">
         <div class="content">
             <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
-            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، الساعات، السماعات، وغيرها الكثير</p>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
             <a href="#products" class="btn">تصفح المنتجات</a>
         </div>
     </section>
@@ -217,84 +450,7 @@
     <div class="container">
         <h2 class="section-title" id="products">أحدث المنتجات</h2>
         <div class="products-grid">
-            <div class="product-card" onclick="openProductDetails('هاتف سامسونج جالاكسي S23', 25000, 'https://via.placeholder.com/300/008000/FFFFFF?Text=Samsung%20S23', 'شاشة AMOLED، كاميرا 50MP، معالج Snapdragon Gen 2.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/008000/FFFFFF?Text=Samsung%20S23')">
-                    <span class="product-badge">الأكثر مبيعًا</span>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">هاتف سامسونج جالاكسي S23</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p class="product-price">25000 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('هاتف سامسونج جالاكسي S23', 25000, 'https://via.placeholder.com/80/008000/FFFFFF?Text=Samsung%20S23')">أضف إلى العربة</button>
-                </div>
             </div>
-
-            <div class="product-card" onclick="openProductDetails('ساعة أبل ووتش Series 7', 10000, 'https://via.placeholder.com/300/4682B4/FFFFFF?Text=Apple%20Watch%207', 'شاشة Retina أكبر، مقاومة للماء، مراقبة معدل ضربات القلب.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/4682B4/FFFFFF?Text=Apple%20Watch%207')"></div>
-                <div class="product-info">
-                    <h3 class="product-title">ساعة أبل ووتش Series 7</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <p class="product-price">10000 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('ساعة أبل ووتش Series 7', 10000, 'https://via.placeholder.com/80/4682B4/FFFFFF?Text=Apple%20Watch%207')">أضف إلى العربة</button>
-                </div>
-            </div>
-
-            <div class="product-card" onclick="openProductDetails('سماعات سوني WH-1000XM4', 8000, 'https://via.placeholder.com/300/808080/FFFFFF?Text=Sony%20XM4', 'خاصية إلغاء الضوضاء، صوت عالي الجودة، عمر بطارية 30 ساعة.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/808080/FFFFFF?Text=Sony%20XM4')">
-                    <span class="product-badge">عرض خاص</span>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">سماعات سوني WH-1000XM4</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="product-price">8000 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('سماعات سوني WH-1000XM4', 8000, 'https://via.placeholder.com/80/808080/FFFFFF?Text=Sony%20XM4')">أضف إلى العربة</button>
-                </div>
-            </div>
-
-            <div class="product-card" onclick="openProductDetails('هاتف جوجل بكسل 7', 22000, 'https://via.placeholder.com/300/3CB371/FFFFFF?Text=Google%20Pixel%207', 'كاميرا ممتازة، تحديثات أندرويد سريعة، تصميم أنيق.')">
-                <div class="product-img" style="background-image: url('https://via.placeholder.com/150/3CB371/FFFFFF?Text=Google%20Pixel%207')">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">هاتف جوجل بكسل 7</h3>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <p class="product-price">22000 جنيه</p>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('هاتف جوجل بكسل 7', 22000, 'https://via.placeholder.com/80/3CB371/FFFFFF?Text=Google%20Pixel%207')">أضف إلى العربة</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="cartModal" class="cart-modal">
-        <div class="cart-content">
-            <button class="close-button" onclick="closeCart()">&times;</button>
-            <h2>عربة التسوق</h2>
-            <div id="cart-items">
-                <p>لا يوجد منتجات في العربة حاليًا.</p>
-            </div>
-            <div class="cart-total">
-                الإجمالي: <span id="total-price">0 جنيه</span>
-            </div>
-            <button class="checkout-button">إتمام الشراء</button>
-        </div>
-    </div>
-
-    <div id="productDetailsModal" class="product-details-modal">
-        <div class="product-details-content">
-            <button class="product-details-close" onclick="closeProductDetails()">&times;</button>
-            <img id="product-details-img" class="product-details-img" src="" alt="">
-            <h2 id="product-details-title" class="product-details-title"></h2>
-            <p id="product-details-price" class="product-details-price"></p>
-            <p id="product-details-description" class="product-details-description"></p>
-            <button id="add-to-cart-details-btn" class="add-to-cart-details" onclick="addToCartFromDetails()">أضف إلى العربة</button>
-        </div>
     </div>
 
     <footer>
@@ -335,15 +491,6 @@
         let cart = [];
         let cartCount = 0;
         const cartCountElement = document.querySelector('.cart-count');
-        const cartModal = document.getElementById('cartModal');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const totalPriceElement = document.getElementById('total-price');
-        const productDetailsModal = document.getElementById('productDetailsModal');
-        const productDetailsImg = document.getElementById('product-details-img');
-        const productDetailsTitle = document.getElementById('product-details-title');
-        const productDetailsPrice = document.getElementById('product-details-price');
-        const productDetailsDescription = document.getElementById('product-details-description');
-        let currentProductDetails = {};
 
         function updateCartCount() {
             if (cartCountElement) {
@@ -351,18 +498,4 @@
             }
         }
 
-        function addToCart(name, price, imageSrc) {
-            const existingItem = cart.find(item => item.name === name);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ name: name, price: price, image: imageSrc, quantity: 1 });
-            }
-            cartCount++;
-            updateCartCount();
-            updateCartModal();
-        }
-
-        function removeFromCart(name) {
-            const index = cart.findIndex(item => item.name === name);
-            if (
+        function addToCart(productName, product
