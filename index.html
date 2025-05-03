@@ -128,20 +128,38 @@
             margin: 15px auto; /* إضافة هامش علوي وسفلي وتوسيط */
             text-align: center;
             width: 95%; /* جعل عرض مربع البحث 95% من الحاوية */
+            position: relative; /* لجعل زر البحث يتم وضعه بالنسبة له */
         }
 
         .search-bar input[type="text"] {
             width: 100%; /* جعل عرض حقل الإدخال 100% من حاوية البحث */
-            padding: 12px 40px 12px 20px; /* إضافة padding على اليمين للأيقونة */
+            padding: 12px 50px 12px 20px; /* إضافة padding على اليسار لاستيعاب الأيقونة */
             border-radius: 5px;
             border: 1px solid #ddd;
             font-size: 16px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             direction: rtl; /* لضمان محاذاة النص من اليمين */
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="%23333" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM6.5 12a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: left 10px center; /* وضع الأيقونة على اليسار في RTL */
-            background-size: 20px;
+            /* إزالة خلفية الأيقونة القديمة */
+            background-image: none;
+            padding-left: 50px; /* لترك مساحة لأيقونة البحث */
+        }
+
+        .search-button {
+            position: absolute;
+            top: 50%;
+            left: 10px; /* ضع الأيقونة على اليسار */
+            transform: translateY(-50%);
+            background-color: #FF9900; /* لون أصفر */
+            color: #131921;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .search-button i {
+            font-size: 20px;
         }
 
         .hero {
@@ -330,91 +348,35 @@
             color: #ddd;
         }
 
-        /* أنماط القائمة الجانبية */
-        .sidebar {
-            position: fixed;
-            top: 0;
-            right: -300px; /* إخفاء القائمة في البداية */
-            width: 300px;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            z-index: 101;
-            transition: right 0.3s ease-in-out;
-            direction: rtl;
+        /* تحسينات جديدة */
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
         }
 
-        .sidebar.open {
-            right: 0;
+        .product-rating {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
 
-        .sidebar-header {
-            background-color: #232F3E;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-left: 5px;
         }
 
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .user-info i {
-            font-size: 24px;
-        }
-
-        .close-btn {
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .sidebar-menu li a {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #333;
-            transition: background-color 0.3s;
-        }
-
-        .sidebar-menu li a i {
-            margin-left: 15px;
-            width: 20px;
-            text-align: center;
-        }
-
-        .sidebar-menu li a:hover {
-            background-color: #f3f3f3;
-        }
-
-        .sidebar-menu .separator {
-            border-bottom: 1px solid #ddd;
-            margin: 10px 20px;
-        }
-
-        /* طبقة التعتيم الخلفية */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 100;
-            display: none; /* مخفية في البداية */
-        }
-
-        .overlay.active {
-            display: block;
+        .discount-percentage {
+            color: #B12704;
+            font-weight: bold;
         }
 
         /* Responsive styles */
@@ -456,15 +418,73 @@
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="user-info">
-                <i class="fas fa-user-circle"></i>
-                <span>مرحباً! تسجيل الدخول</span>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="header-actions">
+                    <div class="menu-icon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                <div class="logo">
+                    <span>حِرفه</span>استور
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-action"><i class="fas fa-user"></i></a>
+                    <div class="header-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
             </div>
-            <i class="fas fa-times close-btn"></i>
+
+            <div class="search-bar">
+                <form action="#" method="get">
+                    <input type="text" name="q" placeholder="ابحث عن منتج...">
+                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
         </div>
-        <ul class="sidebar-menu">
-            <li><a href="#"><i class="fas fa-user"></i> حسابك</a></li>
-            <li><a href="#"><i class="fas fa-list-alt"></i> قوائمك</a></li>
-            <li><a href="#"><i class="fas fa-
+    </header>
+
+    <section class="hero">
+        <div class="content">
+            <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
+            <a href="#products" class="btn">تصفح المنتجات</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title" id="products">أحدث المنتجات</h2>
+        <div class="products-grid">
+            </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>روابط هامة</h3>
+                    <ul>
+                        <li><a href="#">عن حِرفه استور</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">تواصل معنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">تتبع طلبك</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 حِرفه استور. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
