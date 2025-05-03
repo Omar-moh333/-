@@ -1,184 +1,311 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>تسجيل الدخول</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حِرفه استور - أفضل الأجهزة بأفضل الأسعار</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        .top-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .top-options select, .top-options input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero .content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .search-bar {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .search-bar input[type="text"] {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-bar input[type="submit"] {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 28px;
+            color: #2c3e50;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .cart-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: #3498db;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-  <div class="form-container">
-    <h2>تسجيل الدخول</h2>
-    <form id="loginForm">
-      <input type="text" id="loginEmail" placeholder="البريد الإلكتروني" required>
-      <input type="password" id="loginPassword" placeholder="كلمة المرور" required>
-      <button type="submit">دخول</button>
-    </form>
-    <p>ليس لديك حساب؟ <a href="register.html">سجل الآن</a></p>
-  </div>
+    <header>
+        <div class="container header-content">
+            <div class="logo">حِرفه <span>استور</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">المنتجات</a></li>
+                    <li><a href="#">عروض خاصة</a></li>
+                    <li><a href="#">تسجيل الدخول</a></li>
+                    <li><a href="#">تسجيل كمشتري</a></li>
+                    <li><a href="#">تسجيل كبائع</a></li>
+                    <li><a href="#">العربة</a></li>
+                </ul>
+            </nav>
+            <div class="top-options">
+                <select name="language">
+                    <option>العربية</option>
+                    <option>English</option>
+                    <option>Français</option>
+                    <option>Deutsch</option>
+                    <option>中文</option>
+                    <option>हिन्दी</option>
+                    <!-- Add more languages as needed -->
+                </select>
+                <select name="country">
+                    <option>مصر</option>
+                    <option>السعودية</option>
+                    <option>الإمارات</option>
+                    <option>الولايات المتحدة</option>
+                    <option>ألمانيا</option>
+                    <!-- Add all countries -->
+                </select>
+                <select name="currency">
+                    <option>جنيه مصري (EGP)</option>
+                    <option>ريال سعودي (SAR)</option>
+                    <option>درهم إماراتي (AED)</option>
+                    <option>دولار أمريكي (USD)</option>
+                    <option>يورو (EUR)</option>
+                    <!-- Add more currencies -->
+                </select>
+            </div>
+        </div>
+    </header>
 
-  <script src="auth.js"></script>
+    <div class="search-bar">
+        <form action="#" method="get">
+            <input type="text" name="q" placeholder="ابحث عن منتج...">
+            <input type="submit" value="بحث">
+        </form>
+    </div>
+
+    <section class="hero">
+        <div class="content">
+            <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
+            <a href="#" class="btn">تسوق الآن</a>
+        </div>
+    </section>
+
+    <div class="cart-button">العربة</div>
+
+    <!-- منتجات و Footer يتم إضافتهم هنا -->
 </body>
 </html>
-
-
----
-
-register.html (واجهة تسجيل حساب):
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>تسجيل حساب</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="form-container">
-    <h2>تسجيل حساب جديد</h2>
-    <form id="registerForm">
-      <input type="text" id="regName" placeholder="الاسم الكامل" required>
-      <input type="email" id="regEmail" placeholder="البريد الإلكتروني" required>
-      <input type="password" id="regPassword" placeholder="كلمة المرور" required>
-      <select id="regType" required>
-        <option value="">اختر نوع الحساب</option>
-        <option value="buyer">مشتري</option>
-        <option value="seller">بائع</option>
-      </select>
-      <button type="submit">تسجيل</button>
-    </form>
-    <p>لديك حساب بالفعل؟ <a href="index.html">سجل دخول</a></p>
-  </div>
-
-  <script src="auth.js"></script>
-</body>
-</html>
-
-
----
-
-dashboard.html (صفحة بعد تسجيل الدخول):
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>لوحة التحكم</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="dashboard">
-    <h2>مرحباً <span id="userName"></span></h2>
-    <p>نوع الحساب: <span id="userType"></span></p>
-    <button onclick="logout()">تسجيل الخروج</button>
-  </div>
-
-  <script>
-    const user = JSON.parse(localStorage.getItem("currentUser"));
-    if (!user) location.href = "index.html";
-
-    document.getElementById("userName").textContent = user.name;
-    document.getElementById("userType").textContent = user.type === "buyer" ? "مشتري" : "بائع";
-
-    function logout() {
-      localStorage.removeItem("currentUser");
-      location.href = "index.html";
-    }
-  </script>
-</body>
-</html>
-
-
----
-
-auth.js (منطق التسجيل وتسجيل الدخول):
-
-document.addEventListener("DOMContentLoaded", function () {
-  const registerForm = document.getElementById("registerForm");
-  const loginForm = document.getElementById("loginForm");
-
-  if (registerForm) {
-    registerForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const name = document.getElementById("regName").value;
-      const email = document.getElementById("regEmail").value;
-      const password = document.getElementById("regPassword").value;
-      const type = document.getElementById("regType").value;
-
-      const users = JSON.parse(localStorage.getItem("users") || "[]");
-
-      if (users.find(u => u.email === email)) {
-        alert("البريد مسجل من قبل");
-        return;
-      }
-
-      users.push({ name, email, password, type });
-      localStorage.setItem("users", JSON.stringify(users));
-      alert("تم التسجيل بنجاح، قم بتسجيل الدخول الآن");
-      location.href = "index.html";
-    });
-  }
-
-  if (loginForm) {
-    loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const email = document.getElementById("loginEmail").value;
-      const password = document.getElementById("loginPassword").value;
-
-      const users = JSON.parse(localStorage.getItem("users") || "[]");
-      const user = users.find(u => u.email === email && u.password === password);
-
-      if (!user) {
-        alert("بيانات الدخول غير صحيحة");
-        return;
-      }
-
-      localStorage.setItem("currentUser", JSON.stringify(user));
-      location.href = "dashboard.html";
-    });
-  }
-});
-
-
----
-
-style.css (تصميم بسيط موحد):
-
-body {
-  font-family: 'Tajawal', sans-serif;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.form-container {
-  max-width: 400px;
-  margin: 80px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-input, select, button {
-  display: block;
-  width: 100%;
-  margin: 15px 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button {
-  background-color: #3498db;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #2980b9;
-}
-
-.dashboard {
-  margin-top: 100px;
-}
