@@ -8,25 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* استايلات الموقع السابقة */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Tajawal', sans-serif;
         }
-
         body {
             background-color: #f5f5f5;
             color: #333;
         }
-
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
         }
-
         header {
             background-color: #2c3e50;
             color: white;
@@ -36,40 +32,33 @@
             top: 0;
             z-index: 100;
         }
-
         .header-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-size: 24px;
             font-weight: bold;
             display: flex;
             align-items: center;
         }
-
         .logo i {
             margin-left: 10px;
             color: #3498db;
         }
-
         .logo span {
             color: #3498db;
         }
-
         nav ul {
             display: flex;
             list-style: none;
             flex-wrap: wrap;
         }
-
         nav ul li {
             margin-left: 15px;
         }
-
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -78,28 +67,23 @@
             display: flex;
             align-items: center;
         }
-
         nav ul li a i {
             margin-right: 5px;
         }
-
         nav ul li a:hover {
             color: #3498db;
         }
-
         .top-options {
             display: flex;
             gap: 10px;
             margin-top: 10px;
         }
-
         .top-options select, .top-options input {
             padding: 5px;
             border-radius: 5px;
             border: 1px solid #ccc;
             font-size: 12px;
         }
-
         .hero {
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -112,22 +96,18 @@
             color: white;
             margin-bottom: 30px;
         }
-
         .hero .content {
             max-width: 800px;
             padding: 0 20px;
         }
-
         .hero h1 {
             font-size: 36px;
             margin-bottom: 20px;
         }
-
         .hero p {
             font-size: 18px;
             margin-bottom: 30px;
         }
-
         .btn {
             display: inline-block;
             background-color: #3498db;
@@ -141,29 +121,24 @@
             cursor: pointer;
             font-size: 16px;
         }
-
         .btn:hover {
             background-color: #2980b9;
             transform: translateY(-2px);
         }
-
         .btn-outline {
             background: transparent;
             border: 2px solid white;
             margin-right: 10px;
         }
-
         .btn-outline:hover {
             background: white;
             color: #2c3e50;
         }
-
         .search-bar {
             margin: 20px auto;
             text-align: center;
             position: relative;
         }
-
         .search-bar input[type="text"] {
             width: 80%;
             max-width: 600px;
@@ -173,7 +148,6 @@
             font-size: 16px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .search-bar input[type="submit"] {
             position: absolute;
             right: 11%;
@@ -187,8 +161,6 @@
             cursor: pointer;
             font-weight: bold;
         }
-
-        /* استايلات المنتجات */
         .section-title {
             text-align: center;
             margin: 40px 0 20px;
@@ -196,7 +168,6 @@
             color: #2c3e50;
             position: relative;
         }
-
         .section-title:after {
             content: "";
             display: block;
@@ -205,14 +176,12 @@
             background: #3498db;
             margin: 10px auto;
         }
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             padding: 20px 0;
         }
-
         .product-card {
             background-color: white;
             border-radius: 10px;
@@ -221,12 +190,10 @@
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
         }
-
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-
         .product-img {
             height: 200px;
             background-color: #eee;
@@ -235,25 +202,47 @@
             background-repeat: no-repeat;
             position: relative;
         }
-
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+        }
         .product-info {
             padding: 20px;
         }
-
         .product-title {
             font-size: 16px;
             margin-bottom: 10px;
             height: 40px;
             overflow: hidden;
         }
-
         .product-price {
             font-weight: bold;
             color: #e74c3c;
             font-size: 18px;
             margin-bottom: 10px;
         }
-
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+        .product-rating {
+            color: #f39c12;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
         .add-to-cart {
             background: #2c3e50;
             color: white;
@@ -264,11 +253,36 @@
             font-size: 14px;
             transition: background 0.3s;
         }
-
         .add-to-cart:hover {
             background: #3498db;
         }
-
+        .wishlist {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .category-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
         .cart-button {
             position: fixed;
             bottom: 30px;
@@ -285,81 +299,6 @@
             z-index: 99;
             transition: all 0.3s;
         }
-
         .cart-button:hover {
             background: #3498db;
-            transform: translateY(-3px);
-        }
-
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #3498db;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3:after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 40px;
-            height: 2px;
-            background: #3498db;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            color: #ecf0f1;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 14px;
-        }
-
-        .footer-column ul li a:hover {
-            color: #3498db;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">حِرفه <span>استور</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#">المنتجات</a></li>
-                    <li><a href="#">العروض</a></li>
-                    <li><a href="#">اتصل بنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="content">
-            <h1>أفضل الأجهزة بأفضل الأسعار</h1>
-            <p>احصل على أحدث الأجهزة من أفضل العلام
 
