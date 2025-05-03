@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* أنماط CSS الرئيسية */
         * {
             margin: 0;
             padding: 0;
@@ -143,12 +142,6 @@
             background-repeat: no-repeat;
             background-position: left 10px center; /* وضع الأيقونة على اليسار في RTL */
             background-size: 20px;
-        }
-
-        .search-bar input[type="text"]:focus {
-            background-color: yellow; /* لتغيير لون الخلفية إلى الأصفر عند التركيز */
-            caret-color: #333; /* لجعل لون المؤشر أسود لضمان رؤيته على الخلفية الصفراء */
-            outline: none; /* لإزالة الإطار الافتراضي الذي يظهر عند التركيز */
         }
 
         .hero {
@@ -404,39 +397,66 @@
                 margin-top: 10px;
             }
         }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="header-actions">
+                    <div class="menu-icon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                <div class="logo">
+                    <span>حِرفه</span>استور
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-action"><i class="fas fa-user"></i></a>
+                    <div class="header-cart" onclick="viewCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
 
-        /* أنماط CSS للقائمة الجانبية */
-        .sidebar {
-            width: 300px; /* يمكنك تعديل العرض حسب الحاجة */
-            background-color: #f3f3f3; /* نفس لون خلفية الصفحة الرئيسية */
-            height: 100%; /* اجعل ارتفاع القائمة الجانبية يملأ الشاشة */
-            position: fixed; /* لتثبيت القائمة الجانبية وجعلها تطفو فوق المحتوى */
-            top: 0;
-            right: -300px; /* لإخفاء القائمة الجانبية في البداية */
-            z-index: 200; /* تأكد من أن القائمة الجانبية تظهر فوق العناصر الأخرى */
-            padding: 20px;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* ظل خفيف على الجانب الأيسر */
-            overflow-y: auto; /* في حال كان المحتوى أطول من الشاشة */
-            direction: rtl; /* لجعل النص يبدأ من اليمين */
-            transition: right 0.3s ease-in-out; /* إضافة انتقال سلس لظهور/اختفاء القائمة */
-        }
+            <div class="search-bar">
+                <form action="#" method="get">
+                    <input type="text" name="q" placeholder="ابحث عن منتج...">
+                </form>
+            </div>
+        </div>
+    </header>
 
-        .sidebar.open {
-            right: 0; /* لإظهار القائمة الجانبية */
-        }
+    <section class="hero">
+        <div class="content">
+            <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
+            <a href="#products" class="btn">تصفح المنتجات</a>
+        </div>
+    </section>
 
-        .sidebar-top-banner {
-            background-color: #e7e7e7;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 14px;
-            color: #333;
-        }
+    <div class="container">
+        <h2 class="section-title" id="products">أحدث المنتجات</h2>
+        <div class="products-grid">
+            </div>
+    </div>
 
-        .sidebar-top-banner i {
-            margin-bottom: 5px;
-        }
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>روابط هامة</h3>
+                    <ul>
+                        <li><a href="#">عن حِرفه استور</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">تواصل معنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">تتبع طلبك</a></li>
+                    </ul>
