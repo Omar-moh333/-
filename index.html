@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -55,6 +54,7 @@
             font-size: 24px;
             padding: 5px;
             color: white;
+            onclick="toggleSidebar()" /* إضافة وظيفة فتح السايدبار لزر الثلاث خطوط */
         }
 
         .logo {
@@ -407,6 +407,7 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            display: none; /* تم إخفاء الزر الأصفر */
         }
 
         .sidebar {
@@ -455,7 +456,6 @@
 </head>
 <body>
 
-<button class="toggle-sidebar" onclick="toggleSidebar()">القائمة</button>
 <div class="sidebar hidden" id="sidebar">
     <ul>
         <li><a href="#">الكل</a></li>
@@ -470,7 +470,7 @@
         <div class="container">
             <div class="header-top">
                 <div class="header-actions">
-                    <div class="menu-icon">
+                    <div class="menu-icon" onclick="toggleSidebar()">
                         <i class="fas fa-bars"></i>
                     </div>
                 </div>
