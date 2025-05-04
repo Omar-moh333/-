@@ -54,7 +54,6 @@
             font-size: 24px;
             padding: 5px;
             color: white;
-            onclick="toggleSidebar()" /* إضافة وظيفة فتح السايدبار لزر الثلاث خطوط */
         }
 
         .logo {
@@ -410,99 +409,120 @@
             display: none; /* تم إخفاء الزر الأصفر */
         }
 
-.sidebar {
-    width: 250px;
-    background-color: #fff;
-    padding: 15px;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    overflow-y: auto;
-  }
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 101; /* عشان تكون فوق العناصر التانية */
+            transform: translateX(-250px); /* لإخفائها في البداية */
+            transition: transform 0.3s ease-in-out; /* عشان يكون فيه حركة انزلاق */
+        }
 
-  .sidebar h2 {
-    font-size: 1.1em;
-    color: #111;
-    margin-top: 0;
-    margin-bottom: 15px; /* زودنا المسافة أسفل العنوان */
-    padding-bottom: 5px;
-    border-bottom: 1px solid #ddd;
-  }
+        .sidebar.open {
+            transform: translateX(0); /* لإظهارها */
+        }
 
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-bottom: 20px; /* زودنا المسافة أسفل كل قائمة رئيسية */
-  }
+        .sidebar h2 {
+            font-size: 1.5em;
+            color: #111;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
 
-  .sidebar ul ul {
-    padding-left: 15px;
-    margin-bottom: 0; /* قللنا المسافة أسفل القوائم الداخلية عشان العناصر اللي جواها تكون قريبة من بعض */
-  }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 20px;
+        }
 
-  .sidebar ul li {
-    margin-bottom: 8px; /* زودنا المسافة بين عناصر القائمة الداخلية */
-  }
+        .sidebar ul ul {
+            padding-left: 15px;
+            margin-bottom: 0;
+        }
 
-  .sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px 0; /* زودنا الـ padding الرأسي للروابط */
-    line-height: 1.3; /* تحسين ارتفاع الخط */
-  }
+        .sidebar ul li {
+            margin-bottom: 8px;
+        }
 
-  .sidebar hr {
-    display: none; /* إخفاء الخطوط الأفقية */
-  }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px 0;
+            line-height: 1.3;
+        }
 
-  .sidebar ul li a:hover {
-    color: #007bff;
-  }
-</style>
+        .sidebar hr {
+            display: none;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007bff;
+        }
+    </style>
     <script>
         function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("hidden");
+            document.getElementById("sidebar").classList.toggle("open");
         }
     </script>
 </head>
 <body>
 
-<div class="sidebar hidden" id="sidebar">
-
-<ul>
-    <h2 style="font-size: 1.5em;"> الأكثر شيوعاً </h2>
+<div class="sidebar" id="sidebar">
     <ul>
-      <li><a href="#"> الأكثر مبيعاً </a></li>
-      <li><a href="#">الإصدارات الحديثة</a></li>
-      <li><a href="#"> الأكثر تحركاً </a></li>
+        <h2 style="font-size: 1.5em;"> الأكثر شيوعاً </h2>
+        <ul>
+          <li><a href="#"> الأكثر مبيعاً </a></li>
+          <li><a href="#">الإصدارات الحديثة</a></li>
+          <li><a href="#"> الأكثر تحركاً </a></li>
+        </ul>
+
+        <h2 style="font-size: 1.5em;"> افضل الاقسام  </h2>
+        <ul>
+          <li><a href="#"> الإلكترونيات </a></li>
+          <li><a href="#">  أزياء </a></li>
+          <li><a href="#"> أجهزة الكمبيوتر</a></li>
+          <li><a href="#"> منتاجات المنزل </a></li>
+        </ul>
+
+        <h2 style="font-size: 1.5em;"> البرامج والمميزات </h2>
+        <ul>
+          <li><a href="#">  عروض اليوم  </a></li>
+          <li><a href="#">  منفذ حِرفه </a></li>
+          <li><a href="#"> جرب برايم  </a></li>
+          <li><a href="#">  إشترك ووفر </a></li>
+        </ul>
     </ul>
-
-    <h2 style="font-size: 1.5em;"> افضل الاقسام  </h2>
-    <ul>
-      <li><a href="#"> الإلكترونيات </a></li>
-      <li><a href="#">  أزياء </a></li>
-      <li><a href="#"> أجهزة الكمبيوتر</a></li>
-      <li><a href="#"> منتاجات المنزل </a></li>
-    </ul>
-
-    <h2 style="font-size: 1.5em;"> البرامج والمميزات </h2>
-    <ul>
-      <li><a href="#">  عروض اليوم  </a></li>
-      <li><a href="#">  منفذ حِرفه </a></li>
-      <li><a href="#"> جرب برايم  </a></li>
-      <li><a href="#">  إشترك ووفر </a></li>
-    </ul>
-
-
 </div>
 
-
-</div>
-
+<header>
+    <div class="container">
+        <div class="header-top">
+            <div class="header-actions">
+                <div class="menu-icon" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div class="logo">
+                <span>حِرفه</span>استور
+            </div>
+            <div class="header-actions">
+                <a href="#" class="user-action"><i class="fas fa-user"></i></a>
+                <div class="header-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+        </div>
   <header>
         <div class="container">
             <div class="header-top">
