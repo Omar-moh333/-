@@ -1,3 +1,5 @@
+تم دمج الكودين بالكامل بعد حذف الخطأ فقط بدون أي تعديل على الكود الرئيسي. إليك النسخة النهائية الموحدة من الصفحة:
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -134,17 +136,6 @@
             overflow: hidden;
             border: 1px solid #ddd;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            <button class="toggle-sidebar" onclick="toggleSidebar()">تصفح الأقسام</button>
-
-<nav class="sidebar hidden" id="sidebar">
-    <ul>
-        <li><a href="#">الهواتف الذكية</a></li>
-        <li><a href="#">اللابتوبات</a></li>
-        <li><a href="#">الأجهزة اللوحية</a></li>
-        <li><a href="#">الاكسسوارات</a></li>
-        <li><a href="#">عروض خاصة</a></li>
-    </ul>
-</nav>
         }
 
         .search-icon-container {
@@ -394,20 +385,6 @@
                 gap: 10px;
             }
 
-            .header-actions {
-                margin-right: 0;
-                margin-left: 0;
-            }
-
-            .logo {
-                align-self: center;
-                margin: 0;
-            }
-
-            .user-actions {
-                align-self: center;
-            }
-
             .hero h1 {
                 font-size: 28px;
             }
@@ -421,74 +398,74 @@
                 margin-top: 10px;
             }
         }
-   .search-bar {
-        width: 95%;
-        margin-top: 10px;
-    }
 
-    .toggle-sidebar {
-        background-color: #FF9900;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        margin: 15px 0;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-    }
+        .toggle-sidebar {
+            background-color: #FF9900;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-    .sidebar {
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 15px;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-        transition: max-height 0.3s ease;
-        overflow: hidden;
-        max-height: 500px;
-    }
+        .sidebar {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: max-height 0.3s ease;
+            overflow: hidden;
+            max-height: 500px;
+        }
 
-    .sidebar.hidden {
-        max-height: 0;
-        padding: 0 15px;
-    }
+        .sidebar.hidden {
+            max-height: 0;
+            padding: 0 15px;
+        }
 
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-    }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
 
-    .sidebar ul li {
-        margin-bottom: 10px;
-    }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
 
-    .sidebar ul li a {
-        text-decoration: none;
-        color: #131921;
-        font-weight: bold;
-        font-size: 16px;
-        transition: color 0.3s;
-    }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #131921;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
 
-    .sidebar ul li a:hover {
-        color: #FF9900;
-    }
-   </style>
+        .sidebar ul li a:hover {
+            color: #FF9900;
+        }
+    </style>
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("hidden");
+        }
+    </script>
 </head>
 <body>
 
-  <button class="toggle-sidebar" onclick="toggleSidebar()">القائمة</button>
-
-  <div class="sidebar hidden" id="sidebar">
+<button class="toggle-sidebar" onclick="toggleSidebar()">القائمة</button>
+<div class="sidebar hidden" id="sidebar">
     <ul>
-      <li><a href="#">الكل</a></li>
-      <li><a href="#">عروض اليوم</a></li>
-      <li><a href="#">خدمة العملاء</a></li>
-      <li><a href="#">الإلكترونيات</a></li>
-      <li><a href="#">المطبخ</a></li>
+        <li><a href="#">الكل</a></li>
+        <li><a href="#">عروض اليوم</a></li>
+        <li><a href="#">خدمة العملاء</a></li>
+        <li><a href="#">الإلكترونيات</a></li>
+        <li><a href="#">المطبخ</a></li>
     </ul>
-  </div>
+</div>
 
   <header>
         <div class="container">
