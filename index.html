@@ -74,6 +74,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: nowrap;
         }
 
         .user-action {
@@ -416,21 +417,21 @@
     <header>
         <div class="container">
             <div class="header-top">
-                <div class="header-actions">
-                    <div class="menu-icon">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </div>
-                <div class="logo">
-                    <span>حِرفه</span>استور
-                </div>
-                <div class="header-actions">
-                    <a href="#" class="user-action"><i class="fas fa-user"></i></a>
-                    <div class="header-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </div>
-                </div>
+    <div class="header-actions">
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="logo">
+            <span>حِرفه</span>استور
+        </div>
+    </div>
+    <div class="header-actions">
+        <a href="#" class="user-action"><i class="fas fa-user"></i></a>
+        <div class="header-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </div>
             </div>
 
             <div class="search-bar">
