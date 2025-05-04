@@ -72,7 +72,7 @@
         .user-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px; /* تم تعديل المسافة */
         }
 
         .user-action {
@@ -374,7 +374,6 @@
             color: #ddd;
         }
 
-
         @media (max-width: 768px) {
             .header-top {
                 flex-direction: row;
@@ -507,13 +506,13 @@
   <header>
         <div class="container">
             <div class="header-top">
-                <div class="logo">
-                    <span>حِرفه</span>استور
-                </div>
                 <div class="header-actions">
                     <div class="menu-icon" onclick="toggleSidebar()">
                         <i class="fas fa-bars"></i>
                     </div>
+                </div>
+                <div class="logo">
+                    <span>حِرفه</span>استور
                 </div>
                 <div class="header-actions">
                     <a href="#" class="user-action"><i class="fas fa-user"></i></a>
@@ -524,7 +523,7 @@
                 </div>
             </div>
 
-            <div class="search-bar">
+            <div class="search-bar">
                 <div class="search-icon-container">
                     <i class="fas fa-search"></i>
                 </div>
