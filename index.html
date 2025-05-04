@@ -407,10 +407,9 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
-            display: none;
+            display: none; /* تم إخفاء الزر الأصفر */
         }
 
-        /* تعديلات القائمة الجانبية */
         .sidebar {
             width: 250px;
             background-color: #fff;
@@ -421,13 +420,13 @@
             right: 0;
             bottom: 0;
             overflow-y: auto;
-            z-index: 101;
-            transform: translateX(250px);
-            transition: transform 0.3s ease-in-out;
+            z-index: 101; /* عشان تكون فوق العناصر التانية */
+            transform: translateX(250px); /* لإخفائها في البداية */
+            transition: transform 0.3s ease-in-out; /* عشان يكون فيه حركة انزلاق */
         }
 
         .sidebar.open {
-            transform: translateX(0);
+            transform: translateX(0); /* لإظهارها */
         }
 
         .sidebar h2 {
@@ -463,7 +462,7 @@
             line-height: 1.3;
         }
 
-        .sidebar hr {
+        .sidebar hr {
             display: none;
         }
 
@@ -474,8 +473,19 @@
     <script>
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("open");
-        }
-    </script>
+  document.addEventListener('click', function (event) {
+    const sidebar = document.getElementById('sidebar'); // غيّر حسب id القائمة لديك
+    const toggleBtn = document.getElementById('menu-toggle'); // الزر الذي يفتح القائمة
+
+    // إذا كانت القائمة مفتوحة
+    if (sidebar.classList.contains('open')) {
+      // إذا تم الضغط خارج القائمة وخارج زر الفتح
+      if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
+        sidebar.classList.remove('open');
+      }
+    }
+  });
+</script>
 </head>
 <body>
 
