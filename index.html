@@ -25,32 +25,25 @@
             margin: 0 auto;
         }
 
-        /* --- CSS الخاص بشريط Amazon العلوي والسفلي المضاف --- */
         header {
             background-color: #131921;
             color: white;
-            padding: 10px 15px;
+            padding: 15px 0 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        .header-container {
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 0 15px;
+            border-bottom: none;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-right {
+        .header-actions {
             display: flex;
             align-items: center;
             gap: 15px;
@@ -59,18 +52,28 @@
         .menu-icon {
             cursor: pointer;
             font-size: 24px;
+            padding: 5px;
+            color: white;
         }
 
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: #FF9900;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .logo span {
+            color: white;
+            margin-right: 5px;
         }
 
         .user-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .user-action {
@@ -80,15 +83,32 @@
             cursor: pointer;
         }
 
+        .user-action:hover {
+            color: #FF9900;
+        }
+
         .header-cart {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: transparent;
+            padding: 8px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: color 0.3s;
             position: relative;
+        }
+
+        .header-cart:hover {
+            color: #FF9900;
+            background-color: transparent;
         }
 
         .header-cart i {
             font-size: 20px;
         }
 
-        .cart-count {
+        .header-cart .cart-count {
             background-color: #FF9900;
             color: #131921;
             border-radius: 50%;
@@ -104,82 +124,39 @@
             left: -5px;
         }
 
-        .search-bar-container {
-            text-align: center;
-            padding: 10px 15px;
-            background-color: #131921; /* للتأكد من أن الخلفية تمتد */
-        }
-
         .search-bar {
+            margin: 15px auto;
+            text-align: center;
             width: 95%;
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             align-items: center;
-            border-radius: 4px;
+            border-radius: 5px;
             overflow: hidden;
-            border: none;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .search-bar input[type="text"] {
-            flex-grow: 1;
-            padding: 10px;
-            font-size: 16px;
-            direction: rtl;
-            border: none;
-            outline: none;
-            color: #333;
-        }
-
-        .search-button {
+        .search-icon-container {
             background-color: #FF9900;
             color: #131921;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
+            padding: 10px;
             display: flex;
+            justify-content: center;
             align-items: center;
+            width: 40px;
         }
 
-        .search-button i {
+        .search-icon-container i {
             font-size: 20px;
         }
 
-        .bottom-navigation {
-            background-color: #232F3E;
-            color: white;
-            padding: 8px 15px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-        }
-
-        .bottom-navigation a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        /* --- نهاية CSS الخاص بشريط Amazon العلوي والسفلي المضاف --- */
-
-        .header-top {
-            display: none; /* إخفاء الهيدر الأصلي بتاع حرفه استور */
-        }
-
-        .logo {
-            /* تعديل بسيط عشان ميكونش فيه تكرار للوجو */
-            display: none;
-        }
-
-        .user-actions {
-            gap: 15px; /* تعديل بسيط للمسافة في الهيدر الجديد */
-        }
-
-        .user-action:hover {
-            color: #FF9900;
-        }
-
-        .search-bar {
-            display: none; /* إخفاء شريط البحث الأصلي بتاع حرفه استور */
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            font-size: 16px;
+            direction: rtl;
+            outline: none;
         }
 
         .hero {
@@ -414,11 +391,9 @@
                 font-size: 16px;
             }
 
-            .search-bar-container { /* تعديل عشان يظهر في الموبايل */
-                margin-top: 10px;
-            }
             .search-bar {
                 width: 95%;
+                margin-top: 10px;
             }
         }
 
@@ -501,7 +476,6 @@
     </script>
 </head>
 <body>
-
 
 <div class="sidebar" id="sidebar">
     <ul>
