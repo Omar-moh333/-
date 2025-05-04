@@ -4,90 +4,470 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>حِرفه استور - أفضل الأجهزة بأفضل الأسعار</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; background-color: #ffffff; }
-        .header { background-color: #232f3e; padding: 15px; text-align: center; }
-        .header img { height: 30px; }
-        .container { max-width: 400px; margin: 20px auto; padding: 20px; text-align: center; }
-        .container h1 { font-size: 20px; margin-bottom: 15px; }
-        .container input[type="text"] { width: 100%; padding: 12px; font-size: 16px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 4px; direction: rtl; }
-        .container button { background-color: #ffd814; border: 1px solid #fcd200; color: #111; font-size: 16px; padding: 10px; width: 100%; border-radius: 8px; cursor: pointer; }
-        .terms { font-size: 12px; color: #555; margin-top: 20px; line-height: 1.6; }
-        .terms a { color: #0066c0; text-decoration: none; }
-        .help { margin-top: 15px; font-size: 14px; }
-        .help a { color: #0066c0; text-decoration: none; }
-        .footer { background-color: #232f3e; color: #ddd; padding: 20px 10px; font-size: 12px; text-align: center; margin-top: 40px; }
-        .footer a { color: #ddd; text-decoration: none; margin: 0 5px; }
-        .footer .country-lang { margin-top: 10px; }
-        /* حِرفه استور CSS */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
-        body { background-color: #f3f3f3; color: #333; }
-        .main-container { width: 90%; max-width: 1200px; margin: 0 auto; }
-        header { background-color: #131921; color: white; padding: 15px 0 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 0 15px; border-bottom: none; }
-        .header-actions { display: flex; align-items: center; gap: 15px; }
-        .menu-icon { cursor: pointer; font-size: 24px; padding: 5px; color: white; }
-        .main-logo { font-size: 24px; font-weight: bold; color: #FF9900; display: flex; align-items: center; margin: 0 auto; }
-        .main-logo span { color: white; margin-right: 5px; }
-        .user-actions { display: flex; align-items: center; gap: 15px; }
-        .user-action { color: white; text-decoration: none; font-size: 18px; cursor: pointer; }
-        .user-action:hover { color: #FF9900; }
-        .header-cart { display: flex; align-items: center; gap: 5px; background-color: transparent; padding: 8px 0; border-radius: 4px; cursor: pointer; transition: color 0.3s; position: relative; }
-        .header-cart:hover { color: #FF9900; background-color: transparent; }
-        .header-cart i { font-size: 20px; }
-        .header-cart .cart-count { background-color: #FF9900; color: #131921; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; position: absolute; top: -5px; left: -5px; }
-        .search-bar { margin: 15px auto; text-align: center; width: 95%; display: flex; align-items: center; border-radius: 5px; overflow: hidden; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .search-icon-container { background-color: #FF9900; color: #131921; padding: 10px; display: flex; justify-content: center; align-items: center; width: 40px; }
-        .search-icon-container i { font-size: 20px; }
-        .search-bar input[type="text"] { width: 100%; padding: 12px; border: none; font-size: 16px; direction: rtl; outline: none; }
-        .hero { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-bottom: 30px; }
-        .hero .content { max-width: 800px; padding: 0 20px; }
-        .hero h1 { font-size: 36px; margin-bottom: 20px; }
-        .hero p { font-size: 18px; margin-bottom: 30px; }
-        .main-btn { display: inline-block; background-color: #FF9900; color: #131921; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; transition: all 0.3s; border: none; cursor: pointer; font-size: 16px; }
-        .main-btn:hover { background-color: #ffb340; }
-        .section-title { text-align: center; margin: 40px 0 20px; font-size: 28px; color: #131921; position: relative; }
-        .section-title:after { content: ""; display: block; width: 80px; height: 3px; background: #FF9900; margin: 10px auto; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; padding: 20px 0; }
-        .product-card { background-color: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; position: relative; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .product-img { height: 200px; background-color: #eee; background-size: contain; background-position: center; background-repeat: no-repeat; position: relative; }
-        .product-info { padding: 20px; }
-        .product-title { font-size: 16px; margin-bottom: 10px; height: 40px; overflow: hidden; }
-        .product-price { font-weight: bold; color: #B12704; font-size: 18px; margin-bottom: 10px; }
-        .add-to-cart { background: #232F3E; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; transition: background 0.3s; width: 100%; }
-        .add-to-cart:hover { background: #37475A; }
-        .product-badge { position: absolute; top: 10px; left: 10px; background-color: #FF9900; color: #131921; padding: 3px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
-        .product-rating { color: #FFD700; margin-bottom: 10px; font-size: 14px; }
-        .product-old-price { text-decoration: line-through; color: #999; font-size: 14px; margin-left: 5px; }
-        .discount-percentage { color: #B12704; font-weight: bold; }
-        main footer { background-color: #232F3E; color: white; padding: 40px 0 20px; margin-top: 60px; }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
-        .footer-column h3 { font-size: 18px; margin-bottom: 20px; color: #FF9900; position: relative; padding-bottom: 10px; }
-        .footer-column h3:after { content: ""; position: absolute; bottom: 0; right: 0; width: 40px; height: 2px; background: #FF9900; }
-        .footer-column ul { list-style: none; }
-        .footer-column ul li { margin-bottom: 10px; }
-        .footer-column ul li a { color: #ddd; text-decoration: none; transition: color 0.3s; font-size: 14px; }
-        .footer-column ul li a:hover { color: #FF9900; }
-        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #37475A; font-size: 14px; color: #ddd; }
-        @media (max-width: 768px) {
-            .header-top { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; }
-            .hero h1 { font-size: 28px; }
-            .hero p { font-size: 16px; }
-            .search-bar { width: 95%; margin-top: 10px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
         }
-        .toggle-sidebar { background-color: #FF9900; color: white; border: none; padding: 10px 20px; margin: 15px 0; border-radius: 5px; font-size: 16px; cursor: pointer; display: none; /* تم إخفاء الزر الأصفر */ }
-        .sidebar { width: 250px; background-color: #fff; padding: 15px; box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 101; /* عشان تكون فوق العناصر التانية / transform: translateX(-250px); / لإخفائها في البداية / transition: transform 0.3s ease-in-out; / عشان يكون فيه حركة انزلاق */ }
-        .sidebar.open { transform: translateX(0); /* لإظهارها */ }
-        .sidebar h2 { font-size: 1.5em; color: #111; margin-top: 0; margin-bottom: 15px; padding-bottom: 5px; border-bottom: 1px solid #ddd; }
-        .sidebar ul { list-style: none; padding: 0; margin: 0; margin-bottom: 20px; }
-        .sidebar ul ul { padding-left: 15px; margin-bottom: 0; }
-        .sidebar ul li { margin-bottom: 8px; }
-        .sidebar ul li a { text-decoration: none; color: #333; display: block; padding: 10px 0; line-height: 1.3; }
-        .sidebar hr { display: none; }
-        .sidebar ul li a:hover { color: #007bff; }
+
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #131921;
+            color: white;
+            padding: 15px 0 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 5px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF9900;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .logo span {
+            color: white;
+            margin-right: 5px;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-action {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .user-action:hover {
+            color: #FF9900;
+        }
+
+        .header-cart {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: transparent;
+            padding: 8px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .header-cart:hover {
+            color: #FF9900;
+            background-color: transparent;
+        }
+
+        .header-cart i {
+            font-size: 20px;
+        }
+
+        .header-cart .cart-count {
+            background-color: #FF9900;
+            color: #131921;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+        }
+
+        .search-bar {
+            margin: 15px auto;
+            text-align: center;
+            width: 95%;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-icon-container {
+            background-color: #FF9900;
+            color: #131921;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+        }
+
+        .search-icon-container i {
+            font-size: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            font-size: 16px;
+            direction: rtl;
+            outline: none;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .hero .content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #ffb340;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 28px;
+            color: #131921;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #FF9900;
+            margin: 10px auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #B12704;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            background: #232F3E;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background: #37475A;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-rating {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .discount-percentage {
+            color: #B12704;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #232F3E;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #FF9900;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF9900;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #FF9900;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37475A;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .search-bar {
+                width: 95%;
+                margin-top: 10px;
+            }
+        }
+
+        .toggle-sidebar {
+            background-color: #FF9900;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none; /* تم إخفاء الزر الأصفر */
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            padding: 15px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 101; /* عشان تكون فوق العناصر التانية */
+            transform: translateX(-250px); /* لإخفائها في البداية */
+            transition: transform 0.3s ease-in-out; /* عشان يكون فيه حركة انزلاق */
+        }
+
+        .sidebar.open {
+            transform: translateX(0); /* لإظهارها */
+        }
+
+        .sidebar h2 {
+            font-size: 1.5em;
+            color: #111;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul ul {
+            padding-left: 15px;
+            margin-bottom: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px 0;
+            line-height: 1.3;
+        }
+
+        .sidebar hr {
+            display: none;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007bff;
+        }
     </style>
     <script>
         function toggleSidebar() {
@@ -96,39 +476,43 @@
     </script>
 </head>
 <body>
-    <div class="sidebar" id="sidebar">
+
+<div class="sidebar" id="sidebar">
+    <ul>
+        <h2 style="font-size: 1.5em;"> الأكثر شيوعاً </h2>
         <ul>
-            <h2 style="font-size: 1.5em;"> الأكثر شيوعاً </h2>
-            <ul>
-                <li><a href="#"> الأكثر مبيعاً </a></li>
-                <li><a href="#">الإصدارات الحديثة</a></li>
-                <li><a href="#"> الأكثر تحركاً </a></li>
-            </ul>
-            <h2 style="font-size: 1.5em;"> افضل الاقسام </h2>
-            <ul>
-                <li><a href="#"> الإلكترونيات </a></li>
-                <li><a href="#"> أزياء </a></li>
-                <li><a href="#"> أجهزة الكمبيوتر</a></li>
-                <li><a href="#"> منتاجات المنزل </a></li>
-            </ul>
-            <h2 style="font-size: 1.5em;"> البرامج والمميزات </h2>
-            <ul>
-                <li><a href="#"> عروض اليوم </a></li>
-                <li><a href="#"> منفذ حِرفه </a></li>
-                <li><a href="#"> جرب برايم </a></li>
-                <li><a href="#"> إشترك ووفر </a></li>
-            </ul>
+          <li><a href="#"> الأكثر مبيعاً </a></li>
+          <li><a href="#">الإصدارات الحديثة</a></li>
+          <li><a href="#"> الأكثر تحركاً </a></li>
         </ul>
-    </div>
-    <header>
-        <div class="main-container">
+
+        <h2 style="font-size: 1.5em;"> افضل الاقسام  </h2>
+        <ul>
+          <li><a href="#"> الإلكترونيات </a></li>
+          <li><a href="#">  أزياء </a></li>
+          <li><a href="#"> أجهزة الكمبيوتر</a></li>
+          <li><a href="#"> منتاجات المنزل </a></li>
+        </ul>
+
+        <h2 style="font-size: 1.5em;"> البرامج والمميزات </h2>
+        <ul>
+          <li><a href="#">  عروض اليوم  </a></li>
+          <li><a href="#">  منفذ حِرفه </a></li>
+          <li><a href="#"> جرب برايم  </a></li>
+          <li><a href="#">  إشترك ووفر </a></li>
+        </ul>
+    </ul>
+</div>
+
+  <header>
+        <div class="container">
             <div class="header-top">
                 <div class="header-actions">
                     <div class="menu-icon" onclick="toggleSidebar()">
                         <i class="fas fa-bars"></i>
                     </div>
                 </div>
-                <div class="main-logo">
+                <div class="logo">
                     <span>حِرفه</span>استور
                 </div>
                 <div class="header-actions">
@@ -139,6 +523,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="search-bar">
                 <div class="search-icon-container">
                     <i class="fas fa-search"></i>
@@ -147,6 +532,7 @@
             </div>
         </div>
     </header>
+
     <section class="hero">
         <div class="content">
             <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
