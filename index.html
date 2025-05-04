@@ -410,45 +410,58 @@
             display: none; /* تم إخفاء الزر الأصفر */
         }
 
+ .sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+  }
 
-        .sidebar {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            transition: max-height 0.3s ease;
-            overflow: hidden;
-            max-height: 500px;
-        }
+  .sidebar h2 {
+    font-size: 1.1em;
+    color: #111;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+  }
 
-        .sidebar.hidden {
-            max-height: 0;
-            padding: 0 15px;
-        }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
+  .sidebar ul ul {
+    padding-left: 15px;
+    margin-bottom: 15px;
+  }
 
-        .sidebar ul li {
-            margin-bottom: 10px;
-        }
+  .sidebar ul li {
+    margin-bottom: 5px;
+  }
 
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #131921;
-            font-weight: bold;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 8px 0;
+  }
 
-        .sidebar ul li a:hover {
-            color: #FF9900;
-        }
-    </style>
+  .sidebar hr {
+    display: none;
+  }
+
+  /* ممكن تضيف هنا أي تنسيقات إضافية زي لون الروابط عند الـ hover */
+  .sidebar ul li a:hover {
+    color: #007bff; /* مثال: تغيير لون الرابط عند مرور الماوس */
+  }
+</style>
     <script>
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("hidden");
