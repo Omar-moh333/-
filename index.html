@@ -54,6 +54,7 @@
             font-size: 24px;
             padding: 5px;
             color: white;
+            onclick="toggleSidebar()" /* إضافة وظيفة فتح السايدبار لزر الثلاث خطوط */
         }
 
         .logo {
@@ -409,117 +410,283 @@
             display: none; /* تم إخفاء الزر الأصفر */
         }
 
-        .sidebar {
-            width: 250px;
-            background-color: #fff;
-            padding: 15px;
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            overflow-y: auto;
-            z-index: 101; /* عشان تكون فوق العناصر التانية */
-            transform: translateX(-250px); /* لإخفائها في البداية */
-            transition: transform 0.3s ease-in-out; /* عشان يكون فيه حركة انزلاق */
-        }
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 15px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+  }
 
-        .sidebar.open {
-            transform: translateX(0); /* لإظهارها */
-        }
+  .sidebar h2 {
+    font-size: 1.1em;
+    color: #111;
+    margin-top: 0;
+    margin-bottom: 15px; /* زودنا المسافة أسفل العنوان */
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+  }
 
-        .sidebar h2 {
-            font-size: 1.5em;
-            color: #111;
-            margin-top: 0;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #ddd;
-        }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px; /* زودنا المسافة أسفل كل قائمة رئيسية */
+  }
 
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            margin-bottom: 20px;
-        }
+  .sidebar ul ul {
+    padding-left: 15px;
+    margin-bottom: 0; /* قللنا المسافة أسفل القوائم الداخلية عشان العناصر اللي جواها تكون قريبة من بعض */
+  }
 
-        .sidebar ul ul {
-            padding-left: 15px;
-            margin-bottom: 0;
-        }
+  .sidebar ul li {
+    margin-bottom: 8px; /* زودنا المسافة بين عناصر القائمة الداخلية */
+  }
 
-        .sidebar ul li {
-            margin-bottom: 8px;
-        }
+  .sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 0; /* زودنا الـ padding الرأسي للروابط */
+    line-height: 1.3; /* تحسين ارتفاع الخط */
+  }
 
-        .sidebar ul li a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-            padding: 10px 0;
-            line-height: 1.3;
-        }
+  .sidebar hr {
+    display: none; /* إخفاء الخطوط الأفقية */
+  }
 
-        .sidebar hr {
-            display: none;
-        }
-
-        .sidebar ul li a:hover {
-            color: #007bff;
-        }
-    </style>
+  .sidebar ul li a:hover {
+    color: #007bff;
+  }
+</style>
     <script>
         function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("open");
+            document.getElementById("sidebar").classList.toggle("hidden");
         }
     </script>
 </head>
 <body>
 
-<div class="sidebar" id="sidebar">
+<div class="sidebar hidden" id="sidebar">
+
+<ul>
+    <h2 style="font-size: 1.5em;"> الأكثر شيوعاً </h2>
     <ul>
-        <h2 style="font-size: 1.5em;"> الأكثر شيوعاً </h2>
-        <ul>
-          <li><a href="#"> الأكثر مبيعاً </a></li>
-          <li><a href="#">الإصدارات الحديثة</a></li>
-          <li><a href="#"> الأكثر تحركاً </a></li>
-        </ul>
-
-        <h2 style="font-size: 1.5em;"> افضل الاقسام  </h2>
-        <ul>
-          <li><a href="#"> الإلكترونيات </a></li>
-          <li><a href="#">  أزياء </a></li>
-          <li><a href="#"> أجهزة الكمبيوتر</a></li>
-          <li><a href="#"> منتاجات المنزل </a></li>
-        </ul>
-
-        <h2 style="font-size: 1.5em;"> البرامج والمميزات </h2>
-        <ul>
-          <li><a href="#">  عروض اليوم  </a></li>
-          <li><a href="#">  منفذ حِرفه </a></li>
-          <li><a href="#"> جرب برايم  </a></li>
-          <li><a href="#">  إشترك ووفر </a></li>
-        </ul>
+      <li><a href="#"> الأكثر مبيعاً </a></li>
+      <li><a href="#">الإصدارات الحديثة</a></li>
+      <li><a href="#"> الأكثر تحركاً </a></li>
     </ul>
+
+    <h2 style="font-size: 1.5em;"> افضل الاقسام  </h2>
+    <ul>
+      <li><a href="#"> الإلكترونيات </a></li>
+      <li><a href="#">  أزياء </a></li>
+      <li><a href="#"> أجهزة الكمبيوتر</a></li>
+      <li><a href="#"> منتاجات المنزل </a></li>
+    </ul>
+
+    <h2 style="font-size: 1.5em;"> البرامج والمميزات </h2>
+    <ul>
+      <li><a href="#">  عروض اليوم  </a></li>
+      <li><a href="#">  منفذ حِرفه </a></li>
+      <li><a href="#"> جرب برايم  </a></li>
+      <li><a href="#">  إشترك ووفر </a></li>
+    </ul>
+
+
 </div>
 
-<header>
-    <div class="container">
-        <div class="header-top">
-            <div class="header-actions">
-                <div class="menu-icon" onclick="toggleSidebar()">
-                    <i class="fas fa-bars"></i>
+
+</div>
+
+  <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="header-actions">
+                    <div class="menu-icon" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+                <div class="logo">
+                    <span>حِرفه</span>استور
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-action"><i class="fas fa-user"></i></a>
+                    <div class="header-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
                 </div>
             </div>
-            <div class="logo">
-                <span>حِرفه</span>استور
-            </div>
-            <div class="header-actions">
-                <a href="#" class="user-action"><i class="fas fa-user"></i></a>
-                <div class="header-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
+
+            <div class="search-bar">
+                <div class="search-icon-container">
+                    <i class="fas fa-search"></i>
                 </div>
+                <input type="text" name="q" placeholder="ابحث عن منتج...">
             </div>
         </div>
+    </header>
+
+    <section class="hero">
+        <div class="content">
+            <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
+            <a href="#products" class="btn">تصفح المنتجات</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title" id="products">أحدث المنتجات</h2>
+        <div class="products-grid">
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://www.raneen.com/media/catalog/product/1/9/19_dzkobro43jpdat27.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000');">
+                    <div class="product-badge"> جديد جدا </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">(HP15B) سماعة لافينتو  </div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-price">
+                        899 جنية
+                        <span class="product-old-price">1199 جنية </span>
+                        <span class="discount-percentage">-25%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://egyptlaptop.com/images/blog/60/%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF_%D9%85%D9%8A%D8%B2%D8%A7%D9%86%D9%8A%D8%A9_%D8%B4%D8%B1%D8%A7%D8%A1_%D8%A7%D9%81%D8%B6%D9%84_%D8%A7%D9%86%D9%88%D8%A7%D8%B9_%D8%A7%D9%84%D9%84%D8%A7%D8%A8_%D8%AA%D9%88%D8%A8_%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8_%D9%84%D8%A7%D8%AD%D8%AA%D9%8A%D8%A7%D8%AC%D8%A7%D8%AA%D9%83.webp');">
+                    <div class="product-badge">ممنوعات يا صاحبي  </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title"> HP ZBOOK 15 G6 لاب توب  </div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">
+                        30000 جنية
+                        <span class="product-old-price">35000 جنية </span>
+                        <span class="discount-percentage">-14%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+              <div class="product-card">
+                <div class="product-img" style="background-image: url('https://egyptlaptop.com/images/blog/60/%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF_%D9%85%D9%8A%D8%B2%D8%A7%D9%86%D9%8A%D8%A9_%D8%B4%D8%B1%D8%A7%D8%A1_%D8%A7%D9%81%D8%B6%D9%84_%D8%A7%D9%86%D9%88%D8%A7%D8%B9_%D8%A7%D9%84%D9%84%D8%A7%D8%A8_%D8%AA%D9%88%D8%A8_%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8_%D9%84%D8%A7%D8%AD%D8%AA%D9%8A%D8%A7%D8%AC%D8%A7%D8%AA%D9%83.webp');">
+                    <div class="product-badge">الحق بسرعه</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title"> HP ZBOOK 15 G5 لاب توب  </div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">
+                        16000 جنية
+                        <span class="product-old-price">32000 جنية </span>
+                        <span class="discount-percentage">-50%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+              <div class="product-card">
+                <div class="product-img" style="background-image: url('https://www.raneen.com/media/catalog/product/1/9/19_dzkobro43jpdat27.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000');">
+                    <div class="product-badge">كسر زيرو</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">(HP15B) سماعة لافينتو  </div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-price">
+                        649 جنية
+                        <span class="product-old-price">999 جنية </span>
+                        <span class="discount-percentage">-45%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://egyptlaptop.com/images/blog/60/%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF_%D9%85%D9%8A%D8%B2%D8%A7%D9%86%D9%8A%D8%A9_%D8%B4%D8%B1%D8%A7%D8%A1_%D8%A7%D9%81%D8%B6%D9%84_%D8%A7%D9%86%D9%88%D8%A7%D8%B9_%D8%A7%D9%84%D9%84%D8%A7%D8%A8_%D8%AA%D9%88%D8%A8_%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8_%D9%84%D8%A7%D8%AD%D8%AA%D9%8A%D8%A7%D8%AC%D8%A7%D8%AA%D9%83.webp');">
+                    <div class="product-badge">عرض خاص</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title"> HP ZBOOK 15 G5 لاب توب  </div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">
+                        28000 جنية
+                        <span class="product-old-price">33000 جنية </span>
+                        <span class="discount-percentage">-16%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+               <div class="product-card">
+                <div class="product-img" style="background-image: url('https://www.raneen.com/media/catalog/product/1/9/19_dzkobro43jpdat27.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=1000&width=1000&canvas=1000:1000');">
+                    <div class="product-badge">جديد</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">(HP20B) سماعة لافينتو  </div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-price">
+                        849 جنية
+                        <span class="product-old-price">1399 جنية </span>
+                        <span class="discount-percentage">-40%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://egyptlaptop.com/images/blog/60/%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF_%D9%85%D9%8A%D8%B2%D8%A7%D9%86%D9%8A%D8%A9_%D8%B4%D8%B1%D8%A7%D8%A1_%D8%A7%D9%81%D8%B6%D9%84_%D8%A7%D9%86%D9%88%D8%A7%D8%B9_%D8%A7%D9%84%D9%84%D8%A7%D8%A8_%D8%AA%D9%88%D8%A8_%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B3%D8%A8_%D9%84%D8%A7%D8%AD%D8%AA%D9%8A%D8%A7%D8%AC%D8%A7%D8%AA%D9%83.webp');">
+                    <div class="product-badge">عرض خاص</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title"> HP ZBOOK 16 G4 لاب توب  </div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">
+                        26000 جنية
+                        <span class="product-old-price">31000 جنية </span>
+                        <span class="discount-percentage">-20%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+           
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3> روابط هامة </h3>
+                    <ul>
+                        <li><a href="#"> حسابك </a></li>
+                        <li><a href="#"> قوائمك </a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#"> عن حِرفه استور </a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3> خدمة العملاء </h3>
+                    <ul>
+                        <li><a href="#"> مشتراياتك </a></li>
+                        <li><a href="#"> عناوينك </a></li>
+                        <li><a href="#"> تتبع طلبك</a></li>
+                        <li><a href="#"> ابدأ البيع </a></li>
+                        <li><a href="#"> الأسئلة الشائعة</a></li>
+                        <li><a href="#"> تواصل معنا</a></li>
+                        <li><a href="#"> عمليات الاستدعاء وتنبيهات سلامة المنتج  </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 حِرفه استور. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
