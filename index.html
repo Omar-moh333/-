@@ -7,148 +7,512 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ... أكواد CSS الحالية ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
 
-        /* أكواد CSS للقائمة الجانبية (كما في الخطوة 2 أعلاه) */
-        .side-menu { /* ... */ }
-        .side-menu .menu-header { /* ... */ }
-        .side-menu .close-btn { /* ... */ }
-        .side-menu ul { /* ... */ }
-        .side-menu ul li a { /* ... */ }
-        .side-menu ul li a i { /* ... */ }
-        .side-menu .menu-separator { /* ... */ }
-        #mainContent { /* ... */ }
-        .open-menu-btn { /* ... */ }
-        .open-menu-btn i { /* ... */ }
-        body.menu-open #mainContent { /* ... */ }
-        body.menu-open .open-menu-btn { /* ... */ }
+        body {
+            background-color: #f3f3f3;
+            color: #333;
+        }
 
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #131921;
+            color: white;
+            padding: 15px 0 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            border-bottom: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            font-size: 24px;
+            padding: 5px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF9900;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .logo span {
+            color: white;
+            margin-right: 5px;
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-action {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .user-action:hover {
+            color: #FF9900;
+        }
+
+        .header-cart {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background-color: transparent;
+            padding: 8px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .header-cart:hover {
+            color: #FF9900;
+            background-color: transparent;
+        }
+
+        .header-cart i {
+            font-size: 20px;
+        }
+
+        .header-cart .cart-count {
+            background-color: #FF9900;
+            color: #131921;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+        }
+
+        .search-bar {
+            margin: 15px auto;
+            text-align: center;
+            width: 95%;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-icon-container {
+            background-color: #FF9900;
+            color: #131921;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+        }
+
+        .search-icon-container i {
+            font-size: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            font-size: 16px;
+            direction: rtl;
+            outline: none;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .hero .content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #ffb340;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            font-size: 28px;
+            color: #131921;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #FF9900;
+            margin: 10px auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #B12704;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            background: #232F3E;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .add-to-cart:hover {
+            background: #37475A;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #FF9900;
+            color: #131921;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .product-rating {
+            color: #FFD700;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .discount-percentage {
+            color: #B12704;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #232F3E;
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #FF9900;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 2px;
+            background: #FF9900;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #FF9900;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37475A;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .header-actions {
+                margin-right: 0;
+                margin-left: 0;
+            }
+
+            .logo {
+                align-self: center;
+                margin: 0;
+            }
+
+            .user-actions {
+                align-self: center;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .search-bar {
+                width: 95%;
+                margin-top: 10px;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <div id="sideMenu" class="side-menu">
-        <div class="menu-header">
-            <i class="fas fa-times close-btn" onclick="closeSideMenu()"></i>
-            <h3>تصفح المتجر</h3>
-        </div>
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
-            <li><a href="#"><i class="fas fa-fire"></i> الأكثر شيوعاً</a></li>
-            <li><a href="#"><i class="fas fa-tag"></i> أحدث الإصدارات</a></li>
-            <li><a href="#"><i class="fas fa-heart"></i> الأكثر تداولاً</a></li>
-            <li class="menu-separator">أفضل الأقسام</li>
-            <li><a href="#"><i class="fas fa-mobile-alt"></i> الإلكترونيات</a></li>
-            <li><a href="#"><i class="fas fa-tshirt"></i> أزياء</a></li>
-            <li><a href="#"><i class="fas fa-laptop"></i> أجهزة الكمبيوتر</a></li>
-            <li><a href="#"><i class="fas fa-home"></i> منتجات المنزل</a></li>
-            <li><a href="#">عرض الكل <i class="fas fa-chevron-down"></i></a></li>
-        </ul>
-    </div>
-
-    <div id="mainContent">
-        <header>
-            <div class="container">
-                <div class="header-top">
-                    <div class="header-actions">
-                        <div class="menu-icon">
-                            <i class="fas fa-bars open-menu-btn" onclick="openSideMenu()"></i>
-                        </div>
-                    </div>
-                    <div class="logo">
-                        <span>حِرفه</span>استور
-                    </div>
-                    <div class="header-actions">
-                        <a href="#" class="user-action"><i class="fas fa-user"></i></a>
-                        <div class="header-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count">0</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" name="q" placeholder="ابحث عن منتج...">
-                </div>
-            </div>
-        </header>
-        <section class="hero">
-            <div class="content">
-                <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
-                <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
-                <a href="#products" class="btn">تصفح المنتجات</a>
-            </div>
-        </section>
+    <header>
         <div class="container">
-            <h2 class="section-title" id="products">أحدث المنتجات</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://via.placeholder.com/300x200');">
-                        <div class="product-badge">جديد</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">سماعة رأس لاسلكية</div>
-                        <div class="product-rating">★★★★☆</div>
-                        <div class="product-price"> 150 ر.س <span class="product-old-price">200 ر.س</span> <span class="discount-percentage">-25%</span>
-                        </div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
+            <div class="header-top">
+                <div class="header-actions">
+                    <div class="menu-icon">
+                        <i class="fas fa-bars"></i>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://via.placeholder.com/300x200');">
-                        <div class="product-badge">عرض خاص</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-title">جهاز لابتوب متطور</div>
-                        <div class="product-rating">★★★★★</div>
-                        <div class="product-price"> 3000 ر.س <span class="product-old-price">3500 ر.س</span> <span class="discount-percentage">-14%</span>
-                        </div>
-                        <button class="add-to-cart">أضف إلى السلة</button>
+                <div class="logo">
+                    <span>حِرفه</span>استور
+                </div>
+                <div class="header-actions">
+                    <a href="#" class="user-action"><i class="fas fa-user"></i></a>
+                    <div class="header-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="search-bar">
+                <div class="search-icon-container">
+                    <i class="fas fa-search"></i>
+                </div>
+                <input type="text" name="q" placeholder="ابحث عن منتج...">
             </div>
         </div>
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-column">
-                        <h3>روابط هامة</h3>
-                        <ul>
-                            <li><a href="#">عن حِرفه استور</a></li>
-                            <li><a href="#">سياسة الخصوصية</a></li>
-                            <li><a href="#">شروط الاستخدام</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>خدمة العملاء</h3>
-                        <ul>
-                            <li><a href="#">تواصل معنا</a></li>
-                            <li><a href="#">الأسئلة الشائعة</a></li>
-                            <li><a href="#">تتبع طلبك</a></li>
-                        </ul>
-                    </div>
+    </header>
+
+    <section class="hero">
+        <div class="content">
+            <h1>أحدث الأجهزة الإلكترونية بأسعار تنافسية</h1>
+            <p>اكتشف تشكيلتنا الواسعة من الهواتف الذكية، اللابتوبات، الأجهزة اللوحية والاكسسوارات</p>
+            <a href="#products" class="btn">تصفح المنتجات</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title" id="products">أحدث المنتجات</h2>
+        <div class="products-grid">
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/300x200');">
+                    <div class="product-badge">جديد</div>
                 </div>
-                <div class="copyright">
-                    © 2025 حِرفه استور. جميع الحقوق محفوظة.
+                <div class="product-info">
+                    <div class="product-title">سماعة رأس لاسلكية</div>
+                    <div class="product-rating">★★★★☆</div>
+                    <div class="product-price">
+                        150 ر.س
+                        <span class="product-old-price">200 ر.س</span>
+                        <span class="discount-percentage">-25%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
                 </div>
             </div>
-        </footer>
+
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://via.placeholder.com/300x200');">
+                    <div class="product-badge">عرض خاص</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-title">جهاز لابتوب متطور</div>
+                    <div class="product-rating">★★★★★</div>
+                    <div class="product-price">
+                        3000 ر.س
+                        <span class="product-old-price">3500 ر.س</span>
+                        <span class="discount-percentage">-14%</span>
+                    </div>
+                    <button class="add-to-cart">أضف إلى السلة</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-    <script>
-        // أكواد JavaScript للتحكم في القائمة الجانبية (كما في الخطوة 3 أعلاه)
-        function openSideMenu() {
-            document.getElementById("sideMenu").style.width = "250px";
-            document.getElementById("mainContent").style.marginRight = "250px";
-            document.body.classList.add('menu-open');
-        }
-
-        function closeSideMenu() {
-            document.getElementById("sideMenu").style.width = "0";
-            document.getElementById("mainContent").style.marginRight = "0";
-            document.body.classList.remove('menu-open');
-        }
-    </script>
-
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>روابط هامة</h3>
+                    <ul>
+                        <li><a href="#">عن حِرفه استور</a></li>
+                        <li><a href="#">سياسة الخصوصية</a></li>
+                        <li><a href="#">شروط الاستخدام</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>خدمة العملاء</h3>
+                    <ul>
+                        <li><a href="#">تواصل معنا</a></li>
+                        <li><a href="#">الأسئلة الشائعة</a></li>
+                        <li><a href="#">تتبع طلبك</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 حِرفه استور. جميع الحقوق محفوظة.
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
