@@ -472,19 +472,8 @@
     <script>
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("open");
-  document.addEventListener('click', function (event) {
-    const sidebar = document.getElementById('sidebar'); // غيّر حسب id القائمة لديك
-    const toggleBtn = document.getElementById('menu-toggle'); // الزر الذي يفتح القائمة
-
-    // إذا كانت القائمة مفتوحة
-    if (sidebar.classList.contains('open')) {
-      // إذا تم الضغط خارج القائمة وخارج زر الفتح
-      if (!sidebar.contains(event.target) && !toggleBtn.contains(event.target)) {
-        sidebar.classList.remove('open');
-      }
-    }
-  });
-</script>
+        }
+    </script>
 </head>
 <body>
 
