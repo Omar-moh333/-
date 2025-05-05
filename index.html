@@ -468,31 +468,31 @@
         .sidebar ul li a:hover {
             color: #007bff;
         }
-       .account-icon {
-  position: relative;
-  cursor: pointer;
-}
-
-#dropdownMenu {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-  top: 100%; /* أسفل العنصر */
-  right: 0;
-  background: white;
-  width: 300px;
-  border: 1px solid #ccc;
-  z-index: 1000;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  direction: rtl;
-  transition: all 0.3s ease;
-}
-
-#dropdownMenu.show {
-  opacity: 1;
-  visibility: visible;
-}
+        .account-icon {
+            position: relative;
+            cursor: pointer;
+          }
+          
+          #dropdownMenu {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 100%; /* أسفل العنصر */
+            right: 0;
+            background: white;
+            width: 300px;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            direction: rtl;
+            transition: all 0.3s ease;
+          }
+          
+          #dropdownMenu.show {
+            opacity: 1;
+            visibility: visible;
+          }
           
           .menu-header {
             background-color: #f3f3f3;
@@ -610,10 +610,12 @@
                     <span>حِرفه</span>استور
                 </div>
                 <div class="header-actions">
-<i class="fa fa-user account-icon" onclick="toggleMenu()"></i>
-<div id="dropdownMenu">
-  <!-- محتوى القائمة هنا -->
-</div>
+                <div class="account-dropdown" style="position: relative;">
+                <i class="fa fa-user account-icon" onclick="toggleMenu()"></i>
+                <div id="dropdownMenu" class="dropdown-menu">
+                  <!-- محتوى القائمة هنا -->
+                </div>
+              </div>
                     <div class="dropdown-menu" id="dropdownMenu">
   <div class="menu-header">
     <button class="login-button">تسجيل الدخول</button>
