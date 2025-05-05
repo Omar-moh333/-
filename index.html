@@ -468,17 +468,16 @@
         .sidebar ul li a:hover {
             color: #007bff;
         }
-        .account-icon {
-            position: relative;
-            display: inline-block;
-          }
-          
+       .account-icon {
+  position: relative;
+  cursor: pointer;
+}
 
-         #dropdownMenu {
+#dropdownMenu {
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  top: 100%;
+  top: 100%; /* أسفل العنصر */
   right: 0;
   background: white;
   width: 300px;
@@ -611,8 +610,9 @@
                     <span>حِرفه</span>استور
                 </div>
                 <div class="header-actions">
-<div class="account-icon" onclick="toggleMenu()">
-  <i class="fas fa-user"></i> <!-- أو الصورة -->
+<i class="fa fa-user account-icon" onclick="toggleMenu()"></i>
+<div id="dropdownMenu">
+  <!-- محتوى القائمة هنا -->
 </div>
                     <div class="dropdown-menu" id="dropdownMenu">
   <div class="menu-header">
