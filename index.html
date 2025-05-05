@@ -474,8 +474,7 @@
 }
 
 .dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
   position: absolute;
   top: 100%;
   right: 0;
@@ -486,12 +485,6 @@
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   direction: rtl;
-  transition: all 0.3s ease;
-}
-
-.dropdown-menu.show {
-  opacity: 1;
-  visibility: visible;
 }
 
 .menu-header {
@@ -562,15 +555,12 @@
         ) {
             sidebar.classList.remove("open");
         }
-        if (!menu.contains(event.target) && !icon.contains(event.target)) {
-  menu.classList.remove('show');
-}
     });
 </script>
     <script>
   function toggleMenu() {
     const menu = document.getElementById('dropdownMenu');
-  menu.classList.toggle('show');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
   }
 
   document.addEventListener('click', function(event) {
