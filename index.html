@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon - أفضل الأجهزة بأفضل الأسعار</title>
+    <title>حِرفه استور - أفضل الأجهزة بأفضل الأسعار</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -406,7 +406,7 @@
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
-            display: none;
+            display: none; /* تم إخفاء الزر الأصفر */
         }
 
         .sidebar {
@@ -416,15 +416,16 @@
             box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
-            right: -250px;
+            right: 0;
             bottom: 0;
             overflow-y: auto;
-            z-index: 101;
-            transition: right 0.3s ease-in-out;
+            z-index: 101; /* عشان تكون فوق العناصر التانية */
+            transform: translateX(250px); /* لإخفائها في البداية */
+            transition: transform 0.3s ease-in-out; /* عشان يكون فيه حركة انزلاق */
         }
 
         .sidebar.open {
-            right: 0;
+            transform: translateX(0); /* لإظهارها */
         }
 
         .sidebar h2 {
@@ -469,29 +470,30 @@
         }
         .account-icon {
             position: relative;
-            cursor: pointer;
+            display: inline-block;
           }
           
-          #dropdownMenu {
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            top: 100%; /* أسفل العنصر */
-            right: 0;
-            background: white;
-            width: 300px;
-            border: 1px solid #ccc;
-            z-index: 9999;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            direction: rtl;
-            transition: all 0.3s ease;
-          }
-          
-          #dropdownMenu.show {
-            opacity: 1;
-            visibility: visible;
-          }
+
+         #dropdownMenu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  width: 300px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  direction: rtl;
+  transition: all 0.3s ease;
+}
+
+#dropdownMenu.show {
+  opacity: 1;
+  visibility: visible;
+}
           
           .menu-header {
             background-color: #f3f3f3;
@@ -590,7 +592,7 @@
         <h2 style="font-size: 1.5em;"> البرامج والمميزات </h2>
         <ul>
           <li><a href="#">  عروض اليوم  </a></li>
-          <li><a href="#">  Amazon منفذ </a></li>
+          <li><a href="#">  منفذ حِرفه </a></li>
           <li><a href="#"> جرب برايم  </a></li>
           <li><a href="#">  إشترك ووفر </a></li>
         </ul>
@@ -606,15 +608,12 @@
                     </div>
                 </div>
                 <div class="logo">
-                    <span>Amazon</span>
+                    <span>حِرفه</span>استور
                 </div>
                 <div class="header-actions">
-                <div class="account-dropdown" style="position: relative;">
-                <i class="fa fa-user account-icon" onclick="toggleMenu()"></i>
-                <div id="dropdownMenu" class="dropdown-menu">
-                  <!-- محتوى القائمة هنا -->
-                </div>
-              </div>
+<div class="account-icon" onclick="toggleMenu()">
+  <i class="fas fa-user"></i> <!-- أو الصورة -->
+</div>
                     <div class="dropdown-menu" id="dropdownMenu">
   <div class="menu-header">
     <button class="login-button">تسجيل الدخول</button>
@@ -792,7 +791,7 @@
                         <li><a href="#"> قوائمك </a></li>
                         <li><a href="#">شروط الاستخدام</a></li>
                         <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#"> Amazon عن </a></li>
+                        <li><a href="#"> عن حِرفه استور </a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -809,7 +808,7 @@
                 </div>
             </div>
             <div class="copyright">
-                © 2025 جميع الحقوق محفوظة Amazon .
+                © 2025 حِرفه استور. جميع الحقوق محفوظة.
             </div>
         </div>
     </footer>
