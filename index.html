@@ -470,14 +470,31 @@
         }
     </style>
     <script>
-        function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("open");
+    function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("open");
+    }
+
+    // غلق القائمة عند الضغط خارجها
+    document.addEventListener("click", function(event) {
+        const sidebar = document.getElementById("sidebar");
+        const menuIcon = document.querySelector(".menu-icon");
+
+        if (
+            sidebar.classList.contains("open") &&
+            !sidebar.contains(event.target) &&
+            !menuIcon.contains(event.target)
+        ) {
+            sidebar.classList.remove("open");
         }
-    </script>
+    });
+</script>
 </head>
 <body>
 
 <div class="sidebar" id="sidebar">
+<button onclick="toggleSidebar()" style="position:absolute; top:10px; left:10px; background:none; border:none; font-size:20px; cursor:pointer;">
+    <i class="fas fa-times"></i>
+</button>
     <ul>
         <h2 style="font-size: 1.5em;"> الأكثر شيوعاً </h2>
         <ul>
