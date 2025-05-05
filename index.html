@@ -473,66 +473,27 @@
             display: inline-block;
           }
           
-          .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            width: 300px;
-            border: 1px solid #ccc;
-            z-index: 1000;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            direction: rtl;
-          }
-          
-          .menu-header {
-            background-color: #f3f3f3;
-            padding: 10px;
-            text-align: center;
-          }
-          
-          .login-button {
-            background: #ffd814;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-          }
-          
-          .menu-content {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-top: 10px;
-          }
-          
-          .menu-content ul {
-            list-style: none;
-            padding: 0;
-          }
-          
-          .menu-content li {
-            margin-bottom: 5px;
-          }
-          .account-icon {
-            position: relative;
-            display: inline-block;
-          }
-          
-          .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            width: 300px;
-            border: 1px solid #ccc;
-            z-index: 1000;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            direction: rtl;
-          }
+
+         #dropdownMenu {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  width: 300px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  direction: rtl;
+  transition: all 0.3s ease;
+}
+
+#dropdownMenu.show {
+  opacity: 1;
+  visibility: visible;
+}
           
           .menu-header {
             background-color: #f3f3f3;
