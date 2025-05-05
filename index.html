@@ -468,53 +468,6 @@
         .sidebar ul li a:hover {
             color: #007bff;
         }
-        .account-icon {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: white;
-  width: 300px;
-  border: 1px solid #ccc;
-  z-index: 1000;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  direction: rtl;
-}
-
-.menu-header {
-  background-color: #f3f3f3;
-  padding: 10px;
-  text-align: center;
-}
-
-.login-button {
-  background: #ffd814;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.menu-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.menu-content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.menu-content li {
-  margin-bottom: 5px;
-}
     </style>
     <!-- محتوى الصفحة -->
 
@@ -556,20 +509,6 @@
             sidebar.classList.remove("open");
         }
     });
-</script>
-    <script>
-  function toggleMenu() {
-    const menu = document.getElementById('dropdownMenu');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
-
-  document.addEventListener('click', function(event) {
-    const menu = document.getElementById('dropdownMenu');
-    const icon = document.querySelector('.account-icon');
-    if (!menu.contains(event.target) && !icon.contains(event.target)) {
-      menu.style.display = 'none';
-    }
-  });
 </script>
 </head>
 <body>
@@ -617,33 +556,6 @@
                 </div>
                 <div class="header-actions">
                     <a href="#" class="user-action"><i class="fas fa-user"></i></a>
-                    <div class="account-icon" onclick="toggleMenu()">
-                        <div class="dropdown-menu" id="dropdownMenu">
-  <div class="menu-header">
-    <button class="login-button">تسجيل الدخول</button>
-    <p>هل أنت مستخدم جديد؟ <a href="#">ابدأ من هنا</a></p>
-  </div>
-  <div class="menu-content">
-    <div class="account-section">
-      <h4>حسابك</h4>
-      <ul>
-        <li><a href="#">حسابك</a></li>
-        <li><a href="#">مشترياتك</a></li>
-        <li><a href="#">عناوينك</a></li>
-        <li><a href="#">قوائمك</a></li>
-        <li><a href="#">توصياتك</a></li>
-        <li><a href="#">السلع الخاصة بخاصية اشترِك ووفر</a></li>
-        <li><a href="#">عضوية برايم الخاصة بك</a></li>
-        <li><a href="#">حساب البيع الخاص بك</a></li>
-      </ul>
-    </div>
-    <div class="list-section">
-      <h4>قوائمك</h4>
-      <ul>
-        <li><a href="#">إنشاء قائمة</a></li>
-      </ul>
-    </div>
-  </div>
                     <div class="header-cart">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
