@@ -3,142 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kidney Failure Awareness</title>
+  <title>Kidney Awareness</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-image: url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A8%D9%82%D9%84%D8%B3%D9%82%D8%A7%D9%8A%D9%81%D8%AA%D9%81%D9%8A%D8%A7%D9%81%D8%A8%D9%84%D8%AA%D9%84-1024x1024.webp");
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #fff;
-    }
-
-    header, footer {
-      background-color: rgba(0, 51, 102, 0.8);
-      padding: 20px;
-      text-align: center;
-    }
-
-    main {
-      padding: 40px;
-      background-color: rgba(0, 0, 0, 0.5);
-      margin: 20px;
-      border-radius: 10px;
-    }
-
-    h1, h2, h3 {
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    a.button, button {
-      display: inline-block;
-      margin-top: 20px;
-      background-color: #004b8d;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    section {
-      display: none;
-    }
-
-    section.active {
-      display: block;
-    }
-
-    .center {
-      text-align: center;
-    }
+    *{box-sizing:border-box}body{margin:0;font-family:'Roboto',sans-serif;background:url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A8%D9%82%D9%84%D8%B3%D9%82%D8%A7%D9%8A%D9%81%D8%AA%D9%81%D9%8A%D8%A7%D9%81%D8%A8%D9%84%D8%AA%D9%84-1024x1024.webp")center/cover fixed;color:#fff}
+    header,footer{text-align:center;padding:20px;background:rgba(0,51,102,0.8)}
+    main{padding:40px;margin:20px;background:rgba(0,0,0,0.5);border-radius:10px}
+    section{display:none}section.active{display:block}
+    ul{padding-left:20px}button,a.button{margin-top:20px;padding:10px 20px;background:#004b8d;color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
+    input,textarea{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px}
+    .center{text-align:center}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kidney Failure Awareness</h1>
-  </header>
+  <header><h1>Kidney Failure Awareness</h1></header>
 
-  <!-- Main Page Section -->
   <section id="home" class="active">
     <main>
       <h2>About Kidney Failure</h2>
-      <p>Kidney failure happens when the kidneys lose the ability to filter waste from the blood. It can be acute or chronic.</p>
-
+      <p>Kidney failure happens when kidneys can't filter waste. It may be acute or chronic.</p>
       <h3>Symptoms</h3>
-      <ul>
-        <li>Fatigue</li>
-        <li>Swelling in legs and ankles</li>
-        <li>Nausea</li>
-        <li>Shortness of breath</li>
-        <li>Confusion</li>
-        <li>Low urine output</li>
-      </ul>
-
+      <ul><li>Fatigue</li><li>Swelling</li><li>Nausea</li><li>Shortness of breath</li><li>Confusion</li><li>Low urine</li></ul>
       <h3>Treatment</h3>
-      <p>Treatment includes dialysis, medications, and kidney transplant. Early diagnosis helps slow disease progression.</p>
-
-      <div class="center">
-        <button onclick="showSection('contact')">Contact Us</button>
-      </div>
+      <p>Dialysis, medication, or transplant. Early detection is key.</p>
+      <div class="center"><button onclick="show('contact')">Contact Us</button></div>
     </main>
   </section>
 
-  <!-- Contact Page Section -->
   <section id="contact">
     <main>
       <h2>Contact Us</h2>
-      <form onsubmit="event.preventDefault(); alert('Form submitted (mock)!');">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-
-        <label for="age">Age</label>
-        <input type="number" id="age" name="age">
-
-        <label for="message">Symptoms</label>
-        <textarea id="message" name="message" rows="4"></textarea>
-
-        <div class="center">
-          <button type="submit">Submit</button>
-        </div>
+      <form onsubmit="event.preventDefault();alert('Submitted!')">
+        <label>Name</label><input type="text">
+        <label>Age</label><input type="number">
+        <label>Symptoms</label><textarea rows="4"></textarea>
+        <div class="center"><button type="submit">Submit</button></div>
       </form>
-
-      <div class="center">
-        <button onclick="showSection('home')">Back to Home</button>
-      </div>
+      <div class="center"><button onclick="show('home')">Back</button></div>
     </main>
   </section>
 
-  <footer>
-    &copy; 2025 Kidney Failure Awareness Project
-  </footer>
+  <footer>&copy; 2025 Kidney Awareness</footer>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
+    const show=id=>{document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active")}
   </script>
 </body>
 </html>
