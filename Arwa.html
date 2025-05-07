@@ -1,1 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kidney Failure Awareness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+      background-size: cover;
+      background-attachment: fixed;
+      color: #fff;
+    }
+    header {
+      background-color: rgba(0, 51, 102, 0.8);
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      margin: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    th {
+      background-color: #003366;
+      color: #fff;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #004b8d;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: rgba(0, 51, 102, 0.8);
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kidney Failure Awareness</h1>
+  </header>
 
+  <nav>
+    <a onclick="showSection('main')">About</a>
+    <a onclick="showSection('form')">Contact</a>
+    <a onclick="showSection('table')">Patients</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="main" class="active">
+    <h2>About Kidney Failure</h2>
+    <p>Kidney failure occurs when the kidneys lose the ability to effectively remove waste from the blood. It may be acute or chronic.</p>
+
+    <h3>Symptoms</h3>
+    <ul>
+      <li>Fatigue</li>
+      <li>Swelling in legs and ankles</li>
+      <li>Nausea</li>
+      <li>Shortness of breath</li>
+      <li>Confusion</li>
+      <li>Reduced urine output</li>
+    </ul>
+
+    <h3>Treatment</h3>
+    <p>Treatments include dialysis, medications, and kidney transplant. Early detection is crucial to slow down progression.</p>
+
+    <button onclick="showSection('form')">Contact Us</button>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="form">
+    <h2>Contact Us</h2>
+    <form onsubmit="submitForm(event)">
+      <label>Name</label>
+      <input type="text" required>
+      <label>Age</label>
+      <input type="number" required>
+      <label>Symptoms</label>
+      <textarea rows="4" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Thank You Section -->
+  <section id="thankyou">
+    <h2>Thank You!</h2>
+    <p>Your information has been submitted successfully.</p>
+    <button onclick="showSection('main')">Back to Home</button>
+  </section>
+
+  <!-- Table Section -->
+  <section id="table">
+    <h2>Submitted Cases</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Symptoms</th>
+      </tr>
+      <tr>
+        <td>Ahmed</td>
+        <td>34</td>
+        <td>Fatigue, Swelling</td>
+      </tr>
+      <tr>
+        <td>Sara</td>
+        <td>45</td>
+        <td>Nausea, Weakness</td>
+      </tr>
+      <tr>
+        <td>Omar</td>
+        <td>29</td>
+        <td>Shortness of breath</td>
+      </tr>
+    </table>
+  </section>
+
+  <footer>
+    &copy; 2025 Kidney Failure Awareness Project
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      showSection('thankyou');
+    }
+  </script>
+</body>
+</html>
