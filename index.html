@@ -8,44 +8,50 @@
   <style>
     *{box-sizing:border-box}
     body{margin:0;font-family:'Roboto',sans-serif;background:url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A8%D9%82%D9%84%D8%B3%D9%82%D8%A7%D9%8A%D9%81%D8%AA%D9%81%D9%8A%D8%A7%D9%81%D8%A8%D9%84%D8%AA%D9%84-1024x1024.webp")center/cover fixed;color:#fff}
-    header,footer{text-align:center;padding:20px;background:rgba(0,51,102,0.8)}
-    nav{text-align:center;background:#eee;padding:10px}
-    nav a{margin:0 10px;color:#004b8d;text-decoration:none;font-weight:bold}
-    main{padding:40px;margin:20px;background:rgba(0,0,0,0.5);border-radius:10px}
+    header,footer{text-align:center;padding:20px;background:rgba(0,51,102,0.85)}
+    nav{text-align:center;background:#eee;padding:10px;display:flex;justify-content:center;flex-wrap:wrap}
+    nav a{margin:5px 10px;color:#004b8d;text-decoration:none;font-weight:bold}
+    main{padding:20px;margin:15px;background:rgba(0,0,0,0.5);border-radius:10px}
     section{display:none}
     section.active{display:block}
     ul{padding-left:20px}
-    button,a.button{margin-top:20px;padding:10px 20px;background:#004b8d;color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
-    input,textarea{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px}
+    button,a.button{margin-top:15px;padding:10px 20px;background:#004b8d;color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
+    input,textarea{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px;font-size:16px}
     .center{text-align:center}
-    
-    /* جدول عرض المرضى */
+
+    /* جدول المرضى */
     #patients main {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       color: #000;
       border-radius: 10px;
+      padding: 20px;
     }
     #patients h2 {
       color: #004b8d;
+      font-size: 22px;
+      text-align: center;
+    }
+    .table-container {
+      overflow-x: auto;
+      width: 100%;
     }
     #patients table {
       width: 100%;
+      min-width: 500px;
       border-collapse: collapse;
-      margin-top: 20px;
       background-color: #fff;
+      margin-top: 20px;
       border-radius: 10px;
       overflow: hidden;
+    }
+    #patients th, #patients td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
     }
     #patients th {
       background-color: #004b8d;
       color: white;
-      padding: 12px;
-      text-align: center;
-    }
-    #patients td {
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
     }
     #patients tr:hover {
       background-color: #f2f2f2;
@@ -57,6 +63,26 @@
       padding: 6px 12px;
       border-radius: 5px;
       cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 20px;
+      }
+      nav a {
+        font-size: 14px;
+      }
+      main {
+        padding: 15px;
+        margin: 10px;
+      }
+      input, textarea {
+        font-size: 14px;
+      }
+      button, .delete-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
     }
   </style>
 </head>
@@ -97,22 +123,24 @@
   <section id="patients">
     <main>
       <h2>Registered Patients</h2>
-      <table id="patientsTable">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Symptoms</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="table-container">
+        <table id="patientsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Symptoms</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
       <div class="center"><button onclick="show('home')">Back</button></div>
     </main>
   </section>
 
-  <footer>&copy; Kidney Awareness 2025 </footer>
+  <footer>&copy; Kidney Awareness 2025</footer>
 
   <script>
     const show = id => {
