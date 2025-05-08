@@ -1,113 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kidney Failure Awareness</title>
+  <title>Kidney Awareness</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0 }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A1%D9%84%D8%A7%D8%A8%D8%A8%D8%A4%D9%84%D9%89%D8%A7%D8%A8%D9%84%D8%A1%D9%84%D8%A8%D8%A7%D8%A8%D9%84%D8%A7-1024x488.webp") center/cover fixed no-repeat;
-      color: #fff;
-    }
-    header, footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 68, 110, 0.9);
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      background: rgba(0,0,0,0.6);
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    main {
-      padding: 30px;
-      margin: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-    }
-    section { display: none }
-    section.active { display: block }
-    label { display: block; margin-top: 15px }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: none;
-      border-radius: 5px;
-    }
-    button, .button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #004b8d;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-    }
-    table {
-      width: 100%;
-      margin-top: 20px;
-      border-collapse: collapse;
-      background: #fff;
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Roboto',sans-serif;background:url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A8%D9%82%D9%84%D8%B3%D9%82%D8%A7%D9%8A%D9%81%D8%AA%D9%81%D9%8A%D8%A7%D9%81%D8%A8%D9%84%D8%AA%D9%84-1024x1024.webp")center/cover fixed;color:#fff}
+    header,footer{text-align:center;padding:20px;background:rgba(0,51,102,0.85)}
+    nav{text-align:center;background:#eee;padding:10px;display:flex;justify-content:center;flex-wrap:wrap}
+    nav a{margin:5px 10px;color:#004b8d;text-decoration:none;font-weight:bold}
+    main{padding:20px;margin:15px;background:rgba(0,0,0,0.5);border-radius:10px}
+    section{display:none}
+    section.active{display:block}
+    ul{padding-left:20px}
+    button,a.button{margin-top:15px;padding:10px 20px;background:#004b8d;color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
+    input,textarea{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px;font-size:16px}
+    .center{text-align:center}
+
+    /* جدول المرضى */
+    #patients main {
+      background: rgba(255, 255, 255, 0.95);
       color: #000;
-      border-radius: 8px;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    #patients h2 {
+      color: #004b8d;
+      font-size: 22px;
+      text-align: center;
+    }
+    .table-container {
+      overflow-x: auto;
+      width: 100%;
+    }
+    #patients table {
+      width: 100%;
+      min-width: 500px;
+      border-collapse: collapse;
+      background-color: #fff;
+      margin-top: 20px;
+      border-radius: 10px;
       overflow: hidden;
     }
-    th, td {
+    #patients th, #patients td {
       padding: 12px;
       text-align: center;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #ddd;
     }
-    th {
-      background: #004b8d;
-      color: #fff;
+    #patients th {
+      background-color: #004b8d;
+      color: white;
+    }
+    #patients tr:hover {
+      background-color: #f2f2f2;
     }
     .delete-btn {
       background-color: #c62828;
-      color: #fff;
       border: none;
+      color: white;
       padding: 6px 12px;
-      border-radius: 4px;
+      border-radius: 5px;
       cursor: pointer;
     }
+
     @media (max-width: 600px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
+      header h1 {
+        font-size: 20px;
       }
-      thead {
-        display: none;
+      nav a {
+        font-size: 14px;
       }
-      td {
-        padding: 10px;
-        text-align: right;
-        position: relative;
+      main {
+        padding: 15px;
+        margin: 10px;
       }
-      td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        font-weight: bold;
-        color: #004b8d;
+      input, textarea {
+        font-size: 14px;
+      }
+      button, .delete-btn {
+        font-size: 14px;
+        padding: 8px 16px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kidney Failure Awareness</h1>
-  </header>
+  <header><h1>Kidney Failure Awareness</h1></header>
 
   <nav>
     <a href="#" onclick="show('home')">About</a>
@@ -120,98 +100,80 @@
       <h2>About Kidney Failure</h2>
       <p>Kidney failure happens when kidneys can't filter waste. It may be acute or chronic.</p>
       <h3>Symptoms</h3>
-      <ul>
-        <li>Fatigue</li>
-        <li>Swelling</li>
-        <li>Nausea</li>
-        <li>Shortness of breath</li>
-        <li>Confusion</li>
-        <li>Low urine</li>
-      </ul>
+      <ul><li>Fatigue</li><li>Swelling</li><li>Nausea</li><li>Shortness of breath</li><li>Confusion</li><li>Low urine</li></ul>
       <h3>Treatment</h3>
       <p>Dialysis, medication, or transplant. Early detection is key.</p>
+      <div class="center"><button onclick="show('contact')">Contact Us</button></div>
     </main>
   </section>
 
   <section id="contact">
     <main>
       <h2>Contact Us</h2>
-      <form id="patientForm">
-        <label>Name</label>
-        <input type="text" id="name" required>
-        <label>Age</label>
-        <input type="number" id="age" required>
-        <label>Symptoms</label>
-        <textarea id="symptoms" rows="4" required></textarea>
-        <button type="submit">Submit</button>
+      <form onsubmit="addPatient(event)">
+        <label>Name</label><input type="text" id="name" required>
+        <label>Age</label><input type="number" id="age" required>
+        <label>Symptoms</label><textarea rows="4" id="symptoms" required></textarea>
+        <div class="center"><button type="submit">Submit</button></div>
       </form>
+      <div class="center"><button onclick="show('home')">Back</button></div>
     </main>
   </section>
 
   <section id="patients">
     <main>
       <h2>Registered Patients</h2>
-      <table id="patientsTable">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Symptoms</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="table-container">
+        <table id="patientsTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Symptoms</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="center"><button onclick="show('home')">Back</button></div>
     </main>
   </section>
 
-  <footer>
-    &copy; Kidney Awareness 2025
-  </footer>
+  <footer>&copy; Kidney Awareness 2025</footer>
 
   <script>
-    function show(id) {
+    const show = id => {
       document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
       document.getElementById(id).classList.add("active");
-      if (id === 'patients') loadPatients();
     }
 
-    function loadPatients() {
-      const table = document.querySelector("#patientsTable tbody");
-      table.innerHTML = "";
-      const patients = JSON.parse(localStorage.getItem("patients") || "[]");
-      patients.forEach((p, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td data-label="Name">${p.name}</td>
-          <td data-label="Age">${p.age}</td>
-          <td data-label="Symptoms">${p.symptoms}</td>
-          <td data-label="Action"><button class="delete-btn" onclick="deletePatient(${index})">Delete</button></td>
-        `;
-        table.appendChild(row);
-      });
-    }
-
-    function deletePatient(index) {
-      const patients = JSON.parse(localStorage.getItem("patients") || "[]");
-      patients.splice(index, 1);
-      localStorage.setItem("patients", JSON.stringify(patients));
-      loadPatients();
-    }
-
-    document.getElementById("patientForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+    function addPatient(event) {
+      event.preventDefault();
       const name = document.getElementById("name").value;
       const age = document.getElementById("age").value;
       const symptoms = document.getElementById("symptoms").value;
 
-      const patients = JSON.parse(localStorage.getItem("patients") || "[]");
-      patients.push({ name, age, symptoms });
-      localStorage.setItem("patients", JSON.stringify(patients));
+      const table = document.getElementById("patientsTable").getElementsByTagName('tbody')[0];
+      const newRow = table.insertRow();
 
-      document.getElementById("patientForm").reset();
-      show("patients");
-    });
+      newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${age}</td>
+        <td>${symptoms}</td>
+        <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
+      `;
+
+      document.getElementById("name").value = "";
+      document.getElementById("age").value = "";
+      document.getElementById("symptoms").value = "";
+      show('patients');
+    }
+
+    function deleteRow(btn) {
+      const row = btn.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+    }
   </script>
 </body>
 </html>
