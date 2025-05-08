@@ -4,86 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kidney Awareness</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <style>
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Roboto',sans-serif;background:url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A8%D9%82%D9%84%D8%B3%D9%82%D8%A7%D9%8A%D9%81%D8%AA%D9%81%D9%8A%D8%A7%D9%81%D8%A8%D9%84%D8%AA%D9%84-1024x1024.webp")center/cover fixed;color:#fff}
-    header,footer{text-align:center;padding:20px;background:rgba(0,51,102,0.85)}
-    nav{text-align:center;background:#eee;padding:10px;display:flex;justify-content:center;flex-wrap:wrap}
-    nav a{margin:5px 10px;color:#004b8d;text-decoration:none;font-weight:bold}
-    main{padding:20px;margin:15px;background:rgba(0,0,0,0.5);border-radius:10px}
-    section{display:none}
-    section.active{display:block}
-    ul{padding-left:20px}
-    button,a.button{margin-top:15px;padding:10px 20px;background:#004b8d;color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
-    input,textarea{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px;font-size:16px}
-    .center{text-align:center}
-
-    /* جدول المرضى */
-    #patients main {
-      background: rgba(255, 255, 255, 0.95);
-      color: #000;
-      border-radius: 10px;
-      padding: 20px;
-    }
-    #patients h2 {
-      color: #004b8d;
-      font-size: 22px;
-      text-align: center;
-    }
-    .table-container {
-      overflow-x: auto;
-      width: 100%;
-    }
-    #patients table {
-      width: 100%;
-      min-width: 500px;
-      border-collapse: collapse;
-      background-color: #fff;
-      margin-top: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    #patients th, #patients td {
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    #patients th {
-      background-color: #004b8d;
+    body {
+      margin: 0; font-family: sans-serif;
+      background: url('https://bi-maristan.com/wp-content/uploads/2024/08/سيبقلسق...webp') center/cover fixed;
       color: white;
     }
-    #patients tr:hover {
-      background-color: #f2f2f2;
-    }
-    .delete-btn {
-      background-color: #c62828;
-      border: none;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 20px;
-      }
-      nav a {
-        font-size: 14px;
-      }
-      main {
-        padding: 15px;
-        margin: 10px;
-      }
-      input, textarea {
-        font-size: 14px;
-      }
-      button, .delete-btn {
-        font-size: 14px;
-        padding: 8px 16px;
-      }
-    }
+    header, footer { text-align: center; padding: 20px; background: rgba(0,0,50,0.8); }
+    nav { display: flex; justify-content: center; gap: 15px; background: #eee; padding: 10px; }
+    nav a { text-decoration: none; color: #004b8d; font-weight: bold; }
+    section { display: none; padding: 20px; background: rgba(0,0,0,0.5); margin: 15px; border-radius: 10px; }
+    section.active { display: block; }
+    input, textarea { width: 100%; padding: 10px; margin: 10px 0; }
+    button { padding: 10px 20px; background: #004b8d; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; color: black; }
+    th, td { padding: 10px; border: 1px solid #ddd; }
+    th { background: #004b8d; color: white; }
+    .delete-btn { background: red; color: white; border: none; padding: 5px 10px; border-radius: 5px; }
   </style>
 </head>
 <body>
@@ -96,83 +33,64 @@
   </nav>
 
   <section id="home" class="active">
-    <main>
-      <h2>About Kidney Failure</h2>
-      <p>Kidney failure happens when kidneys can't filter waste. It may be acute or chronic.</p>
-      <h3>Symptoms</h3>
-      <ul><li>Fatigue</li><li>Swelling</li><li>Nausea</li><li>Shortness of breath</li><li>Confusion</li><li>Low urine</li></ul>
-      <h3>Treatment</h3>
-      <p>Dialysis, medication, or transplant. Early detection is key.</p>
-      <div class="center"><button onclick="show('contact')">Contact Us</button></div>
-    </main>
+    <h2>About Kidney Failure</h2>
+    <p>Failure happens when kidneys can't filter waste. May be acute or chronic.</p>
+    <ul>
+      <li>Fatigue</li><li>Swelling</li><li>Nausea</li>
+      <li>Shortness of breath</li><li>Confusion</li><li>Low urine</li>
+    </ul>
+    <p>Treatment includes dialysis, medication, or transplant.</p>
+    <button onclick="show('contact')">Contact Us</button>
   </section>
 
   <section id="contact">
-    <main>
-      <h2>Contact Us</h2>
-      <form onsubmit="addPatient(event)">
-        <label>Name</label><input type="text" id="name" required>
-        <label>Age</label><input type="number" id="age" required>
-        <label>Symptoms</label><textarea rows="4" id="symptoms" required></textarea>
-        <div class="center"><button type="submit">Submit</button></div>
-      </form>
-      <div class="center"><button onclick="show('home')">Back</button></div>
-    </main>
+    <h2>Contact Us</h2>
+    <form onsubmit="addPatient(event)">
+      <input id="name" type="text" placeholder="Name" required />
+      <input id="age" type="number" placeholder="Age" required />
+      <textarea id="symptoms" rows="4" placeholder="Symptoms" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+    <button onclick="show('home')">Back</button>
   </section>
 
   <section id="patients">
-    <main>
-      <h2>Registered Patients</h2>
-      <div class="table-container">
-        <table id="patientsTable">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Age</th>
-              <th>Symptoms</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-      <div class="center"><button onclick="show('home')">Back</button></div>
-    </main>
+    <h2>Registered Patients</h2>
+    <table id="patientsTable">
+      <thead><tr><th>Name</th><th>Age</th><th>Symptoms</th><th>Action</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <button onclick="show('home')">Back</button>
   </section>
 
-  <footer>&copy; Kidney Awareness 2025</footer>
+  <footer>&copy; 2025 Kidney Awareness</footer>
 
   <script>
-    const show = id => {
+    function show(id) {
       document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
       document.getElementById(id).classList.add("active");
     }
-
-    function addPatient(event) {
-      event.preventDefault();
+    function addPatient(e) {
+      e.preventDefault();
       const name = document.getElementById("name").value;
       const age = document.getElementById("age").value;
       const symptoms = document.getElementById("symptoms").value;
 
-      const table = document.getElementById("patientsTable").getElementsByTagName('tbody')[0];
-      const newRow = table.insertRow();
-
-      newRow.innerHTML = `
+      const row = `<tr>
         <td>${name}</td>
         <td>${age}</td>
         <td>${symptoms}</td>
         <td><button class="delete-btn" onclick="deleteRow(this)">Delete</button></td>
-      `;
+      </tr>`;
+      document.querySelector("#patientsTable tbody").innerHTML += row;
 
       document.getElementById("name").value = "";
       document.getElementById("age").value = "";
       document.getElementById("symptoms").value = "";
       show('patients');
     }
-
     function deleteRow(btn) {
-      const row = btn.parentNode.parentNode;
-      row.parentNode.removeChild(row);
+      btn.parentElement.parentElement.remove();
     }
   </script>
 </body>
