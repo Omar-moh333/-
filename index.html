@@ -6,24 +6,84 @@
   <title>Kidney Awareness</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:'Roboto',sans-serif;background:url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A8%D9%82%D9%84%D8%B3%D9%82%D8%A7%D9%8A%D9%81%D8%AA%D9%81%D9%8A%D8%A7%D9%81%D8%A8%D9%84%D8%AA%D9%84-1024x1024.webp")center/cover fixed;color:#fff}
-    header,footer{text-align:center;padding:20px;background:rgba(0,51,102,0.8)}
-    main{padding:40px;margin:20px;background:rgba(0,0,0,0.5);border-radius:10px}
-    section{display:none}section.active{display:block}
-    ul{padding-left:20px}button,a.button{margin-top:20px;padding:10px 20px;background:#004b8d;color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
-    input,textarea{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px}
-    .center{text-align:center}
+    *{box-sizing:border-box}
+    body {
+      margin:0;
+      font-family:'Roboto',sans-serif;
+      background:url("https://bi-maristan.com/wp-content/uploads/2024/08/%D8%B3%D9%8A%D8%A8%D9%82%D9%84%D8%B3%D9%82%D8%A7%D9%8A%D9%81%D8%AA%D9%81%D9%8A%D8%A7%D9%81%D8%A8%D9%84%D8%AA%D9%84-1024x1024.webp") center/cover fixed;
+      color:#fff
+    }
+    header,footer {
+      text-align:center;
+      padding:20px;
+      background:rgba(0,51,102,0.8)
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      padding:40px;
+      margin:20px;
+      background:rgba(0,0,0,0.5);
+      border-radius:10px
+    }
+    section {
+      display:none
+    }
+    section.active {
+      display:block
+    }
+    ul {
+      padding-left:20px
+    }
+    button,a.button {
+      margin-top:20px;
+      padding:10px 20px;
+      background:#004b8d;
+      color:#fff;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      text-decoration:none
+    }
+    input,textarea {
+      width:100%;
+      padding:10px;
+      margin:10px 0;
+      border:none;
+      border-radius:5px
+    }
+    .center {
+      text-align:center
+    }
   </style>
 </head>
 <body>
-  <header><h1>Kidney Failure Awareness</h1></header>
+  <header>
+    <h1>Kidney Failure Awareness</h1>
+    <nav>
+      <a href="#" onclick="show('home')">About</a>
+      <a href="#" onclick="show('contact')">Contact</a>
+      <a href="#" onclick="show('patients')">Patients</a>
+    </nav>
+  </header>
 
   <section id="home" class="active">
     <main>
       <h2>About Kidney Failure</h2>
       <p>Kidney failure happens when kidneys can't filter waste. It may be acute or chronic.</p>
       <h3>Symptoms</h3>
-      <ul><li>Fatigue</li><li>Swelling</li><li>Nausea</li><li>Shortness of breath</li><li>Confusion</li><li>Low urine</li></ul>
+      <ul>
+        <li>Fatigue</li>
+        <li>Swelling</li>
+        <li>Nausea</li>
+        <li>Shortness of breath</li>
+        <li>Confusion</li>
+        <li>Low urine</li>
+      </ul>
       <h3>Treatment</h3>
       <p>Dialysis, medication, or transplant. Early detection is key.</p>
       <div class="center"><button onclick="show('contact')">Contact Us</button></div>
@@ -43,10 +103,42 @@
     </main>
   </section>
 
-  <footer>&copy; Kidney Awareness 2025 </footer>
+  <section id="patients">
+    <main>
+      <h2>Patients Information</h2>
+      <form id="patientForm" onsubmit="event.preventDefault(); addPatient();">
+        <label>Name</label><input type="text" id="pname" required>
+        <label>Age</label><input type="number" id="page" required>
+        <label>Condition</label><textarea rows="3" id="pcondition" required></textarea>
+        <div class="center"><button type="submit">Save</button></div>
+      </form>
+
+      <h3>Saved Patients</h3>
+      <ul id="patientsList"></ul>
+      <div class="center"><button onclick="show('home')">Back</button></div>
+    </main>
+  </section>
+
+  <footer>&copy; Kidney Awareness 2025</footer>
 
   <script>
-    const show=id=>{document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active")}
+    const show = id => {
+      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    };
+
+    function addPatient() {
+      const name = document.getElementById("pname").value;
+      const age = document.getElementById("page").value;
+      const condition = document.getElementById("pcondition").value;
+
+      const list = document.getElementById("patientsList");
+      const li = document.createElement("li");
+      li.textContent = `Name: ${name}, Age: ${age}, Condition: ${condition}`;
+      list.appendChild(li);
+
+      document.getElementById("patientForm").reset();
+    }
   </script>
 </body>
 </html>
