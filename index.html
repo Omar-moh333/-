@@ -56,8 +56,23 @@
       border:none;
       border-radius:5px
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      color: black;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #000;
+      text-align: left;
+    }
     .center {
       text-align:center
+    }
+    .delete-btn {
+      background: #c62828;
     }
   </style>
 </head>
@@ -67,7 +82,7 @@
     <nav>
       <a href="#" onclick="show('home')">About</a>
       <a href="#" onclick="show('contact')">Contact</a>
-      <a href="#" onclick="show('patients')">Patients</a>
+      <a href="#" onclick="showPatients()">Patients</a>
     </nav>
   </header>
 
@@ -92,12 +107,12 @@
 
   <section id="contact">
     <main>
-      <h2>Contact Us</h2>
-      <form onsubmit="event.preventDefault();alert('Submitted!')">
-        <label>Name</label><input type="text">
-        <label>Age</label><input type="number">
-        <label>Symptoms</label><textarea rows="4"></textarea>
-        <div class="center"><button type="submit">Submit</button></div>
+      <h2>Register Patient</h2>
+      <form id="patientForm" onsubmit="savePatient(event)">
+        <label>Name</label><input type="text" id="pname" required>
+        <label>Age</label><input type="number" id="page" required>
+        <label>Symptoms</label><textarea rows="3" id="pcondition" required></textarea>
+        <div class="center"><button type="submit">Save</button></div>
       </form>
       <div class="center"><button onclick="show('home')">Back</button></div>
     </main>
@@ -105,16 +120,13 @@
 
   <section id="patients">
     <main>
-      <h2>Patients Information</h2>
-      <form id="patientForm" onsubmit="event.preventDefault(); addPatient();">
-        <label>Name</label><input type="text" id="pname" required>
-        <label>Age</label><input type="number" id="page" required>
-        <label>Condition</label><textarea rows="3" id="pcondition" required></textarea>
-        <div class="center"><button type="submit">Save</button></div>
-      </form>
-
-      <h3>Saved Patients</h3>
-      <ul id="patientsList"></ul>
+      <h2>Registered Patients</h2>
+      <table id="patientsTable">
+        <thead>
+          <tr><th>Name</th><th>Age</th><th>Symptoms</th><th>Action</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
       <div class="center"><button onclick="show('home')">Back</button></div>
     </main>
   </section>
@@ -127,17 +139,38 @@
       document.getElementById(id).classList.add("active");
     };
 
-    function addPatient() {
+    let patients = [];
+
+    function savePatient(event) {
+      event.preventDefault();
       const name = document.getElementById("pname").value;
       const age = document.getElementById("page").value;
       const condition = document.getElementById("pcondition").value;
-
-      const list = document.getElementById("patientsList");
-      const li = document.createElement("li");
-      li.textContent = `Name: ${name}, Age: ${age}, Condition: ${condition}`;
-      list.appendChild(li);
+      patients.push({ name, age, condition });
 
       document.getElementById("patientForm").reset();
+      showPatients();
+    }
+
+    function deletePatient(index) {
+      patients.splice(index, 1);
+      showPatients();
+    }
+
+    function showPatients() {
+      const tbody = document.querySelector("#patientsTable tbody");
+      tbody.innerHTML = "";
+      patients.forEach((p, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${p.name}</td>
+          <td>${p.age}</td>
+          <td>${p.condition}</td>
+          <td><button class="delete-btn" onclick="deletePatient(${index})">Delete</button></td>
+        `;
+        tbody.appendChild(row);
+      });
+      show("patients");
     }
   </script>
 </body>
