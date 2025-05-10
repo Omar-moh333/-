@@ -6,119 +6,20 @@
   <title>Kidney Awareness</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
   <style>
-    * { box-sizing: border-box }
-  
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: 
-        url("https://www.omegahospitals.com/blog/storage/2024/04/microbiologist-with-protection-glasses-using-micro.jpeg") left center / 50% 100% no-repeat,
-        url("https://img.freepik.com/premium-photo/scientist-holds-petri-dish-with-virus-bacteria-cells_847296-28545.jpg?w=1060") right center / 50% 100% no-repeat;
-      background-color: #000;
-      background-attachment: fixed;
-      color: #fff;
-    }
-  
-    header, footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 51, 102, 0.85)
-    }
-  
-    nav {
-      text-align: center;
-      background: #eee;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap
-    }
-  
-    nav a {
-      margin: 5px 10px;
-      color: #004b8d;
-      text-decoration: none;
-      font-weight: bold
-    }
-  
-    main {
-      padding: 20px;
-      margin: 15px;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 10px
-    }
-  
-    section { display: none }
-    section.active { display: block }
-  
-    ul { padding-left: 20px }
-  
-    button, a.button {
-      padding: 10px 20px;
-      background: #004b8d;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none
-    }
-  
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px
-    }
-  
-    .center { text-align: center }
-  
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-top: 20px
-    }
-  
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      color: #000;
-      margin-top: 20px;
-      border-radius: 10px;
-      overflow: hidden
-    }
-  
-    th, td {
-      padding: 10px;
-      text-align: center;
-      border-bottom: 1px solid #ddd
-    }
-  
-    th {
-      background: #004b8d;
-      color: #fff
-    }
-  
-    .delete-btn {
-      background: #c62828;
-      padding: 6px 12px;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      cursor: pointer
-    }
-  
-    @media(max-width:600px) {
-      header h1 { font-size: 20px }
-      nav a { font-size: 14px }
-      button { font-size: 14px; padding: 8px 16px }
-    }
+    *{box-sizing:border-box}body{margin:0;font-family:Roboto,sans-serif;background:url("https://www.omegahospitals.com/blog/storage/2024/04/microbiologist-with-protection-glasses-using-micro.jpeg") left/50% 100% no-repeat,url("https://img.freepik.com/premium-photo/scientist-holds-petri-dish-with-virus-bacteria-cells_847296-28545.jpg?w=1060") right/50% 100% no-repeat #000 fixed;color:#fff}
+    header,footer{text-align:center;padding:20px;background:rgba(0,51,102,0.85)}
+    nav{display:flex;justify-content:center;flex-wrap:wrap;background:#eee;padding:10px}
+    nav a{margin:5px 10px;color:#004b8d;text-decoration:none;font-weight:bold}
+    main{padding:20px;margin:15px;background:rgba(0,0,0,0.5);border-radius:10px}
+    section{display:none}.active{display:block}
+    button,a.button{padding:10px 20px;background:#004b8d;color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
+    input,textarea{width:100%;padding:10px;margin:10px 0;border:none;border-radius:5px;font-size:16px}
+    .center{text-align:center}.button-group{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:20px}
+    table{width:100%;border-collapse:collapse;background:#fff;color:#000;margin-top:20px;border-radius:10px;overflow:hidden}
+    th,td{padding:10px;text-align:center;border-bottom:1px solid #ddd}th{background:#004b8d;color:#fff}
+    .delete-btn{background:#c62828;padding:6px 12px;border:none;border-radius:5px;color:#fff;cursor:pointer}
+    @media(max-width:600px){header h1{font-size:20px}nav a{font-size:14px}button{font-size:14px;padding:8px 16px}}
   </style>
-  
 </head>
 <body>
   <header><h1>Kidney Failure Awareness</h1></header>
@@ -127,24 +28,20 @@
     <a href="#" onclick="show('contact')">Contact</a>
     <a href="#" onclick="show('patients')">Patients</a>
   </nav>
-
   <section id="home" class="active">
     <main>
       <h2>About Kidney Failure</h2>
       <p>Kidney failure happens when kidneys can't filter waste. It may be acute or chronic.</p>
-      <h3>Symptoms</h3>
-      <ul><li>Fatigue</li><li>Swelling</li><li>Nausea</li></ul>
-      <h3>Treatment</h3>
-      <p>Dialysis, medication, or transplant. Early detection is key.</p>
+      <h3>Symptoms</h3><ul><li>Fatigue</li><li>Swelling</li><li>Nausea</li></ul>
+      <h3>Treatment</h3><p>Dialysis, medication, or transplant. Early detection is key.</p>
       <div class="center"><button onclick="show('contact')">Contact Us</button></div>
     </main>
   </section>
-
   <section id="contact">
     <main>
       <h2>Contact Us</h2>
       <form onsubmit="addPatient(event)">
-        <input type="text" id="name" placeholder="Name" required>
+        <input id="name" placeholder="Name" required>
         <input type="number" id="age" placeholder="Age" required>
         <textarea rows="4" id="symptoms" placeholder="Symptoms" required></textarea>
         <div class="button-group">
@@ -154,36 +51,24 @@
       </form>
     </main>
   </section>
-
   <section id="patients">
     <main>
       <h2>Registered Patients</h2>
-      <table>
-        <thead><tr><th>Name</th><th>Age</th><th>Symptoms</th><th>Action</th></tr></thead>
-        <tbody></tbody>
-      </table>
+      <table><thead><tr><th>Name</th><th>Age</th><th>Symptoms</th><th>Action</th></tr></thead><tbody></tbody></table>
       <div class="center"><button onclick="show('home')">Back</button></div>
     </main>
   </section>
-
   <footer>&copy; Kidney Awareness 2025</footer>
-
   <script>
-    const show = id => {
-      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-    }
-    function addPatient(e){
+    const nameInput = document.getElementById("name"), ageInput = document.getElementById("age"), symptomsInput = document.getElementById("symptoms");
+    const show = id => {document.querySelectorAll("section").forEach(s => s.classList.remove("active")); document.getElementById(id).classList.add("active");}
+    const addPatient = e => {
       e.preventDefault();
-      const name = nameInput.value, age = ageInput.value, symptoms = symptomsInput.value;
       const row = document.querySelector("tbody").insertRow();
-      row.innerHTML = `<td>${name}</td><td>${age}</td><td>${symptoms}</td><td><button class="delete-btn" onclick="this.closest('tr').remove()">Delete</button></td>`;
+      row.innerHTML = `<td>${nameInput.value}</td><td>${ageInput.value}</td><td>${symptomsInput.value}</td><td><button class="delete-btn" onclick="this.closest('tr').remove()">Delete</button></td>`;
       nameInput.value = ageInput.value = symptomsInput.value = "";
       show("patients");
     }
-    const nameInput = document.getElementById("name");
-    const ageInput = document.getElementById("age");
-    const symptomsInput = document.getElementById("symptoms");
   </script>
 </body>
 </html>
